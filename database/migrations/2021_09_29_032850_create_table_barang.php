@@ -14,12 +14,11 @@ class CreateTableBarang extends Migration
     public function up()
     {
         Schema::create('table_barang', function (Blueprint $table) {
-            $table->char('kode_bar', 5);
+            $table->char('kode_bar', 5)->primary();
             $table->string('nama_bar', 20);
             $table->integer('stock_barang');
             $table->integer('harga_beli_bar');
-            $table->integer('harga_jual_bar');
-            $table->timestamps();
+            $table->integer('harga_jual_bar');;
         });
     }
 

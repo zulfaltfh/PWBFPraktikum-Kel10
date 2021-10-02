@@ -14,13 +14,12 @@ class CreateTableUser extends Migration
     public function up()
     {
         Schema::create('table_user', function (Blueprint $table) {
-            $table->char('id_user', 5)->;
+            $table->char('id_user', 5)->primary();
             $table->string('nama_user',25);
             $table->string('alamat_user', 30);
             $table->string('telp_user', 12);
             $table->string('username', 15);
             $table->string('password', 15);
-            $table->timestamps();
         });
     }
 
