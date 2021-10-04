@@ -14,7 +14,7 @@ class HomeController extends Controller
     public function home()
     {
         $table_barang = modelbarang::all();
-        return view('hepi', ['table_barang'=>$table_barang]);
+        return view('index', ['table_barang'=>$table_barang]);
     }
     public function about()
     {
