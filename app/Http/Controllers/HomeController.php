@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\modelbarang;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,7 +13,8 @@ class HomeController extends Controller
     }
     public function home()
     {
-        return view('hepi');
+        $table_barang = modelbarang::all();
+        return view('hepi', ['table_barang'=>$table_barang]);
     }
     public function about()
     {

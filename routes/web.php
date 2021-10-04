@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Route::get('/', 'App\Http\Controllers\HomeController@Login');
 
 Route::get('/', 'App\Http\Controllers\HomeController@Login');
 
@@ -23,12 +22,3 @@ Route::get('/faq', 'App\Http\Controllers\HomeController@Faq');
 
 
 
-// tidak menggunakan table user
-// menggunakan auth login gmail
-
-// realtime session
-// untuk admin mengetahui siapa yang kerja
-
-// menu
-// data transaksi
-// data rekap
