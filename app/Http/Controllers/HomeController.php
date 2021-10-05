@@ -23,8 +23,7 @@ class HomeController extends Controller
 
     public function faq()
     {
-        $table_barang = modelbarang::all();
-        return view('faq', ['table_barang'=>$table_barang]);
+        return view('faq');
     }
 }
  

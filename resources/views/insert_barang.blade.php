@@ -5,7 +5,7 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Insert Barang Baru</h1>
     </div>
-    <form action = "{{ url('/create') }}" method = "post">
+    <form action = "/create" method = "post">
 	<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 	<table>
 	<tr>
@@ -13,7 +13,7 @@
 	<td><input type='text' name='kode_bar' /></td>
 	<tr>
 	<td>Nama Barang</td>
-	<td><input type="text" name='nama_barang'/></td>
+	<td><input type="text" name='nama_bar'/></td>
 	</tr>
 	<tr>
 	<td>Stok Barang</td>
@@ -21,11 +21,11 @@
 	</tr>
 	<tr>
 	<td>Harga Beli</td>
-	<td><input type="text" name='harga_beli_barang'/></td>
+	<td><input type="text" name='harga_beli_bar'/></td>
 	</tr>
 	<tr>
 	<td>Harga Jual</td>
-	<td><input type="text" name='harga_jual_barang'/></td>
+	<td><input type="text" name='harga_jual_bar'/></td>
 	</tr>
 	<tr>
 	<td colspan = '2'>

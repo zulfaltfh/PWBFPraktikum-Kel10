@@ -16,7 +16,7 @@ class BarangController extends Controller
     }
     public function create(Request $request){
         $data = $request->input();
-			try{
+			
 				$barang = new modelbarang;
 
                 $barang->kode_bar = $data['kode_bar'];
@@ -26,9 +26,6 @@ class BarangController extends Controller
                 $barang->harga_jual_bar = $data['harga_jual_bar'];
 				$barang->save();
 				return redirect('index')->with('status',"Insert successfully");
-			}
-			catch(Exception $e){
-				return redirect('insert')->with('failed',"operation failed");
-			}
+			
     }
 }
