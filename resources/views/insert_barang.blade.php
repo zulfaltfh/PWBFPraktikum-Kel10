@@ -5,7 +5,7 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Insert Barang Baru</h1>
     </div>
-    <form action = "/create" method = "post">
+    <form action = "{{ url('/create') }}" method = "post">
 	<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 	<table>
 	<tr>

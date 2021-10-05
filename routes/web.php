@@ -20,7 +20,7 @@ Route::get('/', 'App\Http\Controllers\HomeController@Login');
 Route::get('/home'		    	,'App\Http\Controllers\HomeController@Home');
 Route::get('/about'		    	,'App\Http\Controllers\HomeController@About');
 Route::post('/create'	    	,'App\Http\Controllers\BarangController@create');
-Route::post('/insert_barang'	,'App\Http\Controllers\BarangController@insert');
+Route::get('/insert_barang'	,'App\Http\Controllers\BarangController@insert');
 
 
 

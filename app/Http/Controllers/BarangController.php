@@ -25,7 +25,7 @@ class BarangController extends Controller
                 $barang->harga_beli_bar = $data['harga_beli_bar'];
                 $barang->harga_jual_bar = $data['harga_jual_bar'];
 				$barang->save();
-				return redirect('index')->with('status',"Insert successfully");
+                return view('insert_barang');
 			
     }
 }
