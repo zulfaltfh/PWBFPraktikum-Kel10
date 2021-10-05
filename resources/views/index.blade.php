@@ -26,8 +26,8 @@
                             <td>{{ $item->kode_bar }}</td>
                             <td>{{ $item->nama_bar }}</td>
                             <td>{{ $item->stock_barang }}</td>
-                            <td>{{ $item->stock_barang }}</td>
-                            <td>{{ $item->stock_barang }}</td>
+                            <td>{{ $item->harga_beli_bar }}</td>
+                            <td>{{ $item->harga_jual_bar }}</td>
                             <td><button>Lapor</button></td>
                         </tr>                                       
                     </tbody>

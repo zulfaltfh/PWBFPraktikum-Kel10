@@ -17,9 +17,10 @@ Auth::routes();
 
 Route::get('/', 'App\Http\Controllers\HomeController@Login');
 
-Route::get('/home', 'App\Http\Controllers\HomeController@Home');
-Route::get('/about', 'App\Http\Controllers\HomeController@About');
-Route::get('/faq', 'App\Http\Controllers\HomeController@Faq');
+Route::get('/home'			,'App\Http\Controllers\HomeController@Home');
+Route::get('/about'			,'App\Http\Controllers\HomeController@About');
+Route::get('/insert_barang'	,'App\Http\Controllers\BarangController@insert');
+Route::post('/create'		,'App\Http\Controllers\BarangController@create');
 
 
 
