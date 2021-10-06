@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout/layoutpegawai')
 //folder.file
 @section('content')
 <main>
