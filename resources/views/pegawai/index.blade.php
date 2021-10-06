@@ -23,7 +23,7 @@
                     @foreach($table_barang as $item)
                     <tbody>
                         <tr>
-                            <td>{{ $item->kode_bar }}</td>
+                            <td>{{ $item->id }}</td>
                             <td>{{ $item->nama_bar }}</td>
                             <td>{{ $item->stock_barang }}</td>
                             <td>{{ $item->harga_beli_bar }}</td>

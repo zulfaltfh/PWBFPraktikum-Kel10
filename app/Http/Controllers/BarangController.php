@@ -24,7 +24,8 @@ class BarangController extends Controller
                 $barang->harga_beli_bar = $data['harga_beli_bar'];
                 $barang->harga_jual_bar = $data['harga_jual_bar'];
 				$barang->save();
-                return view('pegawai.insert_barang');
+
+                return redirect('homePegawai');
 			
     }
 }
