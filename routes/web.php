@@ -17,14 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\HomeController@Login');
 //pegawai
-Route::get('/homePegawai','App\Http\Controllers\HomeController@Home');
-Route::get('/about','App\Http\Controllers\HomeController@About');
+Route::get('/homePegawai','App\Http\Controllers\pegawai\HomeController@Home');
+
+//input pemesanan
+Route::get('/input_pemesanan_pegawai','App\Http\Controllers\pegawai\HomeController@About');
 
 //input barang baru untuk pegawai
-Route::post('/create','App\Http\Controllers\BarangController@create');
-Route::get('/input_barang','App\Http\Controllers\BarangController@insert');
+Route::post('/create','App\Http\Controllers\pegawai\BarangController@create');
+Route::get('/input_barangpegawai','App\Http\Controllers\pegawai\BarangController@insert');
 
 //pemilik
-Route::get('/homePemilik','App\Http\Controllers\HomePemilikController@Home');
+Route::get('/homePemilik','App\Http\Controllers\pemilik\HomePemilikController@Home');
 
 
