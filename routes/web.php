@@ -28,5 +28,6 @@ Route::get('/input_barangpegawai','App\Http\Controllers\BarangController@insert'
 
 //pemilik
 Route::get('/homePemilik','App\Http\Controllers\HomePemilikController@Home');
+Route::get('/databarang','App\Http\Controllers\HomePemilikController@barang');
 
 

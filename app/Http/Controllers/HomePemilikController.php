@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\modelbarang;
 use Illuminate\Http\Request;
 
 class HomePemilikController extends Controller
@@ -12,10 +13,12 @@ class HomePemilikController extends Controller
     }
     public function home()
     {
-        return view('pemilik.indexPemilik');
+        $table_barang = modelbarang::all();
+        return view('pemilik.indexPemilik', ['table_barang'=>$table_barang]);
     }
-    public function about()
+    public function barang()
     {
-        return view('pemilik.About');
+        $table_barang = modelbarang::all();
+        return view('pemilik.indexPemilik', ['table_barang'=>$table_barang]);
     }
 }
