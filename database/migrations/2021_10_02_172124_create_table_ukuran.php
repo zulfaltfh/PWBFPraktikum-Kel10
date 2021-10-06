@@ -14,7 +14,7 @@ class CreateTableUkuran extends Migration
     public function up()
     {
         Schema::create('table_ukuran', function (Blueprint $table) {
-            $table->char('id_ukuran', 5)->primary();
+            $table->id();
             $table->string('ukuran', 3);
             $table->timestamps();
         });

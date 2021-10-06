@@ -21,8 +21,8 @@ class CreateDetailPemesananTable extends Migration
             $table->timestamps();
 
             $table->primary(['id_pesan','kode_bar']);
-            $table->foreign('id_pesan')->references('id_pesan')->on('table_pemesanan');
-            $table->foreign('kode_bar')->references('kode_bar')->on('table_barang');
+            $table->foreign('id_pesan')->references('id')->on('table_pemesanan');
+            $table->foreign('kode_bar')->references('id')->on('table_barang');
         });
     }
 

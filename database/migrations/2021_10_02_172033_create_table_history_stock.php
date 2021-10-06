@@ -14,7 +14,7 @@ class CreateTableHistoryStock extends Migration
     public function up()
     {
         Schema::create('table_history_stock', function (Blueprint $table) {
-            $table->char('id_hs', 5)->primary();
+            $table->id();
             $table->date('tgl_hs');
             $table->integer('update_stock_hs');
             $table->boolean('status');

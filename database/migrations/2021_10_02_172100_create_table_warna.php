@@ -14,7 +14,7 @@ class CreateTableWarna extends Migration
     public function up()
     {
         Schema::create('table_warna', function (Blueprint $table) {
-            $table->char('id_warna', 5)->primary();
+            $table->id();
             $table->string('warna', 15);
             $table->timestamps();
         });

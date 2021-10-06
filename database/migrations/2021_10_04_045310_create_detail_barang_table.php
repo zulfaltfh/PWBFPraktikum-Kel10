@@ -20,9 +20,9 @@ class CreateDetailBarangTable extends Migration
             $table->timestamps();
 
             $table->primary(['kode_bar','id_ukuran','id_warna']);
-            $table->foreign('id_ukuran')->references('id_ukuran')->on('table_ukuran');
-            $table->foreign('kode_bar')->references('kode_bar')->on('table_barang');
-            $table->foreign('id_warna')->references('id_warna')->on('table_warna');
+            $table->foreign('id_ukuran')->references('id')->on('table_ukuran');
+            $table->foreign('kode_bar')->references('id')->on('table_barang');
+            $table->foreign('id_warna')->references('id')->on('table_warna');
         
         });
     }

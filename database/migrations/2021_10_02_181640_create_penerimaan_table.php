@@ -14,7 +14,7 @@ class CreatePenerimaanTable extends Migration
     public function up()
     {
         Schema::create('penerimaan', function (Blueprint $table) {
-            $table->char('id_trima', 5)->primary();
+            $table->id();
             $table->date('tgl_trima');
             $table->integer('total_harga');
             $table->char('status_trima', 1);

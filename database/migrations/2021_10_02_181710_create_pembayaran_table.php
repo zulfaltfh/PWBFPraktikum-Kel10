@@ -14,7 +14,7 @@ class CreatePembayaranTable extends Migration
     public function up()
     {
         Schema::create('pembayaran', function (Blueprint $table) {
-            $table->char('id_bayar', 5)->primary();
+            $table->id();
             $table->date('tgl_bayar');
             $table->string('total_bayar', 200);
             $table->timestamps();

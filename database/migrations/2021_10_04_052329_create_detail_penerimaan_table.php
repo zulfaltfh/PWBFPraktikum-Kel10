@@ -22,8 +22,8 @@ class CreateDetailPenerimaanTable extends Migration
             $table->timestamps();
 
             $table->primary(['kode_bar','id_trima']);
-            $table->foreign('id_trima')->references('id_trima')->on('penerimaan');
-            $table->foreign('kode_bar')->references('kode_bar')->on('table_barang');
+            $table->foreign('id_trima')->references('id')->on('penerimaan');
+            $table->foreign('kode_bar')->references('id')->on('table_barang');
         });
     }
 

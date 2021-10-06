@@ -14,7 +14,7 @@ class CreateTablePemesanan extends Migration
     public function up()
     {
         Schema::create('table_pemesanan', function (Blueprint $table) {
-            $table->char('id_pesan', 5)->primary();
+            $table->id();
             $table->date('tgl_pesan');
             $table->string('status_pesan');
             $table->timestamps();
