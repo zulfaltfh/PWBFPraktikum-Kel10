@@ -9,10 +9,6 @@
 	<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 	<table>
 		<tr>
-			<td>Kode Barang</td>
-			<td><input type='text' name='kode_bar' /></td>
-		</tr>
-		<tr>
 			<td>Nama Barang</td>
 			<td><input type="text" name='nama_bar'/></td>
 		</tr>

@@ -19,7 +19,6 @@ class BarangController extends Controller
 			
 				$barang = new modelbarang;
 
-                $barang->kode_bar = $data['kode_bar'];
                 $barang->nama_bar = $data['nama_bar'];
                 $barang->stock_barang = $data['stock_barang'];
                 $barang->harga_beli_bar = $data['harga_beli_bar'];
