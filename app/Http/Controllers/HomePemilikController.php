@@ -12,15 +12,10 @@ class HomePemilikController extends Controller
     }
     public function home()
     {
-        return view('indexPemilik');
+        return view('pemilik.indexPemilik');
     }
     public function about()
     {
-        return view('About');
-    }
-
-    public function faq()
-    {
-        return view('faq');
+        return view('pemilik.About');
     }
 }

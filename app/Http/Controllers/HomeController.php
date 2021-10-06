@@ -14,16 +14,11 @@ class HomeController extends Controller
     public function home()
     {
         $table_barang = modelbarang::all();
-        return view('index', ['table_barang'=>$table_barang]);
+        return view('pegawai.index', ['table_barang'=>$table_barang]);
     }
     public function about()
     {
-        return view('About');
-    }
-
-    public function faq()
-    {
-        return view('faq');
+        return view('pegawai.About');
     }
 }
  

@@ -12,7 +12,7 @@ class BarangController extends Controller
 {
     public function insert(){
         // $table_barang = getURLList();
-        return view('insert_barang');
+        return view('pegawai.insert_barang');
     }
     public function create(Request $request){
         $data = $request->input();
@@ -25,7 +25,7 @@ class BarangController extends Controller
                 $barang->harga_beli_bar = $data['harga_beli_bar'];
                 $barang->harga_jual_bar = $data['harga_jual_bar'];
 				$barang->save();
-                return view('insert_barang');
+                return view('pegawai.insert_barang');
 			
     }
 }
