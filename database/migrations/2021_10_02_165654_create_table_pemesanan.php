@@ -17,6 +17,7 @@ class CreateTablePemesanan extends Migration
             $table->char('id_pesan', 5)->primary();
             $table->date('tgl_pesan');
             $table->string('status_pesan');
+            $table->timestamps();
         });
     }
 

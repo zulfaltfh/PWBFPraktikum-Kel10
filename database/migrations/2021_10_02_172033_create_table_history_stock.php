@@ -18,6 +18,7 @@ class CreateTableHistoryStock extends Migration
             $table->date('tgl_hs');
             $table->integer('update_stock_hs');
             $table->boolean('status');
+            $table->timestamps();
         });
     }
 

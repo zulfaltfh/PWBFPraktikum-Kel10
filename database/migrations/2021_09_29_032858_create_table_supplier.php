@@ -18,6 +18,7 @@ class CreateTableSupplier extends Migration
             $table->string('nama_sup', 25);
             $table->string('alamat_sup', 30);
             $table->char('telp_sup', 12);
+            $table->timestamps();
         });
     }
 

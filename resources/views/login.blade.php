@@ -32,7 +32,10 @@
                     <label for="check"><span class="icon"></span> Keep me Signed in</label>
                 </div>
                 <div class="group">
-                    <a href="{{ url('/home')}}"><input type="submit" class="button" value="Sign In"></a>
+                    <a href="{{ url('/homePegawai')}}"><input type="submit" class="button" value="Sign In as Pegawai"></a>
+                </div>
+                <div class="group">
+                    <a href="{{ url('/homePemilik')}}"><input type="submit" class="button" value="Sign In as Pemilik"></a>
                 </div>
                 <div class="hr"></div>
                 <div class="foot-lnk">

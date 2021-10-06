@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\HomeController@Login');
 
-Route::get('/home'		    	,'App\Http\Controllers\HomeController@Home');
-Route::get('/about'		    	,'App\Http\Controllers\HomeController@About');
-Route::post('/create'	    	,'App\Http\Controllers\BarangController@create');
-Route::get('/insert_barang'	,'App\Http\Controllers\BarangController@insert');
+Route::get('/homePegawai','App\Http\Controllers\HomeController@Home');
+Route::get('/homePemilik','App\Http\Controllers\HomePemilikController@Home');
+Route::get('/about','App\Http\Controllers\HomeController@About');
+Route::post('/create','App\Http\Controllers\BarangController@create');
+Route::get('/input_barang','App\Http\Controllers\BarangController@insert');
 
 
 

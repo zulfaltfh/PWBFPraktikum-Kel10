@@ -19,6 +19,7 @@ class CreateDetailPenerimaanTable extends Migration
             $table->integer('harga_his');
             $table->integer('jumlah_his');
             $table->char('subtotal',10)->nullable();
+            $table->timestamps();
 
             $table->primary(['kode_bar','id_trima']);
             $table->foreign('id_trima')->references('id_trima')->on('penerimaan');

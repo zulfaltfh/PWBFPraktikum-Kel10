@@ -16,6 +16,7 @@ class CreateTableUkuran extends Migration
         Schema::create('table_ukuran', function (Blueprint $table) {
             $table->char('id_ukuran', 5)->primary();
             $table->string('ukuran', 3);
+            $table->timestamps();
         });
     }
 

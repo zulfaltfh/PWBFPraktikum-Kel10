@@ -20,6 +20,7 @@ class CreateTableUser extends Migration
             $table->string('telp_user', 12);
             $table->string('username', 15);
             $table->string('password', 15);
+            $table->timestamps();
         });
     }
 

@@ -18,6 +18,7 @@ class CreateDetailPemesananTable extends Migration
             $table->char('kode_bar', 5);
             $table->integer('jumlah_up')->nullable();
             $table->integer('harga_up')->nullable();
+            $table->timestamps();
 
             $table->primary(['id_pesan','kode_bar']);
             $table->foreign('id_pesan')->references('id_pesan')->on('table_pemesanan');

@@ -18,6 +18,7 @@ class CreatePenerimaanTable extends Migration
             $table->date('tgl_trima');
             $table->integer('total_harga');
             $table->char('status_trima', 1);
+            $table->timestamps();
         });
     }
 

@@ -17,6 +17,7 @@ class CreateDetailBarangTable extends Migration
             $table->char('kode_bar', 5);
             $table->char('id_ukuran', 5);
             $table->char('id_warna', 5);
+            $table->timestamps();
 
             $table->primary(['kode_bar','id_ukuran','id_warna']);
             $table->foreign('id_ukuran')->references('id_ukuran')->on('table_ukuran');
