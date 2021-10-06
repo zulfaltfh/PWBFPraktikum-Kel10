@@ -18,6 +18,8 @@ class CreatePembayaranTable extends Migration
             $table->date('tgl_bayar');
             $table->string('total_bayar', 200);
             $table->timestamps();
+
+            //$table->foreignId('id_terima')->constrained('penerimaan');
         });
     }
 

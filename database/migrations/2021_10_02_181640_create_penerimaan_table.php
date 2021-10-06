@@ -19,6 +19,9 @@ class CreatePenerimaanTable extends Migration
             $table->integer('total_harga');
             $table->char('status_trima', 1);
             $table->timestamps();
+
+            //$table->foreignId('id_user')->constrained('table_user');
+            //$table->foreignId('id_supplier')->constrained('table_supplier');
         });
     }
 

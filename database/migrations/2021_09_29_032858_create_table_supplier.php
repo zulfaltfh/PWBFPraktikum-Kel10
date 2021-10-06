@@ -19,6 +19,8 @@ class CreateTableSupplier extends Migration
             $table->string('alamat_sup', 30);
             $table->char('telp_sup', 12);
             $table->timestamps();
+
+            //$table->foreignId('id_kota')->constrained('kota');
         });
     }
 

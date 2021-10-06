@@ -14,15 +14,13 @@ class CreateDetailPemesananTable extends Migration
     public function up()
     {
         Schema::create('detail_pemesanan', function (Blueprint $table) {
-            $table->char('id_pesan', 5);
-            $table->char('kode_bar', 5);
+            $table->id('id_detail_pemesanan');
             $table->integer('jumlah_up')->nullable();
             $table->integer('harga_up')->nullable();
             $table->timestamps();
 
-            $table->primary(['id_pesan','kode_bar']);
-            $table->foreign('id_pesan')->references('id')->on('table_pemesanan');
-            $table->foreign('kode_bar')->references('id')->on('table_barang');
+            $table->foreignId('id_pesan')->constrained('table_pemesanan');
+            $table->foreignId('kode_bar')->constrained('table_barang');
         });
     }
 

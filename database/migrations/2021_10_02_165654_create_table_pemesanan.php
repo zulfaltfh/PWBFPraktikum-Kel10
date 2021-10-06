@@ -18,6 +18,9 @@ class CreateTablePemesanan extends Migration
             $table->date('tgl_pesan');
             $table->string('status_pesan');
             $table->timestamps();
+
+            //$table->foreignId('id_user')->constrained('table_user');
+            //$table->foreignId('id_supplier')->constrained('table_supplier');
         });
     }
 

@@ -19,6 +19,8 @@ class CreateTableHistoryStock extends Migration
             $table->integer('update_stock_hs');
             $table->boolean('status');
             $table->timestamps();
+
+            //$table->foreignId('kode_barang')->constrained('table_barang');
         });
     }
 

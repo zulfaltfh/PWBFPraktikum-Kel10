@@ -17,6 +17,8 @@ class CreateTableJenisBarang extends Migration
             $table->id();
             $table->string('jenis_barang', 20);
             $table->timestamps();
+
+            //$table->foreignId('id_jenisBarang')->constrained('table_jenis_barang');
         });
     }
 
