@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class jenisBarang extends Model
 {
-    use HasFactory;
+    //use HasFactory;
+
+    protected $table = 'table_jenis_barang';
+
+    #RELASI
+    public function modelbarang()
+    {
+        return $this->hasMany(modelbarang::class,'id_jb','id');
+    }
 }
