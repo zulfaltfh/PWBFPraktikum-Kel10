@@ -17,4 +17,5 @@ class modelbarang extends Model
 		'kode_bar', 'nama_bar','stock_barang', 'harga_beli_bar', 'harga_jual_bar'
 	  ];
 
+    
 }
