@@ -16,5 +16,14 @@ class Supplier extends Model
     {
         return $this->hasMany(Pemesanan::class,'id_sup','id'); 
     }
-    //grng mari
+    
+    public function Kota()
+    {
+        return $this->belongsTo(Kota::class,'id_kota','id');
+    }
+
+    public function Penerimaan()
+    {
+        return $this->hasMany(Penerimaan::class,'id_sup','id');
+    }
 }
