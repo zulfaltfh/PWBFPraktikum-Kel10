@@ -28,4 +28,13 @@ class BarangController extends Controller
                 return redirect('homePegawai');
 			
     }
+    public function update(){
+        // $table_barang = getURLList();
+        return view('pegawai.update_barang');
+    }
+    public function destroy(table_barang $table_barang){
+        $table_barang->delete();
+        return redirect('homePegawai');
+    }
+
 }

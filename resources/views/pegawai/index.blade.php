@@ -18,6 +18,8 @@
                             <th>Stok</th>
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
+                            <th>Lapor</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     @foreach($table_barang as $item)
@@ -28,7 +30,12 @@
                             <td>{{ $item->stock_barang }}</td>
                             <td>{{ $item->harga_beli_bar }}</td>
                             <td>{{ $item->harga_jual_bar }}</td>
-                            <td><button>Pesan</button></td>
+                            <td><button class="btn btn-primary btn-sm">Pesan</button></td>
+                            <form action="{{ url('/destroy_barang_pegawai',$item->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <td><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></td>
+                            </form>
                         </tr>                                       
                     </tbody>
                     @endforeach
