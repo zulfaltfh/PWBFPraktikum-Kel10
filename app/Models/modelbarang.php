@@ -12,7 +12,7 @@ class modelbarang extends Model
 
     //public $timestamps = true;
     
-    //insert
+    //insert ke dalam kolom yg dipilih
     protected $fillable = [
 		'kode_bar', 'nama_bar','stock_barang', 'harga_beli_bar', 'harga_jual_bar'
 	  ];

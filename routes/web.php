@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Auth::routes();
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
 
 Route::get('/', 'App\Http\Controllers\HomeController@Login');
 //pegawai
@@ -30,10 +38,8 @@ Route::get('/input_barang_pegawai','App\Http\Controllers\BarangController@insert
 Route::get('/update_barang_pegawai','App\Http\Controllers\BarangController@update');
 
 //hapus barang untuk pegawai
-Route::post('/destroy_barang_pegawai/$item->id','App\Http\Controllers\BarangController@destroy');
+Route::delete('/destroy_barang_pegawai/{id}','App\Http\Controllers\BarangController@delete');
 
 //pemilik
 Route::get('/homePemilik','App\Http\Controllers\HomePemilikController@Home');
 Route::get('/databarang','App\Http\Controllers\HomePemilikController@barang');
-
-

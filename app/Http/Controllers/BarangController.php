@@ -32,8 +32,9 @@ class BarangController extends Controller
         // $table_barang = getURLList();
         return view('pegawai.update_barang');
     }
-    public function destroy(table_barang $table_barang){
-        $table_barang->delete();
+    public function delete($id){
+        $item = modelbarang::find($id);
+        $item->delete();
         return redirect('homePegawai');
     }
 
