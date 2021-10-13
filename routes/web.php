@@ -59,6 +59,41 @@ Route::get('/update_pemesanan_pegawai/{id}',		'App\Http\Controllers\PemesananCon
 //hapus pemesanan
 Route::get('/destroy_pemesanan_pegawai/{id}',		'App\Http\Controllers\PemesananController@destroy');
 
+//User
+Route::get('/User_pegawai',						'App\Http\Controllers\UserController@home');
+//input User 
+Route::get('/create_User_pegawai',				'App\Http\Controllers\UserController@create');
+Route::get('/input_User_pegawai',				'App\Http\Controllers\UserController@insert');
+//update user untuk pegawai
+Route::post('/edit_User_pegawai/{id}',			'App\Http\Controllers\UserController@edit');
+Route::get('/update_User_pegawai/{id}',			'App\Http\Controllers\UserController@update');
+//hapus User
+Route::get('/destroy_User_pegawai/{id}',		'App\Http\Controllers\UserController@destroy');
+
+//Warna
+Route::get('/Warna_pegawai',					'App\Http\Controllers\WarnaController@home');
+//input Warna 
+Route::get('/create_Warna_pegawai',				'App\Http\Controllers\WarnaController@create');
+Route::get('/input_Warna_pegawai',				'App\Http\Controllers\WarnaController@insert');
+//update warna untuk pegawai
+Route::post('/edit_Warna_pegawai/{id}',			'App\Http\Controllers\WarnaController@edit');
+Route::get('/update_Warna_pegawai/{id}',		'App\Http\Controllers\WarnaController@update');
+//hapus Warna
+Route::get('/destroy_Warna_pegawai/{id}',		'App\Http\Controllers\WarnaController@destroy');
+
+//Ukuran
+Route::get('/Ukuran_pegawai',					'App\Http\Controllers\UkuranController@home');
+//input Ukuran 
+Route::get('/create_Ukuran_pegawai',				'App\Http\Controllers\UkuranController@create');
+Route::get('/input_Ukuran_pegawai',				'App\Http\Controllers\UkuranController@insert');
+//update ukuran untuk pegawai
+Route::post('/edit_Ukuran_pegawai/{id}',			'App\Http\Controllers\UkuranController@edit');
+Route::get('/update_Ukuran_pegawai/{id}',		'App\Http\Controllers\UkuranController@update');
+//hapus Ukuran
+Route::get('/destroy_Ukuran_pegawai/{id}',		'App\Http\Controllers\UkuranController@destroy');
+
+
+
 
 
 
