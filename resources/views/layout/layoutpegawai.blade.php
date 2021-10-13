@@ -61,7 +61,7 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ url('/input_barang_pegawai') }}">Input Barang</a>
-                                    <a class="nav-link" href="{{ url('/update_barang_pegawai') }}">Update Barang</a>
+                                    <a class="nav-link" href="{{ url('/edit_barang_pegawai') }}">Update Barang</a>
                                     <a class="nav-link" href="{{ url('/input_pemesanan_pegawai') }}">Input Pemesanan</a>
                                 </nav>
                             </div>

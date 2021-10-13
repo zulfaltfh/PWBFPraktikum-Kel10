@@ -5,12 +5,22 @@
     <div class="container-fluid px-4">
         <h1 class="mt-4">Input Barang Baru</h1>
     </div>
-    <form action = "{{ url('/create') }}" method = "post">
+    <form action = "{{ url('/create_barang_pegawai') }}" method = "post">
 	<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
 	<table>
 		<tr>
 			<td>Nama Barang</td>
 			<td><input type="text" name='nama_bar'/></td>
+		</tr>
+		<tr>
+			<td>Jenis Barang</td>
+			<td>
+				<select name="id_jb">
+					@foreach($table_jenis_barang as $item)
+				<option name="id_jb" value="{{ $item->id }}">{{ $item->jenis_barang }}</option>
+					@endforeach
+				</select>
+			</td>
 		</tr>
 		<tr>
 			<td>Stok Barang</td>

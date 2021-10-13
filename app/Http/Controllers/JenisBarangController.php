@@ -14,7 +14,8 @@ class JenisBarangController extends Controller
      */
     public function index()
     {
-        //
+        $table_jenis_barang = jenisBarang::all();
+        return view('pegawai.insert_jenis_barang', ['table_jenis_barang'=>$table_jenis_barang]);
     }
 
     /**
@@ -24,7 +25,13 @@ class JenisBarangController extends Controller
      */
     public function create()
     {
-        //
+        $data = $request->input();
+        $barang = new jenisBarang;
+        $barang->id_jb          = $data['id_jb'];
+        $barang->jenis_barang   = $data['jenis_barang'];
+        $barang->save();
+
+        return redirect('homePegawai');
     }
 
     /**
@@ -78,8 +85,10 @@ class JenisBarangController extends Controller
      * @param  \App\Models\jenisBarang  $jenisBarang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(jenisBarang $jenisBarang)
+    public function destroy($id)
     {
-        //
+        $item = jenisBarang::find($id);
+        $item->delete();
+        return redirect('homePegawai');
     }
 }

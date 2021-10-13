@@ -11,11 +11,6 @@ class HomeController extends Controller
     {
         return view('login');
     }
-    public function home()
-    {
-        $table_barang = modelbarang::all();
-        return view('pegawai.index', ['table_barang'=>$table_barang]);
-    }
     public function about()
     {
         return view('pegawai.About');

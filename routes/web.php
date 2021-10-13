@@ -23,23 +23,47 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/', 'App\Http\Controllers\HomeController@Login');
-//pegawai
-Route::get('/homePegawai','App\Http\Controllers\HomeController@Home');
+//login
+Route::get('/',										'App\Http\Controllers\HomeController@Login');
 
-//input pemesanan
-Route::get('/input_pemesanan_pegawai','App\Http\Controllers\HomeController@About');
-
+//pegawai barang
+Route::get ('/homePegawai',							'App\Http\Controllers\BarangController@Home');
 //input barang baru untuk pegawai
-Route::post('/create','App\Http\Controllers\BarangController@create');
-Route::get('/input_barang_pegawai','App\Http\Controllers\BarangController@insert');
-
+Route::post('/create_barang_pegawai',				'App\Http\Controllers\BarangController@create');
+Route::get ('/input_barang_pegawai',				'App\Http\Controllers\BarangController@insert');
 //update barang untuk pegawai
-Route::get('/update_barang_pegawai','App\Http\Controllers\BarangController@update');
-
+Route::post('/edit_barang_pegawai/{id}',			'App\Http\Controllers\BarangController@edit');
+Route::get('/update_barang_pegawai/{id}',			'App\Http\Controllers\BarangController@update');
 //hapus barang untuk pegawai
-Route::delete('/destroy_barang_pegawai/{id}','App\Http\Controllers\BarangController@delete');
+Route::delete('/destroy_barang_pegawai/{id}',		'App\Http\Controllers\BarangController@destroy');
+
+//pegawai jenis barang
+Route::get('/Jenis_Barang_Pegawai',					'App\Http\Controllers\JenisBarangController@Home');
+//input jenis barang baru untuk pegawai
+Route::post('/create_jenis_barang_pegawai',			'App\Http\Controllers\JenisBarangController@create');
+Route::get('/input_jenis_barang_pegawai',			'App\Http\Controllers\JenisBarangController@insert');
+//update jenis barang untuk pegawai
+Route::post('/edit_jenis_barang_pegawai/{id}',		'App\Http\Controllers\BarangController@edit');
+Route::get('/update_jenis_barang_pegawai/{id}',		'App\Http\Controllers\BarangController@update');
+//hapus jenis barang
+Route::delete('/destroy_jenis_barang_pegawai/{id}',	'App\Http\Controllers\JenisBarangController@destroy');
+
+//pemesanan
+Route::get('/pemesanan_pegawai',					'App\Http\Controllers\PemesananController@home');
+//input pemesanan 
+Route::get('/create_pemesanan_pegawai',				'App\Http\Controllers\PemesananController@create');
+Route::get('/input_pemesanan_pegawai',				'App\Http\Controllers\PemesananController@insert');
+//update jenis barang untuk pegawai
+Route::post('/edit_pemesanan_pegawai/{id}',			'App\Http\Controllers\PemesananController@edit');
+Route::get('/update_pemesanan_pegawai/{id}',		'App\Http\Controllers\PemesananController@update');
+//hapus pemesanan
+Route::get('/destroy_pemesanan_pegawai/{id}',		'App\Http\Controllers\PemesananController@destroy');
+
+
+
+
+
 
 //pemilik
-Route::get('/homePemilik','App\Http\Controllers\HomePemilikController@Home');
-Route::get('/databarang','App\Http\Controllers\HomePemilikController@barang');
+Route::get('/homePemilik',							'App\Http\Controllers\HomePemilikController@Home');
+Route::get('/databarang',							'App\Http\Controllers\HomePemilikController@barang');

@@ -19,7 +19,8 @@
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
                             <th>Lapor</th>
-                            <th>Action</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     @foreach($table_barang as $item)
@@ -31,6 +32,9 @@
                             <td>{{ $item->harga_beli_bar }}</td>
                             <td>{{ $item->harga_jual_bar }}</td>
                             <td><button class="btn btn-primary btn-sm">Pesan</button></td>
+                            <form action="{{ url('/edit_barang_pegawai',$item->id) }}" method="POST">
+                            <td><button type="submit" class="btn btn-info btn-sm")">edit</button></td>
+                            </form>
                             <form action="{{ url('/destroy_barang_pegawai',$item->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
