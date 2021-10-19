@@ -15,7 +15,7 @@ class BarangController extends Controller
     {
         $table_barang = modelbarang::all();
         $table_barang1 = jenisBarang::all();
-        return view('pegawai.index', ['table_barang'=>$table_barang], ['table_barang1'=>$table_barang1]);
+        return view('pegawai.barang', ['table_barang'=>$table_barang], ['table_barang1'=>$table_barang1]);
     }
     public function insert()
     {
