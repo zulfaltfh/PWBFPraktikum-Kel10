@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Penerimaan::class,'id_user','id');
     }
+    public function hasRole($role) 
+    {
+        return $this->role()->where('nama_user', $role)->count() == 1;
+    }
 }
+ 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+ 
 use App\Models\modelbarang;
 use App\Models\jenisBarang;
 use Illuminate\Http\Request;
@@ -38,9 +38,8 @@ class BarangController extends Controller
 			
     }
     public function edit($id){
-        $items = modelbarang::find($id); 
-
-        return view('pegawai.update_barang', ['items'=>$items], compact('items'));
+        $table_barang = modelbarang::find($id); 
+        return view('pegawai.index', ['table_barang'=>$table_barang]);
     }
     public function update(Request $request,$id){
         $item = modelbarang::find($id);

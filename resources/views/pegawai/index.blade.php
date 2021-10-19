@@ -18,14 +18,14 @@
                             <th>Stok</th>
                             <th>Harga Beli</th>
                             <th>Harga Jual</th>
-                            <th>Jenis</th>
+                            {{-- <th>Jenis</th> --}}
                             <th>Lapor</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                     </thead>
+                    {{-- @foreach($table_barang1 as $items) --}}
                     @foreach($table_barang as $item)
-                    @foreach($table_barang1 as $items)
                     <tbody>
                         <tr>
                             <td>{{ $item->id }}</td>
@@ -33,10 +33,10 @@
                             <td>{{ $item->stock_barang }}</td>
                             <td>{{ $item->harga_beli_bar }}</td>
                             <td>{{ $item->harga_jual_bar }}</td>
-                            <td>{{ $items->jenis_barang }}</td>
+                            {{-- <td>{{ $items->jenis_barang }}</td> --}}
                             <td><button class="btn btn-primary btn-sm">Pesan</button></td>
                             <form action="{{ url('/edit_barang_pegawai',$item->id) }}" method="POST">
-                            <td><button type="submit" class="btn btn-info btn-sm")">edit</button></td>
+                            <td><button type="submit" class="btn btn-info btn-sm")>edit</button></td>
                             </form>
                             <form action="{{ url('/destroy_barang_pegawai',$item->id) }}" method="POST">
                             @csrf
@@ -46,7 +46,7 @@
                         </tr>                                       
                     </tbody>
                     @endforeach
-                    @endforeach
+                    {{-- @endforeach --}}
                 </table>
             </div>
         </div>
