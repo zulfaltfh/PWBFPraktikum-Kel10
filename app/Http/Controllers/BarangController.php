@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 
 class BarangController extends Controller
 {
-    public function home()
+    public function index()
     {
         $table_barang = modelbarang::all();
         $table_barang1 = jenisBarang::all();
@@ -58,5 +58,9 @@ class BarangController extends Controller
         $item->delete();
         return redirect('homePegawai');
     }
+
+}
+
+class Controllerbarang extends Controller{
 
 }

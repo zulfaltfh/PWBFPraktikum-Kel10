@@ -31,8 +31,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><a class="dropdown-item" href="#!">Setting Profile</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/User_pegawai') }}">Users</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="{{ url('/') }}">Logout</a></li>
                     </ul>
@@ -60,9 +60,13 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('/input_barang_pegawai') }}">Input Barang</a>
-                                    <a class="nav-link" href="{{ url('/edit_barang_pegawai') }}">Update Barang</a>
-                                    <a class="nav-link" href="{{ url('/input_pemesanan_pegawai') }}">Input Pemesanan</a>
+                                    <a class="nav-link" href="{{ url('/homePegawai') }}">Barang</a>
+                                    <a class="nav-link" href="{{ url('/pemesanan_pegawai') }}">Pemesanan</a>
+                                    <a class="nav-link" href="{{ url('/pembayaran_pegawai') }}">Pembayaran</a>
+                                    <a class="nav-link" href="{{ url('/HistoryStock_pegawai') }}">Stock Barang</a>
+                                    <a class="nav-link" href="{{ url('/pemesanan_pegawai') }}">Detail Barang</a>
+                                    <a class="nav-link" href="{{ url('/pemesanan_pegawai') }}">Detail Pemesanan</a>
+                                    <a class="nav-link" href="{{ url('/pemesanan_pegawai') }}">Detail Penerimaan</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

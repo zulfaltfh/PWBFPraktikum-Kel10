@@ -1,5 +1,5 @@
 @extends('layout/layoutpegawai')
-//folder.file
+
 @section('content')
 <main>
     <div class="container-fluid px-4">
@@ -11,6 +11,7 @@
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
+                    <a href="{{ url('/input_barang_pegawai') }}"><button class="btn btn-primary btn-sm" style="float: right">Input</button></a>
                     <thead>
                         <tr>
                             <th>Kode Barang</th>

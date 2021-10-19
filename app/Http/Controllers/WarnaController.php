@@ -14,7 +14,7 @@ class WarnaController extends Controller
      */
     public function index()
     {
-        //
+        return view('pegawai.');
     }
 
     /**

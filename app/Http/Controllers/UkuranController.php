@@ -14,7 +14,7 @@ class UkuranController extends Controller
      */
     public function index()
     {
-        //
+        return view('pegawai.');
     }
 
     /**

@@ -14,7 +14,7 @@ class PenerimaanController extends Controller
      */
     public function index()
     {
-        //
+        return view('pegawai.');
     }
 
     /**
