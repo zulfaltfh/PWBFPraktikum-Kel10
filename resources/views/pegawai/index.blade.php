@@ -4,6 +4,7 @@
 <main>
     <div class="container-fluid px-4">
         <h1 class="mt-4">Barang</h1>
+        <a href="{{ url('/input_barang_pegawai') }}"><button class="btn btn-primary btn-sm" style="float: left">Input Barang</button></a><br><br>
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -11,7 +12,7 @@
             </div>
             <div class="card-body">
                 <table id="datatablesSimple">
-                    <a href="{{ url('/input_barang_pegawai') }}"><button class="btn btn-primary btn-sm" style="float: right">Input</button></a>
+                    
                     <thead>
                         <tr>
                             <th>Kode Barang</th>
