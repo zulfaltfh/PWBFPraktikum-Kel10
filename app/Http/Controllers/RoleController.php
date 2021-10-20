@@ -14,7 +14,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('pegawai.');
+        $a = Role::all();
+        return view('pegawai.role', ['a'=>$a]);
     }
 
     /**
@@ -78,8 +79,9 @@ class RoleController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Role $role)
-    {
-        //
+    public function destroy($id){
+        $item = Role::find($id);
+        $item->delete();
+        return redirect('Role_pegawai');
     }
 }

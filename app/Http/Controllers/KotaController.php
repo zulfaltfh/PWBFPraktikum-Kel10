@@ -14,7 +14,8 @@ class KotaController extends Controller
      */
     public function index()
     {
-        return view('pegawai.');
+        $a = Kota::all();
+        return view('pegawai.kota', ['a'=>$a]);
     }
 
     /**
@@ -78,8 +79,9 @@ class KotaController extends Controller
      * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kota $kota)
-    {
-        //
+    public function destroy($id){
+        $item = Kota::find($id);
+        $item->delete();
+        return redirect('Kota_pegawai');
     }
 }

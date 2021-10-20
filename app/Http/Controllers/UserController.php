@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Kota;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('pegawai.');
+        $table_user = User::all();
+        return view('pegawai.user',['table_user'=>$table_user]);
     }
 
     /**
@@ -21,9 +25,28 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function insert()
     {
-        //
+        $table_kota = Kota::all();
+        $table_role = Role::all();
+        return view('pegawai.insert_user',['table_kota'=>$table_kota],['table_role'=>$table_role]);
+    }
+    public function create(Request $request)
+    {
+        $data = $request->input();
+            
+        $user = new User;
+
+        $user->username_user    = $data['username_user'];
+        $user->password_user    = $data['password_user'];
+        $user->nama_user        = $data['nama_user'];
+        $user->alamat_user      = $data['alamat_user'];
+        $user->telp_user        = $data['telp_user'];
+        $user->id_kota          = $data['id_kota'];
+        $user->id_role          = $data['id_role'];
+        $user->save();
+
+        return redirect('User_pegawai');
     }
 
     /**
@@ -79,6 +102,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = User::find($id);
+        $item->delete();
+        return redirect('User_pegawai');
     }
 }

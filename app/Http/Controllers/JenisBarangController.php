@@ -14,8 +14,8 @@ class JenisBarangController extends Controller
      */
     public function index()
     {
-        $table_jenis_barang = jenisBarang::all();
-        return view('pegawai.insert_jenis_barang', ['table_jenis_barang'=>$table_jenis_barang]);
+        $a = jenisBarang::all();
+        return view('pegawai.jenis_barang', ['a'=>$a]);
     }
 
     /**
@@ -89,6 +89,6 @@ class JenisBarangController extends Controller
     {
         $item = jenisBarang::find($id);
         $item->delete();
-        return redirect('homePegawai');
+        return redirect('Jenis_Barang_Pegawai');
     }
 }

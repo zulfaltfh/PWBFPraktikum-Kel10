@@ -60,7 +60,3 @@ class BarangController extends Controller
     }
 
 }
-
-class Controllerbarang extends Controller{
-
-}
