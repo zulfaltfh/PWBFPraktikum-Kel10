@@ -15,9 +15,8 @@
                     
                     <thead>
                         <tr>
-                            <th>ID Kota</th>
-                            <th>Nama Kota</th>
-                            <th>Delete Kota</th>
+                            <th>ID</th>
+                            <th>Jenis Barang</th>
                         </tr>
                     </thead>
                     @foreach($a as $item)
