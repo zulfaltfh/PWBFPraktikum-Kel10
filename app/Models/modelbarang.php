@@ -14,7 +14,12 @@ class modelbarang extends Model
     
     //insert ke dalam kolom yg dipilih
     protected $fillable = [
-        'kode_bar', 'nama_bar','stock_barang', 'harga_beli_bar', 'harga_jual_bar', 'id_jb'
+        'kode_bar', 
+        'nama_bar',
+        'stock_barang',
+        'harga_beli_bar',
+        'harga_jual_bar', 
+        'id_jb'
       ];
     
     #RELASI
