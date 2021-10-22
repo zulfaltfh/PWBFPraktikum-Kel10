@@ -39,7 +39,7 @@ class BarangController extends Controller
     }
     public function edit($id){
         $table_barang = modelbarang::find($id); 
-        return view('pegawai.index', ['table_barang'=>$table_barang]);
+        return view('pegawai.edit_barang', ['table_barang'=>$table_barang]);
     }
     public function update(Request $request,$id){
         $item = modelbarang::find($id);
