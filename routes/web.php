@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,8 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 //login
-Route::get('/',                                     'App\Http\Controllers\HomeController@Login');
+//Route::get('/Login', [LoginController::class, 'index']);
+Route::get('/', 'App\Http\Controllers\HomeController@login');
 Route::post('/signin/{$nama_user,$password_user}',  'App\Http\Controllers\HomeController@index');
 
 //pegawai barang
