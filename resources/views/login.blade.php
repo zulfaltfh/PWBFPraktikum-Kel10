@@ -78,19 +78,21 @@
   <body class="text-center">
     <div class="container">
       <div class="row justify-content-center">
+        <div class="title" style="align-content: center">
+          <h2>Sistem Informasi Pengadaan Barang</h2>
+          <h2>Fancy Boutique</h2>
+        </div>
         <div class="col-md-5">
           <main class="form-signin">
-            <div class="header-title">
-              <h2>Welcome to Fancy Boutique</h2>
-            </div>
             <h1 class="h4 mb-3 fw-normal">Login</h1>
-            <form>
+            <form action="/" method="POST">
+              @csrf
               <div class="form-floating">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <input type="email" name="email" class="form-control" name="nomor ID" id="email" placeholder="name@example.com" autofocus required>
                 <label for="floatingInput">Username</label>
               </div>
               <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
                 <label for="floatingPassword">Password</label>
               </div>
     
@@ -99,7 +101,7 @@
                   <input type="checkbox" value="remember-me"> Remember me
                 </label>
               </div>
-              <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+              <button class="w-100 btn btn-lg " style="background-color: #ea4c88" type="submit">Login</button>
             </form>
           </main>
   

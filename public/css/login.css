@@ -23,6 +23,10 @@ body {
 } */
 
 
+.title{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: var(--loginColor);
+}
 
 .form-signin .checkbox {
   font-weight: 400;
@@ -44,3 +48,17 @@ body {
   border-top-left-radius: 10;
   border-top-right-radius: 10;
 }
+
+:root {
+    --loginBorderRadus: 0.25rem;
+    --loginColor: #eee;
+  
+    --loginInputBackgroundColor: #3b4148;
+    --loginInputHoverBackgroundColor: #434a52;
+  
+    --loginLabelBackgroundColor: #363b41;
+  
+    --loginSubmitBackgroundColor: #ea4c88;
+    --loginSubmitColor: #eee;
+    --loginSubmitHoverBackgroundColor: #d44179;
+  }

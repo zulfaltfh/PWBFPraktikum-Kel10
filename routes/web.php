@@ -22,6 +22,7 @@ require __DIR__.'/auth.php';
 
 //login
 Route::get('/', [LoginController::class, 'index']);
+Route::get('/', [LoginController::class, 'authenticate']);
 //Route::post('/signin/{$nama_user,$password_user}',  'App\Http\Controllers\HomeController@index');
 
 //pegawai barang
