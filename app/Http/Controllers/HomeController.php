@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function login()
-    {
-        return view('login');
-    }
+    // public function login()
+    // {
+    //     return view('login');
+    // }
+
     public function index(Request $request)
     {
   
@@ -24,10 +25,6 @@ class HomeController extends Controller
             return redirect('homePemilik');
         }
  
-    }
-    public function about()
-    {
-        return view('pegawai.About');
     }
 }
  

@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
@@ -25,9 +21,8 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 //login
-//Route::get('/Login', [LoginController::class, 'index']);
-Route::get('/', 'App\Http\Controllers\HomeController@login');
-Route::post('/signin/{$nama_user,$password_user}',  'App\Http\Controllers\HomeController@index');
+Route::get('/', [LoginController::class, 'index']);
+//Route::post('/signin/{$nama_user,$password_user}',  'App\Http\Controllers\HomeController@index');
 
 //pegawai barang
 Route::get ('/homePegawai',                         'App\Http\Controllers\BarangController@index');
