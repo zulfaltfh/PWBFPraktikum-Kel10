@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
-
+ 
 class RoleController extends Controller
 {
     /**
@@ -23,26 +23,33 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function insert()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return view('pegawai.insert_role');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Role  $role
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
+        $data = $request->input();
+            
+        $role = new Role;
+
+        $role->jenis_role    = $data['jenis_role'];
+        $role->save();
+
+        return redirect('Role_pegawai');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function show(Role $role)

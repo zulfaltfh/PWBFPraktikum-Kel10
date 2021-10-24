@@ -12,6 +12,16 @@ class HomeController extends Controller
     {
         return view('login');
     }
+   
+
+
+
+
+
+
+
+
+
     public function index(Request $request)
     {
   

@@ -29,6 +29,10 @@ require __DIR__.'/auth.php';
 Route::get('/', 'App\Http\Controllers\HomeController@login');
 Route::post('/signin/{$nama_user,$password_user}',  'App\Http\Controllers\HomeController@index');
 
+
+Route::get('/tes/{id}',       'App\Http\Controllers\BarangController@tes');
+
+
 //pegawai barang
 Route::get ('/homePegawai',                         'App\Http\Controllers\BarangController@index');
 Route::get ('/homePegawai1',                        'App\Http\Controllers\BarangController@index');

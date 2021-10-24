@@ -17,6 +17,11 @@ class BarangController extends Controller
         $table_barang1 = jenisBarang::all();
         return view('pegawai.barang', ['table_barang'=>$table_barang], ['table_barang1'=>$table_barang1]);
     }
+    public function tes($id)
+    {
+        $item = modelbarang::find($id);
+        return view('pegawai.tes');
+    }
     public function insert()
     {
         $table_jenis_barang = jenisBarang::all();
@@ -38,18 +43,21 @@ class BarangController extends Controller
 			
     }
     public function edit($id){
-        $table_barang = modelbarang::find($id); 
-        return view('pegawai.edit_barang', ['table_barang'=>$table_barang]);
+        $item = modelbarang::find($id);
+        return view('pegawai.edit_barang', ['item'=>$item]);
     }
     public function update(Request $request,$id){
         $item = modelbarang::find($id);
+        $item->delete();
         
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-            'price' => 'required'
-        ]);
-        $item->update($request->all());
+        $data = $request->input();
+        $barang = new modelbarang;
+        $barang->nama_bar       = $data['nama_bar'];
+        $barang->stock_barang   = $data['stock_barang'];
+        $barang->harga_beli_bar = $data['harga_beli_bar'];
+        $barang->harga_jual_bar = $data['harga_jual_bar'];
+        $barang->id_jb          = $data['id_jb'];
+        $barang->save();
 
         return redirect('homePegawai');
     }
