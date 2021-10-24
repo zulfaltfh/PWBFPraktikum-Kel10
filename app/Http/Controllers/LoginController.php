@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Symfony\Contracts\Service\Attribute\Required;
 
 class LoginController extends Controller
 {
+    public function index(Request $request)
+    {
+        return view('login');
+    }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([
@@ -24,5 +30,6 @@ class LoginController extends Controller
             'email' => 'The provided credentials do not match our records.',
         ]);
     }
+
 }
  
