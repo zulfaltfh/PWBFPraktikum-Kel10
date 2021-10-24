@@ -19,6 +19,7 @@ class CreateTableUser extends Migration
             $table->string('alamat_user', 50);
             $table->string('telp_user', 13);
             $table->string('username', 20)->unique();
+            $table->string('email', 40);
             $table->string('password', 20);
             $table->timestamps();
         });

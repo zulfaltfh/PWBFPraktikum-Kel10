@@ -37,8 +37,9 @@ class UserController extends Controller
             
         $user = new User;
 
-        $user->username_user    = $data['username_user'];
-        $user->password_user    = $data['password_user'];
+        $user->username         = $data['username'];
+        $user->password         = $data['password'];
+        $user->email            = $data['email'];
         $user->nama_user        = $data['nama_user'];
         $user->alamat_user      = $data['alamat_user'];
         $user->telp_user        = $data['telp_user'];
@@ -46,7 +47,7 @@ class UserController extends Controller
         $user->id_role          = $data['id_role'];
         $user->save();
 
-        return redirect('User_pegawai');
+        return redirect('/');
     }
 
     /**
