@@ -23,15 +23,18 @@ class JenisBarangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function insert(){
+        return view('pegawai.insert_jenis_barang');
+    }
+
+    public function create(Request $request)
     {
         $data = $request->input();
         $barang = new jenisBarang;
-        $barang->id_jb          = $data['id_jb'];
         $barang->jenis_barang   = $data['jenis_barang'];
         $barang->save();
 
-        return redirect('homePegawai');
+        return redirect('Jenis_Barang_Pegawai');
     }
 
     /**
@@ -40,7 +43,7 @@ class JenisBarangController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
         //
     }
