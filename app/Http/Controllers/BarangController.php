@@ -47,18 +47,28 @@ class BarangController extends Controller
         return view('pegawai.edit_barang', ['item'=>$item]);
     }
     public function update(Request $request,$id){
-        $item = modelbarang::find($id);
-        $item->delete();
+        // $item = modelbarang::find($id);
+        // $data = $request->input();
+        // $barang = new modelbarang;
         
-        $data = $request->input();
-        $barang = new modelbarang;
-        $barang->nama_bar       = $data['nama_bar'];
-        $barang->stock_barang   = $data['stock_barang'];
-        $barang->harga_beli_bar = $data['harga_beli_bar'];
-        $barang->harga_jual_bar = $data['harga_jual_bar'];
-        $barang->id_jb          = $data['id_jb'];
-        $barang->save();
+        // $barang->id             = $data['id'];
+        // $barang->nama_bar       = $data['nama_bar'];
+        // $barang->stock_barang   = $data['stock_barang'];
+        // $barang->harga_beli_bar = $data['harga_beli_bar'];
+        // $barang->harga_jual_bar = $data['harga_jual_bar'];
+        // $barang->id_jb          = $data['id_jb'];
+        // $barang->save();
+        // $item->delete();
 
+        $item = modelbarang::find($id)->where('id',$id)->update([
+        'id' => $request->id,
+        'nama_bar' => $request->nama_bar,
+        'stock_barang' => $request->stock_barang,
+        'harga_beli_bar' => $request->harga_beli_bar,
+        'harga_jual_bar' => $request->harga_jual_bar,
+        'id_jb' => $request->id_jb
+    ]);
+        
         return redirect('homePegawai');
     }
     public function destroy($id){

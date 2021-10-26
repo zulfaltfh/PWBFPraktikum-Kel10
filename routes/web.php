@@ -22,11 +22,11 @@ require __DIR__.'/auth.php';
 
 //login
 Route::get('/', [LoginController::class, 'index']);
-Route::post('/a', [LoginController::class, 'authenticate']);
+Route::get('/a/{username}/{password}', [LoginController::class, 'authenticate']);
 //Route::post('/signin/{$nama_user,$password_user}',  'App\Http\Controllers\HomeController@index');
 
 
-Route::get('/tes/{id}',       'App\Http\Controllers\BarangController@tes');
+// Route::get('/tes/{id}',       'App\Http\Controllers\BarangController@tes');
 
 
 //pegawai barang
@@ -37,7 +37,7 @@ Route::post('/create_barang_pegawai',               'App\Http\Controllers\Barang
 Route::get ('/input_barang_pegawai',                'App\Http\Controllers\BarangController@insert');
 //update barang untuk pegawai
 Route::get('/edit_barang_pegawai/{id}',            'App\Http\Controllers\BarangController@edit');
-Route::get('/update_barang_pegawai/{id}',           'App\Http\Controllers\BarangController@update');
+Route::post('/update_barang_pegawai/{id}',           'App\Http\Controllers\BarangController@update');
 //hapus barang untuk pegawai
 Route::get('/destroy_barang_pegawai/{id}',       'App\Http\Controllers\BarangController@destroy');
 

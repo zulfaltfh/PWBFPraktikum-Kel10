@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -10,25 +12,30 @@ class LoginController extends Controller
 {
     public function index(Request $request)
     {
+        // $user = User::all();
         return view('login');
+        // return view('login',['user'=>$user]);
     }
 
-    public function authenticate(Request $request)
+    public function authenticate($username,$password)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
-            return redirect()->intended('dashboard');
+        $user = User::find($username,$password);
+        echo $user;
+        // if ($item==null) {
+        // return redirect('homePegawai');
+        // }
+        // else{return redirect('/');}
+        
+    }
+    public function destroy($id){
+        $item = modelbarang::find($id);
+        echo $item;
+        if ($item==null) {
+        return redirect('homePegawai');
+            
         }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ]);
+        // $item->delete();
+        // return redirect('homePegawai');
     }
 
 }

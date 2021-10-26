@@ -8,9 +8,7 @@
         <meta name="author" content="" />
         <title> Dashboard </title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
-        <link href="/css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css?v=echo time();" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
