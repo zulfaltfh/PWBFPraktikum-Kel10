@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\session;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -13,29 +14,35 @@ class LoginController extends Controller
     public function index(Request $request)
     {
         // $user = User::all();
+        $item = session::truncate();
         return view('login');
         // return view('login',['user'=>$user]);
     }
 
-    public function authenticate($username,$password)
+    public function authenticate(Request $request)
     {
-        $user = User::find($username,$password);
-        echo $user;
-        // if ($item==null) {
-        // return redirect('homePegawai');
-        // }
-        // else{return redirect('/');}
-        
-    }
-    public function destroy($id){
-        $item = modelbarang::find($id);
-        echo $item;
-        if ($item==null) {
-        return redirect('homePegawai');
-            
+        $data = $request;
+        // echo $data['nama_user'];
+        // echo $data['id'];
+        $username = User::all()->where('nama_user','=',$data['nama_user']);
+        $password = User::all()->where('id','=',$data['id']);
+        $role1    = User::find($request)->where('id_role',1);
+        // echo $role1;
+        if($username != $password ){ return redirect('/');}
+        else
+        {
+        $asd = $request->input();
+        $session = new session;
+        $session->id       = $asd['session'];
+        $session->save();
         }
-        // $item->delete();
-        // return redirect('homePegawai');
+        if ($role1==$username) {return redirect('homePegawai');} 
+        else{return redirect('homePemilik');}
+
+    }
+    public function logout()
+    {
+        return redirect('/');       
     }
 
 }

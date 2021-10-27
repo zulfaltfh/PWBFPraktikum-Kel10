@@ -1,3 +1,6 @@
+<?php 
+header("Refresh:300");
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -34,7 +37,7 @@
                         <li><a class="dropdown-item" href="#!">Setting Profile</a></li>
                         <li><a class="dropdown-item" href="{{ url('/User_pegawai') }}">Users</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="{{ url('/') }}">Logout</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
                     </ul>
                 </li>
             </ul>

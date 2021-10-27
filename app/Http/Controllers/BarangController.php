@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
  
 use App\Models\modelbarang;
+use App\Models\session;
 use App\Models\jenisBarang;
 use Illuminate\Http\Request;
 use \Illuminate\Http\Response;
@@ -15,7 +16,10 @@ class BarangController extends Controller
     {
         $table_barang = modelbarang::all();
         $table_barang1 = jenisBarang::all();
-        return view('pegawai.barang', ['table_barang'=>$table_barang], ['table_barang1'=>$table_barang1]);
+        $auth = session::all();
+        $z = '[]';
+        if($auth==$z){return redirect('/');}
+        else{return view('pegawai.barang', ['table_barang'=>$table_barang], ['table_barang1'=>$table_barang1]);}
     }
     public function tes($id)
     {
@@ -31,7 +35,7 @@ class BarangController extends Controller
         $data = $request->input();
 			
 		$barang = new modelbarang;
-
+        
         $barang->nama_bar       = $data['nama_bar'];
         $barang->stock_barang   = $data['stock_barang'];
         $barang->harga_beli_bar = $data['harga_beli_bar'];
@@ -47,19 +51,6 @@ class BarangController extends Controller
         return view('pegawai.edit_barang', ['item'=>$item]);
     }
     public function update(Request $request,$id){
-        // $item = modelbarang::find($id);
-        // $data = $request->input();
-        // $barang = new modelbarang;
-        
-        // $barang->id             = $data['id'];
-        // $barang->nama_bar       = $data['nama_bar'];
-        // $barang->stock_barang   = $data['stock_barang'];
-        // $barang->harga_beli_bar = $data['harga_beli_bar'];
-        // $barang->harga_jual_bar = $data['harga_jual_bar'];
-        // $barang->id_jb          = $data['id_jb'];
-        // $barang->save();
-        // $item->delete();
-
         $item = modelbarang::find($id)->where('id',$id)->update([
         'id' => $request->id,
         'nama_bar' => $request->nama_bar,

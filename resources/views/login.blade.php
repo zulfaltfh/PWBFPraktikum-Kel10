@@ -13,13 +13,14 @@
             <form action="{{ url('/a') }}" method="POST">
               @csrf
               <div class="form-floating">
-                <input type="text" name="email" class="form-control" name="nomor ID" id="email" placeholder="name@example.com" autofocus required>
-                <label for="floatingInput">Email</label>
+                <input type="text" name="session" value="1" hidden="">
+                <input type="text" name="nama_user" class="form-control" name="nomor ID" id="email" placeholder="name@example.com" autofocus required>
+                <label for="floatingInput">Username</label>
               </div>
               <br>
               <div class="form-floating">
-                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
-                <label for="floatingPassword">Password</label>
+                <input type="password" name="id" class="form-control" id="password" placeholder="Password" required>
+                <label for="floatingPassword">Password (sementara password di ganti id)</label>
               </div>
     
               <div class="checkbox mb-3">

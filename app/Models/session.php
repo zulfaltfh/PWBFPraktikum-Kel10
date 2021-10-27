@@ -12,11 +12,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class session extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
-    use HasProfilePhoto;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
+    
 
     protected $table = 'sessions';
 }

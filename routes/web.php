@@ -22,7 +22,8 @@ require __DIR__.'/auth.php';
 
 //login
 Route::get('/', [LoginController::class, 'index']);
-Route::get('/a/{username}/{password}', [LoginController::class, 'authenticate']);
+Route::post('/a', [LoginController::class, 'authenticate']);
+Route::get('/logout', [LoginController::class, 'logout']);
 //Route::post('/signin/{$nama_user,$password_user}',  'App\Http\Controllers\HomeController@index');
 
 
