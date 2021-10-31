@@ -51,11 +51,12 @@ class BarangController extends Controller
 			
     }
     public function edit(Request $request){
+        $a = jenisBarang::all();
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         $item = modelbarang::where($request);
-        return view('pegawai.edit_barang', ['item'=>$item], ['request'=>$request]);
+        return view('pegawai.edit_barang', ['a'=>$a],['request'=>$request],['item'=>$item]);
     }
     public function update(Request $request,$id){
         $item = modelbarang::find($id);

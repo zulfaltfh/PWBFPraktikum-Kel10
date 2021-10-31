@@ -35,6 +35,8 @@
                             <td>{{ $item->harga_jual_bar }}</td>
                             <td>
                                 <?php 
+                                // $z = App\Models\jenisBarang::all()->where('id'->$item->id_jb);
+                                // echo $z->jenis_barang;
                                 if ($item->id_jb==1){echo "Baju";} 
                                 if ($item->id_jb==2){echo "Celana";} 
                                 if ($item->id_jb==3){echo "Topi";} 

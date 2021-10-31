@@ -26,7 +26,13 @@
 		</tr>
 		<tr>
 			<td>Jenis Barang</td>
-			<td><input type="text"  name='id_jb'/></td>
+			<td>
+				<select name="id_jb">
+					@foreach($a as $item)
+				<option name="id_jb" value="{{ $item->id }}">{{ $item->jenis_barang }}</option>
+					@endforeach
+				</select>
+			</td>
 		</tr>
 		<tr>
 			<td colspan = '2'>
