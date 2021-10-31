@@ -29,7 +29,7 @@
                 </label>
               </div>
               <button class="w-100 btn btn-lg " style="background-color: #ea4c88" type="submit">Login</button><br>
-              <br><p style="color:white">Belum punya akun ? Silahkan <a href="{{ url('/input_User_pegawai') }}">register</a> :D</p>
+              <br><p style="color:white">Belum punya akun ? Silahkan <a href="{{ url('/input_User_pegawai') }}">registrasi</a></p>
               
             </form>
           </main>

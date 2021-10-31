@@ -30,7 +30,7 @@ header("Refresh:300");
 
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                <p class="navbar-brand ps-3">Hello, 152011513019</p>
+                {{-- <p class="navbar-brand ps-3">Hello, 152011513019</p> --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
