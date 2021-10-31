@@ -14,7 +14,7 @@
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                            <th>Kode Barang</th>
+                            <th>Kode</th>
                             <th>Nama Barang</th>
                             <th>Stok</th>
                             <th>Harga Beli</th>
