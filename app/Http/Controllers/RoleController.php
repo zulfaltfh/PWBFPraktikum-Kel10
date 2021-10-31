@@ -15,6 +15,9 @@ class RoleController extends Controller
     public function index()
     {
         $a = Role::all();
+        $auth = session::all();
+        $z = '[]';
+        if($auth==$z){return redirect('/');}
         return view('pegawai.role', ['a'=>$a]);
     }
 

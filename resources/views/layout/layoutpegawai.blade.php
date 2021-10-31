@@ -1,6 +1,4 @@
-<?php 
-header("Refresh:300");
-?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,6 +36,7 @@ header("Refresh:300");
                         <li><a class="dropdown-item" href="{{ url('/User_pegawai') }}">Users</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
+                        <!-- <li><form action="{{ url('/User_pegawai') }}"><input class="dropdown-item" type="submit"/></form></li> -->
                     </ul>
                 </li>
             </ul>

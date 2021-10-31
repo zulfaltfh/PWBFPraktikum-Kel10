@@ -13,6 +13,9 @@ class HomePemilikController extends Controller
     }
     public function home()
     {
+        $auth = session::all();
+        $z = '[]';
+        if($auth==$z){return redirect('/');}
         $table_barang = modelbarang::all();
         return view('pemilik.indexPemilik', ['table_barang'=>$table_barang]);
     }

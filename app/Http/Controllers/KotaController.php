@@ -15,6 +15,9 @@ class KotaController extends Controller
     public function index()
     {
         $a = Kota::all();
+        $auth = session::all();
+        $z = '[]';
+        if($auth==$z){return redirect('/');}
         return view('pegawai.kota', ['a'=>$a]);
     }
 

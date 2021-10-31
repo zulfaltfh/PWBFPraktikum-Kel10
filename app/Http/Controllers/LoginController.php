@@ -11,7 +11,7 @@ use Symfony\Contracts\Service\Attribute\Required;
 
 class LoginController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         // $user = User::all();
         $item = session::truncate();
@@ -26,7 +26,7 @@ class LoginController extends Controller
         // echo $data['id'];
         $username = User::all()->where('nama_user','=',$data['nama_user']);
         $password = User::all()->where('id','=',$data['id']);
-        $role1    = User::find($request)->where('id_role',1);
+        $role1    = User::find($request)->where('id_role',1);//statis
         // echo $role1;
         if($username != $password ){ return redirect('/');}
         else
@@ -42,6 +42,7 @@ class LoginController extends Controller
     }
     public function logout()
     {
+        $item = session::truncate();
         return redirect('/');       
     }
 

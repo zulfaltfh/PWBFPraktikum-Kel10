@@ -17,7 +17,7 @@ class BarangController extends Controller
         $table_barang = modelbarang::all();
         $table_barang1 = jenisBarang::all();
         $auth = session::all();
-        $z = '[]';
+        $z = '[]';//null
         if($auth==$z){return redirect('/');}
         else{return view('pegawai.barang', ['table_barang'=>$table_barang], ['table_barang1'=>$table_barang1]);}
     }
@@ -28,37 +28,52 @@ class BarangController extends Controller
     }
     public function insert()
     {
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
         $table_jenis_barang = jenisBarang::all();
         return view('pegawai.insert_barang', ['table_jenis_barang'=>$table_jenis_barang]);
     }
     public function create(Request $request){
-        $data = $request->input();
-			
-		$barang = new modelbarang;
+        $data = $request->input();//insert into
+		
+		$barang = new modelbarang;// table
         
+        //value
         $barang->nama_bar       = $data['nama_bar'];
         $barang->stock_barang   = $data['stock_barang'];
         $barang->harga_beli_bar = $data['harga_beli_bar'];
         $barang->harga_jual_bar = $data['harga_jual_bar'];
         $barang->id_jb          = $data['id_jb'];
-		$barang->save();
+		$barang->save();//tombol run sqlyog
 
         return redirect('homePegawai');
 			
     }
-    public function edit($id){
-        $item = modelbarang::find($id);
-        return view('pegawai.edit_barang', ['item'=>$item]);
+    public function edit(Request $request){
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+        $item = modelbarang::where($request);
+        return view('pegawai.edit_barang', ['item'=>$item], ['request'=>$request]);
     }
     public function update(Request $request,$id){
-        $item = modelbarang::find($id)->where('id',$id)->update([
-        'id' => $request->id,
-        'nama_bar' => $request->nama_bar,
-        'stock_barang' => $request->stock_barang,
-        'harga_beli_bar' => $request->harga_beli_bar,
-        'harga_jual_bar' => $request->harga_jual_bar,
-        'id_jb' => $request->id_jb
-    ]);
+        $item = modelbarang::find($id);
+
+        $item->nama_bar         = $request->input('nama_bar');
+        $item->stock_barang     = $request->input('stock_barang');
+        $item->harga_beli_bar   = $request->input('harga_beli_bar');
+        $item->harga_jual_bar   = $request->input('harga_jual_bar');
+        $item->id_jb            = $request->input('id_jb');
+        $item->save();
+    //     ->update([
+    //     'id'                => $request->id,
+    //     'nama_bar'          => $request->nama_bar,
+    //     'stock_barang'      => $request->stock_barang,
+    //     'harga_beli_bar'    => $request->harga_beli_bar,
+    //     'harga_jual_bar'    => $request->harga_jual_bar,
+    //     'id_jb'             => $request->id_jb
+    // ]);
         
         return redirect('homePegawai');
     }

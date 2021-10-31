@@ -43,11 +43,18 @@
                             <td>
                               <button class="btn btn-primary btn-sm">Pesan</button>
                             </td>
-                            <td>
+                            <!-- <td>
                               <a href="{{ url('/edit_barang_pegawai',$item->id) }}"><button type="submit" class="btn btn-info btn-sm")>edit</button>
                               </a>
-                            </td>
+                            </td> -->
+                            <td>
+                            <form action="{{ url('/edit_barang_pegawai') }}" method="get">
+                                
+                                <input hidden value="{{ $item->id }}" name="id">
+                                <button type="submit" class="btn btn-info btn-sm")>edit</button>
 
+                            </form>
+                            </td>
                             @csrf
                             @method('Delete')
                             <td>

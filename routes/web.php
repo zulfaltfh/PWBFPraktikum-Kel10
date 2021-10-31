@@ -37,8 +37,8 @@ Route::get ('/homePegawai1',                        'App\Http\Controllers\Barang
 Route::post('/create_barang_pegawai',               'App\Http\Controllers\BarangController@create');
 Route::get ('/input_barang_pegawai',                'App\Http\Controllers\BarangController@insert');
 //update barang untuk pegawai
-Route::get('/edit_barang_pegawai/{id}',            'App\Http\Controllers\BarangController@edit');
-Route::post('/update_barang_pegawai/{id}',           'App\Http\Controllers\BarangController@update');
+Route::get('/edit_barang_pegawai',            		'App\Http\Controllers\BarangController@edit');
+Route::post('/update_barang_pegawai/{id}',          'App\Http\Controllers\BarangController@update');
 //hapus barang untuk pegawai
 Route::get('/destroy_barang_pegawai/{id}',       'App\Http\Controllers\BarangController@destroy');
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\session;
 use App\Models\jenisBarang;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,10 @@ class JenisBarangController extends Controller
     public function index()
     {
         $a = jenisBarang::all();
-        return view('pegawai.jenis_barang', ['a'=>$a]);
+        $auth = session::all();
+        $z = '[]';
+        if($auth==$z){return redirect('/');}
+        else{return view('pegawai.jenis_barang', ['a'=>$a]);}
     }
 
     /**

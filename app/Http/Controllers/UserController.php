@@ -17,6 +17,9 @@ class UserController extends Controller
     public function index()
     {
         $table_user = User::all();
+        $auth = session::all();
+        $z = '[]';
+        if($auth==$z){return redirect('/');}
         return view('pegawai.user',['table_user'=>$table_user]);
     }
 
