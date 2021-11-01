@@ -11,7 +11,7 @@
 				<input type="hidden" class="form-control" name='id' value="{{ $request->id }}"/>
 					<label for="inputNamaBarang" class="col-sm-2 col-form-label ">Nama Barang</label>
 					<div class="col-sm-4">
-					  <input type="text" class="form-control" id="inputNamaBarang" name='nama_bar'>
+					  <input type="text" placeholder="{{ $request->nama_bar }}" class="form-control" id="inputNamaBarang" name='nama_bar'>
 					</div>
 				</div>
 				<div class="row mb-3">
@@ -28,54 +28,27 @@
 				<div class="row mb-3">
 					<label for="inputStokBarang" class="col-sm-2 col-form-label">Stok Barang</label>
 					<div class="col-sm-4">
-					  <input type="text" class="form-control" id="inputStokBarang"  name='stock_barang'>
+					  <input type="text" placeholder="{{ $request->stock_barang }}" class="form-control" id="inputStokBarang"  name='stock_barang'>
 					</div>
 				</div>
 				<div class="row mb-3">
 					<label for="inputHargaBeli" class="col-sm-2 col-form-label">Harga Beli</label>
 					<div class="col-sm-4">
-					  <input type="text" class="form-control" id="inputHargaBeli"  name='harga_beli_bar'>
+					  <input type="text" placeholder="{{ $request->harga_beli_bar }}" class="form-control" id="inputHargaBeli"  name='harga_beli_bar'>
 					</div>
 				</div>
 				<div class="row mb-3">
 					<label for="inputHargaJual" class="col-sm-2 col-form-label">Harga Jual</label>
 					<div class="col-sm-4">
-					  <input type="text" class="form-control" id="inputHargaJual" name='harga_jual_bar'>
+					  <input type="text" placeholder="{{ $request->harga_jual_bar }}" class="form-control" id="inputHargaJual" name='harga_jual_bar'>
 					</div>
 				</div>
 			</div>
 			
-		</tr>
-		<tr>
-			<td>Nama Barang</td>
-			<td><input type="text" placeholder="{{ $request->nama_bar }}" name='nama_bar'/></td>
-		</tr>
-		<tr>
-			<td>Stok Barang</td>
-			<td><input type="text" placeholder="{{ $request->stock_barang }}" name='stock_barang'/></td>
-		</tr>
-		<tr>
-			<td>Harga Beli</td>
-			<td><input type="text" placeholder="{{ $request->harga_beli_bar }}" name='harga_beli_bar'/></td>
-		</tr>
-		<tr>
-			<td>Harga Jual</td>
-			<td><input type="text" placeholder="{{ $request->harga_jual_bar }}" name='harga_jual_bar'/></td>
-		</tr>
-		<tr>
-			<td>Jenis Barang</td>
-			<td>
-				<select name="id_jb">
-					@foreach($a as $b)
-				<option name="id_jb" value="{{ $b->id }}">{{ $b->jenis_barang }}</option>
-					@endforeach
-				</select>
-			</td>
-		</tr>
-		<tr>
+		
 			<td colspan = '2'>
 			<input type = 'submit' value = "Input Data"/></td>
-		</tr>
+		
 	</table>
 </form>
 @endsection
