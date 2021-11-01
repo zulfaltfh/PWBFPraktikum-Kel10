@@ -67,9 +67,9 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="{{ url('/homePegawai') }}">Barang</a>
-                                    <a class="nav-link" href="{{ url('/Kota_pegawai') }}">Kota User</a>
-                                    <a class="nav-link" href="{{ url('/Role_pegawai') }}">Role User</a>
                                     <a class="nav-link" href="{{ url('/Jenis_Barang_Pegawai') }}">Jenis Barang</a>
+                                    <a class="nav-link" href="{{ url('/Kota_pegawai') }}">Kota</a>
+                                    {{-- <a class="nav-link" href="{{ url('/Role_pegawai') }}">Role User</a> --}}
                                     <a class="nav-link" href="{{ url('/pemesanan_pegawai') }}">Pemesanan</a>
                                     <a class="nav-link" href="{{ url('/pembayaran_pegawai') }}">Pembayaran</a>
                                 </nav>

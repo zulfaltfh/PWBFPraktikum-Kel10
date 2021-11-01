@@ -2,22 +2,23 @@
 
 @section('content')
 <main>
-    <div class="container-fluid px-4">
-        <h1 class="mt-4">Input Jenis Barang</h1>
-    </div>
-    <form action = "{{ url('/create_jenis_barang_pegawai') }}" method = "post">
-	<input type = "hidden" name = "_token" value = "<?php echo csrf_token(); ?>">
-	<table>
-		<tr>
-			<td>Jenis Barang</td>
-			<td><input type="text" name='jenis_barang'/></td>
-		</tr>
-		<tr>
-			<td colspan = '2'>
-			<input type = 'submit' value = "Input Data"/></td>
-		</tr>
-	</table>
-</form>
+	<div class="container-fluid px-4">
+		<h1 class="mt-2 mb-4">Input Jenis Barang</h1>
+		<form action = "{{ url('/create_jenis_barang_pegawai') }}" method = "post">
+			@csrf
+
+			<div class="content">
+				<div class="row mb-3">
+					<label for="inputJenisBarang" class="col-sm-2 col-form-label ">Jenis Barang</label>
+					<div class="col-sm-4">
+					<input type="text" class="form-control" id="inputJenisBarang"  name='jenis_barang'>
+					</div>
+				</div>
+
+				<input type ='submit' class = 'btn btn-primary mt-3' value = "Input Data"/>
+			</div>
+		</form>
+	</div>
 </main>
 
 @endsection
