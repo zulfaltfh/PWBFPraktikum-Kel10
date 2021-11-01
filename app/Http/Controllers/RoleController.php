@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
- 
+use App\Models\session;
+
 class RoleController extends Controller
 {
     /**

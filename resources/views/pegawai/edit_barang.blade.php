@@ -45,10 +45,7 @@
 				</div>
 			</div>
 			
-		
-			<td colspan = '2'>
-			<input type = 'submit' value = "Input Data"/></td>
-		
-	</table>
-</form>
+			<input type = 'submit' class="btn btn-primary" value = "Input Data"/>
+	</form>
+</div>
 @endsection

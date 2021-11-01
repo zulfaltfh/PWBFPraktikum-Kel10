@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Kota;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use App\Models\session;
 
 class UserController extends Controller
 {

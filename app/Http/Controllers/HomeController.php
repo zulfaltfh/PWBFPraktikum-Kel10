@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\modelbarang;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\session;
 
 class HomeController extends Controller
 {

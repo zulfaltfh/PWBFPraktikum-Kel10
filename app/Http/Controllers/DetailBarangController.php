@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\detailBarang;
 use Illuminate\Http\Request;
+use App\Models\session;
 
 class DetailBarangController extends Controller
 {
