@@ -51,8 +51,11 @@
                             </td> -->
                             <td>
                             <form action="{{ url('/edit_barang_pegawai') }}" method="get">
-                                
                                 <input hidden value="{{ $item->id }}" name="id">
+                                <input hidden value="{{ $item->nama_bar }}" name="nama_bar">
+                                <input hidden value="{{ $item->stock_barang }}" name="stock_barang">
+                                <input hidden value="{{ $item->harga_beli_bar }}" name="harga_beli_bar">
+                                <input hidden value="{{ $item->harga_jual_bar }}" name="harga_jual_bar">
                                 <button type="submit" class="btn btn-info btn-sm")>edit</button>
 
                             </form>
