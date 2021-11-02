@@ -24,11 +24,16 @@ class LoginController extends Controller
         $data = $request;
         // echo $data['nama_user'];
         // echo $data['id'];
-        $username = User::all()->where('nama_user','=',$data['nama_user']);
-        $password = User::all()->where('id','=',$data['id']);
-        $role1    = User::find($request)->where('id_role',1);//statis
+        $a        = User::all()->where('username','=',$data['username']);
+        $null = '[]';
+        if ($a!=$null) {
+        $username = User::find($a)->where('username','=',$data['username']);
+        $password = User::find($a)->where('id','=',$data['id']);
+        $role1    = User::find($username)->where('id_role',1);//statis
+        // echo $username;
+        // echo $password;
         // echo $role1;
-        if($username != $password ){ return redirect('/');}
+        if($username != $password ){ }
         else
         {
         $asd = $request->input();
@@ -38,6 +43,8 @@ class LoginController extends Controller
         }
         if ($role1==$username) {return redirect('homePegawai');} 
         else{return redirect('homePemilik');}
+        }
+        else{return redirect('/');}
 
     }
     public function logout()

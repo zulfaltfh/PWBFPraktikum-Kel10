@@ -14,7 +14,7 @@
               @csrf
               <div class="form-floating">
                 <input type="text" name="session" value="1" hidden="">
-                <input type="text" name="nama_user" class="form-control" name="nomor ID" id="email" placeholder="name@example.com" autofocus required>
+                <input type="text" name="username" class="form-control" id="username" autofocus required>
                 <label for="floatingInput">Username</label>
               </div>
               <br>

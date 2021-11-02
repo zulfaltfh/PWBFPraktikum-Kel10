@@ -67,14 +67,6 @@ class BarangController extends Controller
         $item->harga_jual_bar   = $request->input('harga_jual_bar');
         $item->id_jb            = $request->input('id_jb');
         $item->save();
-    //     ->update([
-    //     'id'                => $request->id,
-    //     'nama_bar'          => $request->nama_bar,
-    //     'stock_barang'      => $request->stock_barang,
-    //     'harga_beli_bar'    => $request->harga_beli_bar,
-    //     'harga_jual_bar'    => $request->harga_jual_bar,
-    //     'id_jb'             => $request->id_jb
-    // ]);
         
         return redirect('homePegawai');
     }

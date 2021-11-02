@@ -14,7 +14,12 @@
             <form action="{{ url('/create_User_pegawai') }}" method="POST">
               @csrf
               <div class="form-floating">
-                <input type="text" name="email" class="form-control" name="nomor ID" id="email" placeholder="name@example.com" autofocus required>
+                <input type="text" name="nama_user" class="form-control" id="nama_user" placeholder="nama_user" autofocus required>
+                <label for="floatingInput">Nama Anda</label>
+              </div> 
+              <br>
+              <div class="form-floating">
+                <input type="text" name="email" class="form-control" name="nomor ID" id="email" placeholder="name@example.com"  required>
                 <label for="floatingInput">Email</label>
               </div>
 			  <br>
@@ -28,10 +33,7 @@
                 <label for="floatingPassword">Password</label>
               </div>
 			  
-              <div class="form-floating">
-                <input type="text" name="nama_user" class="form-control" id="nama_user" placeholder="nama_user" required>
-                <label for="floatingInput">Nama User</label>
-              </div> 
+              
 			  <br>
               <div class="form-floating">
                 <input type="text" name="alamat_user" class="form-control" id="alamat_user" placeholder="alamat_user" required>
