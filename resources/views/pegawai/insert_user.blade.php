@@ -47,31 +47,21 @@
 			  <br>
               <div class="form-floating">
 				<p style="color:white">Kota</p>
-                <select name="id_kota">
-					@foreach($table_kota as $item)
-					<option name="id_kota" value="{{ $item->id }}">
-					<?php 
-					if ($item->id==1){echo "SBY";} 
-					if ($item->id==2){echo "JBG";} 
-					?>
-					</option>
-					@endforeach
-				</select>
+              <select class="form-select form-select-default" name="id_kota" aria-label=".form-select-default">
+                @foreach($table_kota as $item)
+                  <option value="{{ $item->id }}">{{ $item->nama_kota }}</option>
+                @endforeach
+              </select>
                 <label for="floatingInput">Kota</label>
               </div> 
 			  <br>
               <div class="form-floating">
                 <p style="color:white">Role</p>
-				<select name="id_role">
-					@foreach($table_role as $item)
-					<option name="id_role" value="{{ $item->id }}">
-					<?php 
-					if ($item->id==2){echo "Pemilik";} 
-					if ($item->id==1){echo "Pegawai";} 
-					?>
-					</option>
-					@endforeach
-				</select>
+                <select class="form-select form-select-default" name="id_role" aria-label=".form-select-default">
+                  @foreach($table_role as $item)
+                    <option value="{{ $item->id }}">{{ $item->role }}</option>
+                  @endforeach
+                </select>
                 <label for="floatingInput">Kota</label>
               </div> 
     

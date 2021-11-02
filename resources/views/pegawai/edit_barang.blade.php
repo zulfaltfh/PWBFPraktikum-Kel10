@@ -11,7 +11,7 @@
 				<input type="hidden" class="form-control" name='id' value="{{ $request->id }}"/>
 					<label for="inputNamaBarang" class="col-sm-2 col-form-label ">Nama Barang</label>
 					<div class="col-sm-4">
-					  <input type="text" placeholder="{{ $request->nama_bar }}" class="form-control" id="inputNamaBarang" name='nama_bar'>
+					  <input type="text" placeholder="{{ $request->nama_bar }}" value="{{ $request->nama_bar }}" class="form-control" id="inputNamaBarang" name='nama_bar'>
 					</div>
 				</div>
 				<div class="row mb-3">
@@ -28,19 +28,19 @@
 				<div class="row mb-3">
 					<label for="inputStokBarang" class="col-sm-2 col-form-label">Stok Barang</label>
 					<div class="col-sm-4">
-					  <input type="text" placeholder="{{ $request->stock_barang }}" class="form-control" id="inputStokBarang"  name='stock_barang'>
+					  <input type="text" placeholder="{{ $request->stock_barang }}" value="{{ $request->stock_barang }}" class="form-control" id="inputStokBarang"  name='stock_barang'>
 					</div>
 				</div>
 				<div class="row mb-3">
 					<label for="inputHargaBeli" class="col-sm-2 col-form-label">Harga Beli</label>
 					<div class="col-sm-4">
-					  <input type="text" placeholder="{{ $request->harga_beli_bar }}" class="form-control" id="inputHargaBeli"  name='harga_beli_bar'>
+					  <input type="text" placeholder="{{ $request->harga_beli_bar }}" value="{{ $request->harga_beli_bar }}" class="form-control" id="inputHargaBeli"  name='harga_beli_bar'>
 					</div>
 				</div>
 				<div class="row mb-3">
 					<label for="inputHargaJual" class="col-sm-2 col-form-label">Harga Jual</label>
 					<div class="col-sm-4">
-					  <input type="text" placeholder="{{ $request->harga_jual_bar }}" class="form-control" id="inputHargaJual" name='harga_jual_bar'>
+					  <input type="text" placeholder="{{ $request->harga_jual_bar }}" value="{{ $request->harga_jual_bar }}" class="form-control" id="inputHargaJual" name='harga_jual_bar'>
 					</div>
 				</div>
 			</div>
