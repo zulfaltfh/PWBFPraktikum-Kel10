@@ -35,20 +35,14 @@
                             <td>{{ $item->harga_jual_bar }}</td>
                             <td>
                                 <?php 
-                                // $z = App\Models\jenisBarang::all()->where('id'->$item->id_jb);
-                                // echo $z->jenis_barang;
-                                if ($item->id_jb==1){echo "Baju";} 
-                                if ($item->id_jb==2){echo "Celana";} 
-                                if ($item->id_jb==3){echo "Topi";} 
+                                echo $item->id_jb;
+                                $a = App\Models\jenisbarang::all()->where('id','=',$item->id_jb);
+                                echo $a;
                                 ?>
                             </td>
                             <td>
                               <button class="btn btn-primary btn-sm">Pesan</button>
                             </td>
-                            <!-- <td>
-                              <a href="{{ url('/edit_barang_pegawai',$item->id) }}"><button type="submit" class="btn btn-info btn-sm")>edit</button>
-                              </a>
-                            </td> -->
                             <td>
                             <form action="{{ url('/edit_barang_pegawai') }}" method="get">
                                 <input hidden value="{{ $item->id }}" name="id">
