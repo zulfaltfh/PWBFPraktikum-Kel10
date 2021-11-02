@@ -62,7 +62,7 @@
                     <option value="{{ $item->id }}">{{ $item->role }}</option>
                   @endforeach
                 </select>
-                <label for="floatingInput">Kota</label>
+                <label for="floatingInput">Role</label>
               </div> 
     
         </div>
