@@ -4,10 +4,6 @@
 
 <div class="container">
 	<div class="row justify-content-center">
-	  <div class="title" style="align-content: center">
-		<h2>Sistem Informasi Pengadaan Barang</h2>
-		<h2>Fancy Boutique</h2>
-	  </div>
 	  <div class="col-md-5">
 		<main class="form-signin">			
 			<h1 class="h4 mb-3 fw-normal">Register</h1>
