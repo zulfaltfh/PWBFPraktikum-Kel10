@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class historyStock extends Model
 {
-    //use HasFactory;
+    use HasFactory;
 
     protected $table = 'table_history_stock';
 

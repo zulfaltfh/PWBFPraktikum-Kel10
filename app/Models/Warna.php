@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Warna extends Model
 {
-    //use HasFactory;
+    use HasFactory;
 
     protected $table = 'table_warna';
 

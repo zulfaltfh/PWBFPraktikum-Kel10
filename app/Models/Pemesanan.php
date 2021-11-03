@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pemesanan extends Model
 {
-    //use HasFactory;
+    use HasFactory;
 
     protected $table = 'table_pemesanan';
 

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class detailPenerimaan extends Model
 {
-    //use HasFactory;
+    use HasFactory;
 
     protected $table = 'detail_penerimaan';
 
