@@ -23,7 +23,7 @@
                             <th>Lapor</th>
                             <th>Edit</th>
                             <th>Delete</th>
-                        </tr>
+                            </tr>
                         </thead>
                         <tbody>
                          @foreach($table_barang as $item)
@@ -37,7 +37,8 @@
                                 <?php 
                                 echo $item->id_jb;
                                 $a = App\Models\jenisbarang::all()->where('id','=',$item->id_jb);
-                                echo $a;
+                                $b = $a;
+                                echo $b;
                                 ?>
                             </td>
                             <td>
