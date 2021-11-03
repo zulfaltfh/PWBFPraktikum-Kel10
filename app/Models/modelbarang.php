@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
  
 class modelbarang extends Model
 {
+    use HasFactory;
     //select
     protected $table = 'table_barang'; 
 

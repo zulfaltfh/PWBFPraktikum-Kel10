@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kota extends Model
 {
-    //use HasFactory;
+    use HasFactory;
 
     protected $table = 'table_kota';
 
