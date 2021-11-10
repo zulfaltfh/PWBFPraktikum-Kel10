@@ -15,11 +15,13 @@ class PenerimaanController extends Controller
      */
     public function index()
     {
-        
         $auth = session::all();
         $z = '[]';
-        if($auth==$z){return redirect('/');}
-        return view('pegawai.penerimaan');
+        if($auth==$z){
+            return redirect('/');
+        }
+
+        return view('pegawai/');
     }
 
     /**

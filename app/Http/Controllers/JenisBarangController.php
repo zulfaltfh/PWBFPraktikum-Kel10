@@ -19,7 +19,7 @@ class JenisBarangController extends Controller
         $auth = session::all();
         $z = '[]';
         if($auth==$z){return redirect('/');}
-        else{return view('pegawai.jenis_barang', ['a'=>$a]);}
+        else{return view('pegawai/JenisBarang/jenis_barang', ['a'=>$a]);}
     }
 
     /**
@@ -28,7 +28,7 @@ class JenisBarangController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function insert(){
-        return view('pegawai.insert_jenis_barang');
+        return view('pegawai/JenisBarang/insert_jenis_barang');
     }
 
     public function create(Request $request)

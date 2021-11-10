@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Supplier;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use App\Models\session;
+
 
 class SupplierController extends Controller
 {
@@ -15,10 +17,12 @@ class SupplierController extends Controller
      */
     public function index()
     {
+        $supplier = Supplier::with('Kota')->get();
+         
         $auth = session::all();
         $z = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.');
+        return view('');
     }
 
     /**

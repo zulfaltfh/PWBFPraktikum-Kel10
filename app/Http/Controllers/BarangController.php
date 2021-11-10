@@ -20,7 +20,7 @@ class BarangController extends Controller
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
-        else{return view('pegawai.barang', ['table_barang'=>$table_barang], ['table_barang1'=>$table_barang1]);}
+        else{return view('pegawai.Barang.barang', ['table_barang'=>$table_barang], ['table_barang1'=>$table_barang1]);}
     }
     public function tes($id)
     {
@@ -33,7 +33,7 @@ class BarangController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         $table_jenis_barang = jenisBarang::all();
-        return view('pegawai.insert_barang', ['table_jenis_barang'=>$table_jenis_barang]);
+        return view('pegawai.Barang.insert_barang', ['table_jenis_barang'=>$table_jenis_barang]);
     }
     public function create(Request $request){
         $data = $request->input();//insert into
@@ -57,7 +57,7 @@ class BarangController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         
-        return view('pegawai.edit_barang', ['a'=>$a],['request'=>$request]);
+        return view('pegawai.Barang.edit_barang', ['a'=>$a],['request'=>$request]);
     }
     public function update(Request $request,$id){
         $item = modelbarang::find($id);
