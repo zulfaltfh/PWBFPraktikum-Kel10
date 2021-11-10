@@ -33,14 +33,7 @@
                             <td>{{ $item->stock_barang }}</td>
                             <td>{{ $item->harga_beli_bar }}</td>
                             <td>{{ $item->harga_jual_bar }}</td>
-                            <td>
-                                <?php 
-                                echo $item->id_jb;
-                                $a = App\Models\jenisbarang::all()->where('id','=',$item->id_jb);
-                                $b = $a;
-                                echo $b;
-                                ?>
-                            </td>
+                            <td>{{ $item->jenisBarang->jenis_barang }}</td>
                             <td>
                               <button class="btn btn-primary btn-sm">Pesan</button>
                             </td>
