@@ -18,7 +18,7 @@ class HistoryStockController extends Controller
         $auth = session::all();
         $z = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.');
+        return view('pegawai.', ['data'=>$data]);
     }
 
     /**

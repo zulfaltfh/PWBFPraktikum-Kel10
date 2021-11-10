@@ -15,10 +15,11 @@ class PemesananController extends Controller
      */
     public function index()
     {
+        $data = Pemesanan::all();
         $auth = session::all();
         $z = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.');
+        return view('pegawai.', ['data'=>$data]);
     }
 
     /**
@@ -82,8 +83,9 @@ class PemesananController extends Controller
      * @param  \App\Models\Pemesanan  $pemesanan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pemesanan $pemesanan)
-    {
-        //
+    public function destroy($id){
+        $item = Pemesanan::find($id);
+        $item->delete();
+        return redirect('homePegawai');
     }
 }

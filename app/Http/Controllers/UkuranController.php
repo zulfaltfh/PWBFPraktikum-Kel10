@@ -15,10 +15,11 @@ class UkuranController extends Controller
      */
     public function index()
     {
+        $data = Ukuran::all();
         $auth = session::all();
         $z = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.');
+        return view('pegawai.', ['data'=>$data]);
     }
 
     /**

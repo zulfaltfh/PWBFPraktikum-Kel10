@@ -15,10 +15,11 @@ class WarnaController extends Controller
      */
     public function index()
     {
+        $data = Warna::all();
         $auth = session::all();
         $z = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.');
+        return view('pegawai.', ['data'=>$data]);
     }
 
     /**
@@ -82,8 +83,9 @@ class WarnaController extends Controller
      * @param  \App\Models\Warna  $warna
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Warna $warna)
-    {
-        //
+    public function destroy($id){
+        $item = Warna::find($id);
+        $item->delete();
+        return redirect('homePegawai');
     }
 }

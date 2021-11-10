@@ -15,10 +15,11 @@ class DetailPemesananController extends Controller
      */
     public function index()
     {
+        $data = detailPemesanan::all();
         $auth = session::all();
         $z = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.');
+        return view('pegawai.', ['data'=>$data]);
     }
 
     /**

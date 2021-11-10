@@ -15,10 +15,11 @@ class DetailBarangController extends Controller
      */
     public function index()
     {
+        $data = detailBarang::all();
         $auth = session::all();
         $z = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.');
+        return view('pegawai.', ['data'=>$data]);
     }
 
     /**

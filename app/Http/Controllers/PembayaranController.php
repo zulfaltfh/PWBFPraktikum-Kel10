@@ -15,10 +15,11 @@ class PembayaranController extends Controller
      */
     public function index()
     {
+        $data = Pembayaran::all();
         $auth = session::all();
         $z = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.');
+        return view('pegawai.', ['data'=>$data]);
     }
 
     /**
@@ -82,8 +83,9 @@ class PembayaranController extends Controller
      * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Pembayaran $pembayaran)
-    {
-        //
+    public function destroy($id){
+        $item = Pembayaran::find($id);
+        $item->delete();
+        return redirect('homePegawai');
     }
 }
