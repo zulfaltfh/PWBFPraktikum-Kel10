@@ -16,6 +16,7 @@ class BarangController extends Controller
     {
         $table_barang = modelbarang::all();
         $table_barang1 = jenisBarang::all();
+        // $table_barang = modelbarang::with('jenisBarang')->get();
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
