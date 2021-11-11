@@ -15,10 +15,19 @@ class HistoryStockController extends Controller
      */
     public function index()
     {
-        $auth = session::all();
-        $z = '[]';
+        $data           = historyStock::all();
+        $session        = session::all()->where('role',1);
+        $auth           = session::all();
+        $z              = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.', ['data'=>$data]);
+        if ($session==$z) 
+         {
+            return view('pemilik.Barang.datailpemesanan', ['data'=>$data]);
+         }
+        else
+         {
+            return view('pegawai.Barang.datailpemesanan', ['data'=>$data]);
+         }
     }
 
     /**

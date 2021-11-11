@@ -15,11 +15,19 @@ class KotaController extends Controller
      */
     public function index()
     {
-        $a = Kota::all();
-        $auth = session::all();
-        $z = '[]';
+        $a              = Kota::all();
+        $session        = session::all()->where('role',1);
+        $auth           = session::all();
+        $z              = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.kota', ['a'=>$a]);
+        if ($session==$z) 
+         {
+            return view('pemilik.JenisBarang.jenis_barang', ['a'=>$a]);
+         }
+        else
+         {
+            return view('pegawai.JenisBarang.jenis_barang', ['a'=>$a]);
+         }
     }
 
     /**

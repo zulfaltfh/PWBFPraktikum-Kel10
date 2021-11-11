@@ -31,7 +31,7 @@
 
                     <br>
                     <center>
-                        <p style="color:#242424">Belum punya akun ? Silahkan <a href="{{ url('/input_User_pegawai') }}">registrasi</a></p>
+                        <p style="color:#242424">Belum punya akun ? Silahkan <a href="{{ url('/input_User') }}">registrasi</a></p>
                     </center>
                   </form>
             </div>

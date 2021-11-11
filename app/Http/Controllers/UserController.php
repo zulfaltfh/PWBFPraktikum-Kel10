@@ -17,11 +17,19 @@ class UserController extends Controller
      */
     public function index()
     {
-        $table_user = User::all();
-        $auth = session::all();
-        $z = '[]';
+        $table_user     = User::all();
+        $session        = session::all()->where('role',1);
+        $auth           = session::all();
+        $z              = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.user',['table_user'=>$table_user]);
+        if ($session==$z) 
+         {
+            return view('pemilik.Barang.datailpemesanan', ['table_user'=>$table_user]);
+         }
+        else
+         {
+            return view('pegawai.Barang.datailpemesanan', ['table_user'=>$table_user]);
+         }
     }
 
     /**

@@ -14,13 +14,21 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $table_barang = modelbarang::all();
-        $table_barang1 = jenisBarang::all();
-        // $table_barang = modelbarang::with('jenisBarang')->get();
-        $auth = session::all();
-        $z = '[]';//null
+        $table_barang   = modelbarang::all();
+        $auth           = session::all();
+        $session        = session::all()->where('role',1);
+        $z              = '[]';//null
+
         if($auth==$z){return redirect('/');}
-        else{return view('pegawai.Barang.barang', ['table_barang'=>$table_barang], ['table_barang1'=>$table_barang1]);}
+        if ($session==$z) 
+         {
+            return view('pemilik.Barang.barang', ['table_barang'=>$table_barang]);
+         }
+        else
+         {
+            return view('pegawai.Barang.barang', ['table_barang'=>$table_barang]);
+         }
+            
     }
     public function tes($id)
     {

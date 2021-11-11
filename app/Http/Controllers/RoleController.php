@@ -15,11 +15,19 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $a = Role::all();
-        $auth = session::all();
-        $z = '[]';
+        $a              = Role::all();
+        $session        = session::all()->where('role',1);
+        $auth           = session::all();
+        $z              = '[]';
         if($auth==$z){return redirect('/');}
-        return view('pegawai.role', ['a'=>$a]);
+        if ($session==$z) 
+         {
+            return view('pemilik.Barang.datailpemesanan', ['a'=>$a]);
+         }
+        else
+         {
+            return view('pegawai.Barang.datailpemesanan', ['a'=>$a]);
+         }
     }
 
     /**

@@ -29,20 +29,33 @@ class LoginController extends Controller
         if ($a!=$null) {
             $username = User::find($a)->where('username','=',$data['username']);
             $password = User::find($a)->where('password','=',$data['id']);
-            $role1    = User::find($username)->where('id_role',1);//statis
+            $role1    = User::find($username)->where('id_role',1);
             // echo $username;
             // echo $password;
             // echo $role1;
             if($username != $password ){return redirect('/');}
             else
             {
-                $asd = $request->input();
-                $session = new session;
-                $session->id       = $asd['session'];
-                $session->save();
+                if ($role1==$username) 
+                {
+                    $asd = $request->input();
+                    $session = new session;
+                    $session->id         = $asd['session'];
+                    $session->name       = $asd['username'];//username
+                    $session->role       = "1";//role
+                    $session->save();
+                }
+                else 
+                {
+                    $asd = $request->input();
+                    $session = new session;
+                    $session->id         = $asd['session'];
+                    $session->name       = $asd['username'];
+                    $session->role       = "2";
+                    $session->save();
+                }
             }
-            if ($role1==$username) {return redirect('homePegawai');} 
-            else {return redirect('homePemilik');}
+            return redirect('home');
         }
         else{return redirect('/');}
 
