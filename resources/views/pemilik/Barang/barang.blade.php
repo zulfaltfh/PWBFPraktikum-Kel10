@@ -3,7 +3,7 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Table</h1>
+            <h1 class="mt-4">Table Barang Pemilik</h1>
             <a href="{{ url('/input_barang_pegawai') }}"><button class="btn btn-primary btn-sm" style="float: left">Input Barang</button></a><br><br>
             <div class="card mb-4">
                 <div class="card-header">

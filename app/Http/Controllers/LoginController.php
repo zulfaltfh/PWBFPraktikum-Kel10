@@ -26,10 +26,11 @@ class LoginController extends Controller
         // echo $data['id'];
         $a        = User::all()->where('username','=',$data['username']);
         $null = '[]';
-        if ($a!=$null) {
+        if ($a!=$null) 
+        {
             $username = User::find($a)->where('username','=',$data['username']);
-            $password = User::find($a)->where('password','=',$data['id']);
-            $role1    = User::find($username)->where('id_role',1);
+            $password = User::find($a)->where('password','=',$data['password']);
+            $role1    = User::find($username)->where('id_role',1);// 1 = pegawai
             // echo $username;
             // echo $password;
             // echo $role1;

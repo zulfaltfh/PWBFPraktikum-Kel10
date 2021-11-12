@@ -14,9 +14,9 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $table_barang   = modelbarang::all();
-        $auth           = session::all();
-        $session        = session::all()->where('role',1);
+        $table_barang   = modelbarang::all();//data untuk ditampilkan
+        $auth           = session::all();//kunci
+        $session        = session::all()->where('role',1);//menentukan role
         $z              = '[]';//null
 
         if($auth==$z){return redirect('/');}
