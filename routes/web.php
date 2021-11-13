@@ -25,49 +25,49 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 
 // barang
-Route::get ('/home',                        'App\Http\Controllers\BarangController@index');
-Route::get ('/home1',                       'App\Http\Controllers\BarangController@index');
+Route::get ('/Home',                        'App\Http\Controllers\BarangController@index');
+Route::get ('/Home1',                       'App\Http\Controllers\BarangController@index');
 //input barang baru untuk 
-Route::post('/create_barang',               'App\Http\Controllers\BarangController@create');
-Route::get ('/input_barang',                'App\Http\Controllers\BarangController@insert');
+Route::post('/create-Barang',               'App\Http\Controllers\BarangController@create');
+Route::get ('/input-Barang',                'App\Http\Controllers\BarangController@insert');
 //update barang untuk 
-Route::get('/edit_barang',            		'App\Http\Controllers\BarangController@edit');
-Route::post('/update_barang/{id}',          'App\Http\Controllers\BarangController@update');
+Route::get('/edit-Barang',            		'App\Http\Controllers\BarangController@edit');
+Route::post('/update-Barang/{id}',          'App\Http\Controllers\BarangController@update');
 //hapus barang untuk 
-Route::get('/destroy_barang/{id}',       	'App\Http\Controllers\BarangController@destroy');
+Route::get('/destroy-Barang/{id}',       	'App\Http\Controllers\BarangController@destroy');
 
 // jenis barang
-Route::get('/Jenis_Barang',                 'App\Http\Controllers\JenisBarangController@Index');
+Route::get('/JenisBarang',                 'App\Http\Controllers\JenisBarangController@Index');
 //input jenis barang baru untuk 
-Route::post('/create_jenis_barang',         'App\Http\Controllers\JenisBarangController@create');
-Route::get('/input_jenis_barang',           'App\Http\Controllers\JenisBarangController@insert');
+Route::post('/create-JenisBarang',         'App\Http\Controllers\JenisBarangController@create');
+Route::get('/input-JenisBarang',           'App\Http\Controllers\JenisBarangController@insert');
 //update jenis barang untuk 
-Route::post('/edit_jenis_barang/{id}',      'App\Http\Controllers\BarangController@edit');
-Route::get('/update_jenis_barang/{id}',     'App\Http\Controllers\BarangController@update');
+Route::post('/edit-JenisBarang/{id}',      'App\Http\Controllers\BarangController@edit');
+Route::get('/update-JenisBarang/{id}',     'App\Http\Controllers\BarangController@update');
 //hapus jenis barang
-Route::get('/destroy_jenis_barang/{id}', 	'App\Http\Controllers\JenisBarangController@destroy');
+Route::get('/destroy-JenisBarang/{id}', 	'App\Http\Controllers\JenisBarangController@destroy');
 
 //pemesanan
-Route::get('/pemesanan',                    'App\Http\Controllers\PemesananController@index');
+Route::get('/Pemesanan',                    'App\Http\Controllers\PemesananController@index');
 //input pemesanan 
-Route::post('/create_pemesanan',            'App\Http\Controllers\PemesananController@create');
-Route::get('/input_pemesanan',              'App\Http\Controllers\PemesananController@insert');
+Route::post('/create-Pemesanan',            'App\Http\Controllers\PemesananController@create');
+Route::get('/input-Pemesanan',              'App\Http\Controllers\PemesananController@insert');
 //update jenis barang untuk 
-Route::post('/edit_pemesanan/{id}',         'App\Http\Controllers\PemesananController@edit');
-Route::get('/update_pemesanan/{id}',        'App\Http\Controllers\PemesananController@update');
+Route::post('/edit-Pemesanan/{id}',         'App\Http\Controllers\PemesananController@edit');
+Route::get('/update-Pemesanan/{id}',        'App\Http\Controllers\PemesananController@update');
 //hapus pemesanan
-Route::get('/destroy_pemesanan/{id}',       'App\Http\Controllers\PemesananController@destroy');
+Route::get('/destroy-Pemesanan/{id}',       'App\Http\Controllers\PemesananController@destroy');
 
 //User
 Route::get('/User',            	 	        'App\Http\Controllers\UserController@index');
 //input User 
-Route::post('/create_User',              	'App\Http\Controllers\UserController@create');
-Route::get('/input_User',               	'App\Http\Controllers\UserController@insert');
+Route::post('/create-User',              	'App\Http\Controllers\UserController@create');
+Route::get('/input-User',               	'App\Http\Controllers\UserController@insert');
 //update user untuk 
-Route::post('/edit_User/{id}',          	'App\Http\Controllers\UserController@edit');
-Route::get('/update_User/{id}',         	'App\Http\Controllers\UserController@update');
+Route::post('/edit-User/{id}',          	'App\Http\Controllers\UserController@edit');
+Route::get('/update-User/{id}',         	'App\Http\Controllers\UserController@update');
 //hapus User
-Route::get('/destroy_User/{id}',        	'App\Http\Controllers\UserController@destroy');
+Route::get('/destroy-User/{id}',        	'App\Http\Controllers\UserController@destroy');
 
 //Warna
 Route::get('/Warna',                    	'App\Http\Controllers\WarnaController@index');

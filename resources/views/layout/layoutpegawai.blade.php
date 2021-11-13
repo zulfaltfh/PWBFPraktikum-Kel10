@@ -37,10 +37,10 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Setting Profile</a></li>
-                        <li><a class="dropdown-item" href="{{ url('/User_pegawai') }}">Users</a></li>
+                        <li><a class="dropdown-item" href="{{ url('/User') }}">Users</a></li>
                         <li><hr class="dropdown-divider" /></li>
                         <li><a class="dropdown-item" href="{{ url('/logout') }}">Logout</a></li>
-                        <!-- <li><form action="{{ url('/User_pegawai') }}"><input class="dropdown-item" type="submit"/></form></li> -->
+                        <!-- <li><form action="{{ url('/User') }}"><input class="dropdown-item" type="submit"/></form></li> -->
                     </ul>
                 </li>
             </ul>
@@ -51,7 +51,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="{{ url('/homePegawai') }}">
+                            <a class="nav-link" href="{{ url('/Home') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -66,12 +66,12 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="{{ url('/homePegawai') }}">Barang</a>
-                                    <a class="nav-link" href="{{ url('/Jenis_Barang_Pegawai') }}">Jenis Barang</a>
-                                    <a class="nav-link" href="{{ url('/Kota_pegawai') }}">Kota</a>
-                                    {{-- <a class="nav-link" href="{{ url('/Role_pegawai') }}">Role User</a> --}}
-                                    <a class="nav-link" href="{{ url('/pemesanan_pegawai') }}">Pemesanan</a>
-                                    <a class="nav-link" href="{{ url('/pembayaran_pegawai') }}">Pembayaran</a>
+                                    <a class="nav-link" href="{{ url('/Home') }}">Barang</a>
+                                    <a class="nav-link" href="{{ url('/JenisBarang') }}">Jenis Barang</a>
+                                    <a class="nav-link" href="{{ url('/Kota') }}">Kota</a>
+                                    {{-- <a class="nav-link" href="{{ url('/Role') }}">Role User</a> --}}
+                                    <a class="nav-link" href="{{ url('/Pemesanan') }}">Pemesanan</a>
+                                    <a class="nav-link" href="{{ url('/Pembayaran') }}">Pembayaran</a>
                                 </nav>
                             </div>
                         </div>

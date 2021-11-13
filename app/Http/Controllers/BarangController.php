@@ -14,7 +14,7 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $table_barang   = modelbarang::all();//data untuk ditampilkan
+        $table_barang   = modelbarang::with('jenisBarang')->get();//data untuk ditampilkan
         $auth           = session::all();//kunci
         $session        = session::all()->where('role',1);//menentukan role
         $z              = '[]';//null
@@ -56,7 +56,7 @@ class BarangController extends Controller
         $barang->id_jb          = $data['id_jb'];
 		$barang->save();//tombol run sqlyog
 
-        return redirect('homePegawai');
+        return redirect('/Home');
 			
     }
     public function edit(Request $request){
@@ -77,12 +77,12 @@ class BarangController extends Controller
         $item->id_jb            = $request->input('id_jb');
         $item->save();
         
-        return redirect('homePegawai');
+        return redirect('/Home');
     }
     public function destroy($id){
         $item = modelbarang::find($id);
         $item->delete();
-        return redirect('homePegawai');
+        return redirect('/Home');
     }
 
 }

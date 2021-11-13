@@ -4,7 +4,7 @@
 
 <div class="container-fluid px-4">
 	<h1 class="mt-2 mb-4">Edit Barang</h1>
-	<form action = "{{ url('/update_barang_pegawai',$request->id) }}" method = "post">
+	<form action = "{{ url('/update-Barang',$request->id) }}" method = "post">
 		@csrf
 			<div class="content">
 				<div class="row mb-3">
