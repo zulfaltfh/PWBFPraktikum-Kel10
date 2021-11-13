@@ -22,11 +22,17 @@ class JenisBarangController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.JenisBarang.jenis_barang', ['a'=>$a]);
+            return view('pemilik.JenisBarang.jenis_barang', [
+                'title' => 'Data Jenis Barang',
+                'a'=>$a
+            ]);
          }
         else
          {
-            return view('pegawai.JenisBarang.jenis_barang', ['a'=>$a]);
+            return view('pegawai.JenisBarang.jenis_barang', [
+                'title' => 'Data Jenis Barang',
+                'a'=>$a
+            ]);
          }
     }
 
@@ -36,7 +42,15 @@ class JenisBarangController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function insert(){
-        return view('pegawai/JenisBarang/insert_jenis_barang');
+        $a              = jenisBarang::all();
+        $auth           = session::all();
+        $z              = '[]';
+        if($auth==$z){return redirect('/');}
+
+        return view('pegawai/JenisBarang/insert_jenis_barang',[
+            'title' => 'Tambah Data Jenis Barang',
+            'jenis_barang' => $a
+        ]);
     }
 
     public function create(Request $request)
@@ -46,7 +60,7 @@ class JenisBarangController extends Controller
         $barang->jenis_barang   = $data['jenis_barang'];
         $barang->save();
 
-        return redirect('Jenis_Barang_Pegawai');
+        return redirect('JenisBarang');
     }
 
     /**
@@ -104,6 +118,6 @@ class JenisBarangController extends Controller
     {
         $item = jenisBarang::find($id);
         $item->delete();
-        return redirect('Jenis_Barang_Pegawai');
+        return redirect('JenisBarang');
     }
 }
