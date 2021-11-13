@@ -22,11 +22,11 @@ class KotaController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.JenisBarang.jenis_barang', ['a'=>$a]);
+            return view('pemilik.Kota.kota', ['a'=>$a]);
          }
         else
          {
-            return view('pegawai.JenisBarang.jenis_barang', ['a'=>$a]);
+            return view('pegawai.Kota.kota', ['a'=>$a]);
          }
     }
 

@@ -56,7 +56,7 @@ class LoginController extends Controller
                     $session->save();
                 }
             }
-            return redirect('home');
+            return redirect('Home');
         }
         else{return redirect('/');}
 
