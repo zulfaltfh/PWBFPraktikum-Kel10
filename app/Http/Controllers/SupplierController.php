@@ -19,7 +19,8 @@ class SupplierController extends Controller
     public function index()
     {
         $supplier = Supplier::with('Kota')->get();
-         
+        
+        $session        = session::all()->where('role',1);
         $auth = session::all();
         $z = '[]';
         if($auth==$z)
@@ -27,10 +28,21 @@ class SupplierController extends Controller
             return redirect('/');
         }
 
-        return view('pegawai/Supplier/supplier', [
-            'title' => 'Data Supplier',
-            'supplier' => $supplier
-        ]);
+        if ($session==$z)
+        {
+            return view('pemilik/Supplier/supplier', [
+                'title' => 'Data Supplier',
+                'supplier' => $supplier
+            ]);
+        }
+        else
+        {
+            return view('pegawai/Supplier/supplier', [
+                'title' => 'Data Supplier',
+                'supplier' => $supplier
+            ]);
+        }
+        
     }
 
     /**
@@ -64,7 +76,7 @@ class SupplierController extends Controller
         Supplier::create([
             'nama_sup' => $request->nama_sup,
             'alamat_sup' => $request->alamat_sup,
-            'kota' => $request->nama_kota,
+            'id_kota' => $request->id_kota,
             'telp_sup' => $request->telp_sup
         ]);
 
@@ -97,7 +109,7 @@ class SupplierController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('edit-Supplier/{$id}', [
+        return view('pegawai/Supplier/edit', [
             'title' => 'Edit Data Supplier',
             'Supplier' => $supplier,
             'Kota' => $kota
@@ -116,7 +128,7 @@ class SupplierController extends Controller
         Supplier::where('id',$id)->update([
             'nama_sup' => $request->nama_sup,
             'alamat_sup' => $request->alamat_sup,
-            'nama_kota' => $request->nama_kota,
+            'id_kota' => $request->id_kota,
             'telp_sup' => $request->telp_sup
         ]);
 

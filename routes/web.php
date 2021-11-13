@@ -94,8 +94,8 @@ Route::get('/destroy-Ukuran/{id}',      	'App\Http\Controllers\UkuranController@
 //Kota
 Route::get('/Kota',                 		'App\Http\Controllers\KotaController@index');
 //input Kota 
-Route::post('/create-Kota',              	'App\Http\Controllers\KotaController@create');
-Route::get('/input-Kota',               	'App\Http\Controllers\KotaController@insert');
+Route::get('/create-Kota',              	'App\Http\Controllers\KotaController@create');
+Route::post('/input-Kota',               	'App\Http\Controllers\KotaController@store');
 //update Kota untuk 
 Route::post('/edit-Kota/{id}',          	'App\Http\Controllers\KotaController@edit');
 Route::get('/update-Kota/{id}',     		'App\Http\Controllers\KotaController@update');

@@ -16,17 +16,19 @@ class UkuranController extends Controller
     public function index()
     {
         $data           = Ukuran::all();
+        
         $session        = session::all()->where('role',1);
         $auth           = session::all();
         $z              = '[]';
         if($auth==$z){return redirect('/');}
+        
         if ($session==$z) 
          {
-            return view('pemilik.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pemilik/Barang/Ukuran', ['data'=>$data]);
          }
         else
          {
-            return view('pegawai.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pegawai/Barang/Ukuran', ['data'=>$data]);
          }
     }
 

@@ -15,19 +15,27 @@ class KotaController extends Controller
      */
     public function index()
     {
-        $a              = Kota::all();
+        $kota             = Kota::all();
+
         $session        = session::all()->where('role',1);
         $auth           = session::all();
         $z              = '[]';
         if($auth==$z){return redirect('/');}
+
         if ($session==$z) 
-         {
-            return view('pemilik.Kota.kota', ['a'=>$a]);
-         }
+        {
+            return view('pemilik/Kota/kota', [
+                'title' => 'Daftar Kota',
+                'kota' => $kota
+            ]);
+        }
         else
-         {
-            return view('pegawai.Kota.kota', ['a'=>$a]);
-         }
+        {
+            return view('pegawai/Kota/kota', [
+                'title' => 'Daftar Kota',
+                'kota' => $kota
+            ]);
+        }
     }
 
     /**
@@ -37,7 +45,16 @@ class KotaController extends Controller
      */
     public function create()
     {
-        //
+        $kota = Kota::all();
+
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+
+        return view('pegawai/Kota/tambah', [
+            'title' => 'Tambah Kota',
+            'kota' => $kota
+        ]);
     }
 
     /**
@@ -48,7 +65,11 @@ class KotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Kota::create([
+            'nama_kota' => $request->nama_kota
+        ]);
+
+        return redirect('/Kota');
     }
 
     /**
@@ -68,9 +89,14 @@ class KotaController extends Controller
      * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kota $kota)
+    public function edit($id)
     {
-        //
+        $kota = Kota::find($id);
+        
+        return view('pegawai/Kota/edit',[
+            'title' => 'Edit Kota',
+            'kota' => $kota
+        ]);
     }
 
     /**
@@ -80,9 +106,14 @@ class KotaController extends Controller
      * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kota $kota)
+    public function update(Request $request, $id)
     {
-        //
+        Kota::where('id', $id)->update([
+            'nama_kota' => $request->nama_kota,
+            'updated_at' => date("Y-m-d H:i:s")
+        ]);
+        
+        return redirect('/kota');
     }
 
     /**
@@ -94,6 +125,6 @@ class KotaController extends Controller
     public function destroy($id){
         $item = Kota::find($id);
         $item->delete();
-        return redirect('Kota_pegawai');
+        return redirect('/Kota');
     }
 }
