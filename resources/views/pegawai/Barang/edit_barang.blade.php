@@ -45,7 +45,7 @@
 				</div>
 			</div>
 			
-			<input type = 'submit' class="btn btn-primary" value = "Input Data"/>
+			<input type = 'submit' class="btn btn-primary" value = "Simpan"/>
 	</form>
 </div>
 @endsection

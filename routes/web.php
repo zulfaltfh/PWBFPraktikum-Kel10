@@ -116,8 +116,8 @@ Route::get('/destroy-Role/{id}',        	'App\Http\Controllers\RoleController@de
 //Supplier
 Route::get('/Supplier',                 	'App\Http\Controllers\SupplierController@index');
 //input Supplier 
-Route::post('/create-Supplier',             'App\Http\Controllers\SupplierController@create');
-Route::get('/input-Supplier',               'App\Http\Controllers\SupplierController@insert');
+Route::post('/create-Supplier',             'App\Http\Controllers\SupplierController@store');
+Route::get('/input-Supplier',               'App\Http\Controllers\SupplierController@create');
 //update Supplier untuk 
 Route::post('/edit-Supplier/{id}',          'App\Http\Controllers\SupplierController@edit');
 Route::get('/update-Supplier/{id}',     	'App\Http\Controllers\SupplierController@update');

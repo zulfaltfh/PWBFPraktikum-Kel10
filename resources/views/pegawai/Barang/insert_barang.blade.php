@@ -4,7 +4,7 @@
     
 	<div class="container-fluid px-4">
     	<h1 class="mt-2 mb-4">Input Barang Baru</h1>
-		<form action = "{{ url('/create_barang_pegawai') }}" method = "post">
+		<form action = "{{ url('/create-Barang') }}" method = "post">
 			@csrf
 
 			<div class="content">
@@ -45,7 +45,7 @@
 				</div>
 			</div>
 			
-			<input type = 'submit' class = 'btn btn-primary' value = "Input Data"/>	
+			<input type = 'submit' class = 'btn btn-primary' value = "Tambahkan"/>	
 		</form>
 	</div>
 

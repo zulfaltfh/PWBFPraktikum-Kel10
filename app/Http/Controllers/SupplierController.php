@@ -27,7 +27,8 @@ class SupplierController extends Controller
             return redirect('/');
         }
 
-        return view('/Supplier/supplier', [
+        return view('pegawai/Supplier/supplier', [
+            'title' => 'Data Supplier',
             'supplier' => $supplier
         ]);
     }
@@ -41,9 +42,15 @@ class SupplierController extends Controller
     {
         $kota = Kota::all();
 
-        return view('Pegawai/Create-Supplier', [
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+
+        return view('pegawai/Supplier/tambah', [
+            'title' => 'Tambah Data Supplier',
             'kota' => $kota
         ]);
+
     }
 
     /**
@@ -55,13 +62,13 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         Supplier::create([
-            'Nama' => $request->nama_sup,
-            'Alamat' => $request->alamat_sup,
-            'Kota' => $request->nama_kota,
-            'Telepon' => $request->telp_sup
+            'nama_sup' => $request->nama_sup,
+            'alamat_sup' => $request->alamat_sup,
+            'kota' => $request->nama_kota,
+            'telp_sup' => $request->telp_sup
         ]);
 
-        return redirect('/Pegawai/Data-Supplier');
+        return redirect('/Supplier');
     }
 
     /**
@@ -70,9 +77,9 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function show(Supplier $supplier)
+    public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -81,9 +88,20 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit(Supplier $supplier)
+    public function edit($id)
     {
-        //
+        $kota = Kota::all();
+        $supplier = Supplier::find($id);
+
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+
+        return view('edit-Supplier/{$id}', [
+            'title' => 'Edit Data Supplier',
+            'Supplier' => $supplier,
+            'Kota' => $kota
+        ]);
     }
 
     /**
@@ -93,9 +111,16 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $request, $id)
     {
-        //
+        Supplier::where('id',$id)->update([
+            'nama_sup' => $request->nama_sup,
+            'alamat_sup' => $request->alamat_sup,
+            'nama_kota' => $request->nama_kota,
+            'telp_sup' => $request->telp_sup
+        ]);
+
+        return redirect('/update-Supplier');
     }
 
     /**
@@ -107,6 +132,6 @@ class SupplierController extends Controller
     public function destroy($id){
         $item = Supplier::find($id);
         $item->delete();
-        return redirect('homePegawai');
+        return redirect('/Home');
     }
 }
