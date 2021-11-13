@@ -42,7 +42,7 @@ Route::get('/JenisBarang',                 'App\Http\Controllers\JenisBarangCont
 Route::post('/create-JenisBarang',         'App\Http\Controllers\JenisBarangController@create');
 Route::get('/input-JenisBarang',           'App\Http\Controllers\JenisBarangController@insert');
 //update jenis barang untuk 
-Route::post('/edit-JenisBarang/{id}',      'App\Http\Controllers\BarangController@edit');
+Route::post('/edit-JenisBarang',      'App\Http\Controllers\BarangController@edit');
 Route::get('/update-JenisBarang/{id}',     'App\Http\Controllers\BarangController@update');
 //hapus jenis barang
 Route::get('/destroy-JenisBarang/{id}', 	'App\Http\Controllers\JenisBarangController@destroy');
@@ -97,8 +97,8 @@ Route::get('/Kota',                 		'App\Http\Controllers\KotaController@index
 Route::post('/create-Kota',              	'App\Http\Controllers\KotaController@create');
 Route::get('/input-Kota',               	'App\Http\Controllers\KotaController@store');
 //update Kota untuk 
-Route::post('/edit-Kota/{id}',          	'App\Http\Controllers\KotaController@edit');
-Route::get('/update-Kota/{id}',     		'App\Http\Controllers\KotaController@update');
+Route::get('/edit-Kota',          	'App\Http\Controllers\KotaController@edit');
+Route::post('/update-Kota/{id}',     		'App\Http\Controllers\KotaController@update');
 //hapus Kota
 Route::get('/destroy-Kota/{id}',        	'App\Http\Controllers\KotaController@destroy');
 
@@ -119,8 +119,8 @@ Route::get('/Supplier',                 	'App\Http\Controllers\SupplierControlle
 Route::post('/create-Supplier',             'App\Http\Controllers\SupplierController@store');
 Route::get('/input-Supplier',               'App\Http\Controllers\SupplierController@create');
 //update Supplier untuk 
-Route::post('/edit-Supplier/{id}',          'App\Http\Controllers\SupplierController@edit');
-Route::get('/update-Supplier/{id}',     	'App\Http\Controllers\SupplierController@update');
+Route::get('/edit-Supplier/{id}',          'App\Http\Controllers\SupplierController@edit');
+Route::post('/update-Supplier/{id}',     	'App\Http\Controllers\SupplierController@update');
 //hapus Supplier
 Route::get('/destroy-Supplier/{id}',        'App\Http\Controllers\SupplierController@destroy');
 

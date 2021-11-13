@@ -27,6 +27,7 @@
                             <td>{{ $item->nama_kota }}</td>
                             <td>
                                 <form action="{{ url('/edit-Kota') }}" method="get">
+                                    <input hidden value="{{ $item->id }}" name="id">
                                     <input hidden value="{{ $item->nama_kota }}" name="nama_kota">
                                     <button type="submit" class="btn btn-info btn-sm")>edit</button>
                                 </form>

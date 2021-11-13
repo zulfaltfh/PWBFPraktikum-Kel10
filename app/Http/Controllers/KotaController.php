@@ -94,8 +94,7 @@ class KotaController extends Controller
         $kota = Kota::find($id);
         
         return view('pegawai/Kota/edit',[
-            'title' => 'Edit Kota',
-            'kota' => $kota
+            'title' => 'Edit Kota'
         ]);
     }
 
@@ -109,11 +108,10 @@ class KotaController extends Controller
     public function update(Request $request, $id)
     {
         Kota::where('id', $id)->update([
-            'nama_kota' => $request->nama_kota,
-            'updated_at' => date("Y-m-d H:i:s")
+            'nama_kota' => $request->nama_kota
         ]);
         
-        return redirect('/kota');
+        return redirect('/update-Kota');
     }
 
     /**
