@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kota;
 use App\Models\Supplier;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
@@ -21,8 +22,14 @@ class SupplierController extends Controller
          
         $auth = session::all();
         $z = '[]';
-        if($auth==$z){return redirect('/');}
-        return view('');
+        if($auth==$z)
+        {
+            return redirect('/');
+        }
+
+        return view('/Supplier/supplier', [
+            'supplier' => $supplier
+        ]);
     }
 
     /**
@@ -32,7 +39,11 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        $kota = Kota::all();
+
+        return view('Pegawai/Create-Supplier', [
+            'kota' => $kota
+        ]);
     }
 
     /**
@@ -43,7 +54,14 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Supplier::create([
+            'Nama' => $request->nama_sup,
+            'Alamat' => $request->alamat_sup,
+            'Kota' => $request->nama_kota,
+            'Telepon' => $request->telp_sup
+        ]);
+
+        return redirect('/Pegawai/Data-Supplier');
     }
 
     /**

@@ -72,90 +72,90 @@ Route::get('/destroy_User/{id}',        	'App\Http\Controllers\UserController@de
 //Warna
 Route::get('/Warna',                    	'App\Http\Controllers\WarnaController@index');
 //input Warna 
-Route::post('/create_Warna',            	'App\Http\Controllers\WarnaController@create');
-Route::get('/input_Warna',              	'App\Http\Controllers\WarnaController@insert');
+Route::post('/create-Warna',            	'App\Http\Controllers\WarnaController@create');
+Route::get('/input-Warna',              	'App\Http\Controllers\WarnaController@insert');
 //update warna untuk 
-Route::post('/edit_Warna/{id}',         	'App\Http\Controllers\WarnaController@edit');
-Route::get('/update_Warna/{id}',        	'App\Http\Controllers\WarnaController@update');
+Route::post('/edit-Warna/{id}',         	'App\Http\Controllers\WarnaController@edit');
+Route::get('/update-Warna/{id}',        	'App\Http\Controllers\WarnaController@update');
 //hapus Warna
-Route::get('/destroy_Warna/{id}',       	'App\Http\Controllers\WarnaController@destroy');
+Route::get('/destroy-Warna/{id}',       	'App\Http\Controllers\WarnaController@destroy');
 
 //Ukuran
 Route::get('/Ukuran',                   	'App\Http\Controllers\UkuranController@index');
 //input Ukuran 
-Route::post('/create_Ukuran',               'App\Http\Controllers\UkuranController@create');
-Route::get('/input_Ukuran',             	'App\Http\Controllers\UkuranController@insert');
+Route::post('/create-Ukuran',               'App\Http\Controllers\UkuranController@create');
+Route::get('/input-Ukuran',             	'App\Http\Controllers\UkuranController@insert');
 //update ukuran untuk 
-Route::post('/edit_Ukuran/{id}',            'App\Http\Controllers\UkuranController@edit');
-Route::get('/update_Ukuran/{id}',       	'App\Http\Controllers\UkuranController@update');
+Route::post('/edit-Ukuran/{id}',            'App\Http\Controllers\UkuranController@edit');
+Route::get('/update-Ukuran/{id}',       	'App\Http\Controllers\UkuranController@update');
 //hapus Ukuran
-Route::get('/destroy_Ukuran/{id}',      	'App\Http\Controllers\UkuranController@destroy');
+Route::get('/destroy-Ukuran/{id}',      	'App\Http\Controllers\UkuranController@destroy');
 
 //Kota
 Route::get('/Kota',                 		'App\Http\Controllers\KotaController@index');
 //input Kota 
-Route::post('/create_Kota',              	'App\Http\Controllers\KotaController@create');
-Route::get('/input_Kota',               	'App\Http\Controllers\KotaController@insert');
+Route::post('/create-Kota',              	'App\Http\Controllers\KotaController@create');
+Route::get('/input-Kota',               	'App\Http\Controllers\KotaController@insert');
 //update Kota untuk 
-Route::post('/edit_Kota/{id}',          	'App\Http\Controllers\KotaController@edit');
-Route::get('/update_Kota/{id}',     		'App\Http\Controllers\KotaController@update');
+Route::post('/edit-Kota/{id}',          	'App\Http\Controllers\KotaController@edit');
+Route::get('/update-Kota/{id}',     		'App\Http\Controllers\KotaController@update');
 //hapus Kota
-Route::get('/destroy_Kota/{id}',        	'App\Http\Controllers\KotaController@destroy');
+Route::get('/destroy-Kota/{id}',        	'App\Http\Controllers\KotaController@destroy');
 
 //Role
 Route::get('/Role',                 		'App\Http\Controllers\RoleController@index');
 //input Role 
-Route::post('/create_Role',              	'App\Http\Controllers\RoleController@create');
-Route::get('/input_Role',               	'App\Http\Controllers\RoleController@insert');
+Route::post('/create-Role',              	'App\Http\Controllers\RoleController@create');
+Route::get('/input-Role',               	'App\Http\Controllers\RoleController@insert');
 //update Role untuk 
-Route::post('/edit_Role/{id}',          	'App\Http\Controllers\RoleController@edit');
-Route::get('/update_Role/{id}',     		'App\Http\Controllers\RoleController@update');
+Route::post('/edit-Role/{id}',          	'App\Http\Controllers\RoleController@edit');
+Route::get('/update-Role/{id}',     		'App\Http\Controllers\RoleController@update');
 //hapus Role
-Route::get('/destroy_Role/{id}',        	'App\Http\Controllers\RoleController@destroy');
+Route::get('/destroy-Role/{id}',        	'App\Http\Controllers\RoleController@destroy');
 
 //Supplier
 Route::get('/Supplier',                 	'App\Http\Controllers\SupplierController@index');
 //input Supplier 
-Route::post('/create_Supplier',             'App\Http\Controllers\SupplierController@create');
-Route::get('/input_Supplier',               'App\Http\Controllers\SupplierController@insert');
+Route::post('/create-Supplier',             'App\Http\Controllers\SupplierController@create');
+Route::get('/input-Supplier',               'App\Http\Controllers\SupplierController@insert');
 //update Supplier untuk 
-Route::post('/edit_Supplier/{id}',          'App\Http\Controllers\SupplierController@edit');
-Route::get('/update_Supplier/{id}',     	'App\Http\Controllers\SupplierController@update');
+Route::post('/edit-Supplier/{id}',          'App\Http\Controllers\SupplierController@edit');
+Route::get('/update-Supplier/{id}',     	'App\Http\Controllers\SupplierController@update');
 //hapus Supplier
-Route::get('/destroy_Supplier/{id}',        'App\Http\Controllers\SupplierController@destroy');
+Route::get('/destroy-Supplier/{id}',        'App\Http\Controllers\SupplierController@destroy');
 
 //Penerimaan
 Route::get('/Penerimaan',                   'App\Http\Controllers\PenerimaanController@index');
 //input Penerimaan 
-Route::post('/create_Penerimaan',           'App\Http\Controllers\PenerimaanController@create');
-Route::get('/input_Penerimaan',             'App\Http\Controllers\PenerimaanController@insert');
+Route::post('/create-Penerimaan',           'App\Http\Controllers\PenerimaanController@create');
+Route::get('/input-Penerimaan',             'App\Http\Controllers\PenerimaanController@insert');
 //update Penerimaan untuk 
-Route::post('/edit_Penerimaan/{id}',        'App\Http\Controllers\PenerimaanController@edit');
-Route::get('/update_Penerimaan/{id}',       'App\Http\Controllers\PenerimaanController@update');
+Route::post('/edit-Penerimaan/{id}',        'App\Http\Controllers\PenerimaanController@edit');
+Route::get('/update-Penerimaan/{id}',       'App\Http\Controllers\PenerimaanController@update');
 //hapus Penerimaan
-Route::get('/destroy_Penerimaan/{id}',      'App\Http\Controllers\PenerimaanController@destroy');
+Route::get('/destroy-Penerimaan/{id}',      'App\Http\Controllers\PenerimaanController@destroy');
 
 //Pembayaran
 Route::get('/pembayaran',                   'App\Http\Controllers\PembayaranController@index');
 //input Pembayaran 
-Route::post('/create_Pembayaran',                'App\Http\Controllers\PembayaranController@create');
-Route::get('/input_Pembayaran',             'App\Http\Controllers\PembayaranController@insert');
+Route::post('/create-Pembayaran',                'App\Http\Controllers\PembayaranController@create');
+Route::get('/input-Pembayaran',             'App\Http\Controllers\PembayaranController@insert');
 //update Pembayaran untuk 
-Route::post('/edit_Pembayaran/{id}',            'App\Http\Controllers\PembayaranController@edit');
-Route::get('/update_Pembayaran/{id}',       'App\Http\Controllers\PembayaranController@update');
+Route::post('/edit-Pembayaran/{id}',            'App\Http\Controllers\PembayaranController@edit');
+Route::get('/update-Pembayaran/{id}',       'App\Http\Controllers\PembayaranController@update');
 //hapus Pembayaran
-Route::get('/destroy_Pembayaran/{id}',      'App\Http\Controllers\PembayaranController@destroy');
+Route::get('/destroy-Pembayaran/{id}',      'App\Http\Controllers\PembayaranController@destroy');
 
 //History Stock
 Route::get('/HistoryStock',                 'App\Http\Controllers\HistoryStockController@index');
 //input HistoryStock 
-Route::post('/create_HistoryStock',              'App\Http\Controllers\HistoryStockController@create');
-Route::get('/input_HistoryStock',               'App\Http\Controllers\HistoryStockController@insert');
+Route::post('/create-HistoryStock',              'App\Http\Controllers\HistoryStockController@create');
+Route::get('/input-HistoryStock',               'App\Http\Controllers\HistoryStockController@insert');
 //update HistoryStock untuk 
-Route::post('/edit_HistoryStock/{id}',          'App\Http\Controllers\HistoryStockController@edit');
-Route::get('/update_HistoryStock/{id}',     'App\Http\Controllers\HistoryStockController@update');
+Route::post('/edit-HistoryStock/{id}',          'App\Http\Controllers\HistoryStockController@edit');
+Route::get('/update-HistoryStock/{id}',     'App\Http\Controllers\HistoryStockController@update');
 //hapus HistoryStock
-Route::get('/destroy_HistoryStock/{id}',        'App\Http\Controllers\HistoryStockController@destroy');
+Route::get('/destroy-HistoryStock/{id}',        'App\Http\Controllers\HistoryStockController@destroy');
 
 
 
