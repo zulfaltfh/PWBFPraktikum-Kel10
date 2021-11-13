@@ -25,13 +25,6 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->jenis_barang }}</td>
                             <td>
-                                <form action="{{ url('/edit-JenisBarang/{id}') }}" method="get">
-                                    <input hidden value="{{ $item-> }}" name="nama_kota">
-                                    <button type="submit" class="btn btn-info btn-sm")>edit</button>
-                                </form>
-                                </td>
-                            <td>
-                            <td>
                                 <a href="{{ url('/destroy-JenisBarang',$item->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
                                 </a>
                             </td>
