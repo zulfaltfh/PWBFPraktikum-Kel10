@@ -3,8 +3,8 @@
 @section('content')
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4 mb-2">Tabel Supplier</h1>
-        <a href="{{ url('/input-Supplier') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br><br>
+        <h1 class="mt-4 mb-2">Tabel Warna</h1>
+        <a href="{{ url('/input-Warna') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br><br>
         <br>
         <div class="card mb-4">
             <div class="card-header">
@@ -16,10 +16,7 @@
                     <thead>
                         <tr>
                         <th>Id</th>
-                        <th>Perusahaan</th>
-                        <th>Alamat</th>
-                        <th>Kota</th>
-                        <th>Telepon</th>
+                        <th>Warna</th>
                         <th>Edit</th>
                         <th>Delete</th>
                         </tr>
@@ -28,15 +25,10 @@
                      @foreach($supplier as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->nama_sup }}</td>
-                        <td>{{ $item->alamat_sup }}</td>
-                        <td>{{ $item->Kota->nama_kota }}</td>
-                        <td>{{ $item->telp_sup }}</td>
+                        <td>{{ $item->ukuran }}</td>
                         <td>
-                        <form action="{{ url('/edit-Supplier') }}" method="get">
-                            <input hidden value="{{ $item->nama_sup }}" name="nama_sup">
-                            <input hidden value="{{ $item->alamat_sup }}" name="alamat_sup">
-                            <input hidden value="{{ $item->telp_sup }}" name="telp_sup">
+                        <form action="{{ url('/edit-Warna') }}" method="get">
+                            <input hidden value="{{ $item->warna }}" name="warna">
                             <button type="submit" class="btn btn-info btn-sm")>edit</button>
 
                         </form>
@@ -44,7 +36,7 @@
                         @csrf
                         @method('Delete')
                         <td>
-                            <a href="{{ url('/destroy-Supplier',$item->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
+                            <a href="{{ url('/destroy-Warna',$item->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
                         </td> 
                     </tr>
                         @endforeach

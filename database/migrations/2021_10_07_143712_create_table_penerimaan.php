@@ -15,7 +15,6 @@ class CreateTablePenerimaan extends Migration
     {
         Schema::create('table_penerimaan', function (Blueprint $table) {
             $table->id();
-            $table->date('tgl_terima');
             $table->integer('total_harga');
             $table->char('status_terima', 1);
             $table->timestamps();

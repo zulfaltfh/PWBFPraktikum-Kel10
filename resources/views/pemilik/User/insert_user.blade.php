@@ -7,7 +7,7 @@
 	  <div class="col-md-5">
 		<main class="form-signin">			
 			<h1 class="h4 mb-3 fw-normal">Register</h1>
-            <form action="{{ url('/create_User_pegawai') }}" method="POST">
+            <form action="{{ url('/create-User') }}" method="POST">
               @csrf
               <div class="form-floating">
                 <input type="text" name="nama_user" class="form-control" id="nama_user" placeholder="nama_user" autofocus required>

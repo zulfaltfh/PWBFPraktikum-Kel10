@@ -61,6 +61,7 @@ class LoginController extends Controller
         else{return redirect('/');}
 
     }
+
     public function logout()
     {
         $item = session::truncate();

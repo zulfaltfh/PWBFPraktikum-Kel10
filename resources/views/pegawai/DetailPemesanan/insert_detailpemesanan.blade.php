@@ -6,7 +6,7 @@
     	<h1 class="mt-2 mb-4">Input Barang Baru</h1>
 		<form action = "{{ url('/create-Barang') }}" method = "post">
 			@csrf
-
+			<input hidden="" value="" name='id_pemesanan'>
 			<div class="content">
 				<div class="row mb-3">
 					<label for="inputNamaBarang" class="col-sm-2 col-form-label ">Nama Barang</label>
@@ -15,12 +15,12 @@
 					</div>
 				</div>
 				<div class="row mb-3">
-					<label for="inputJenisBarang" class="col-sm-2 col-form-label">Jenis Barang</label>
+					<label for="inputJenisBarang" class="col-sm-2 col-form-label">Nama Barang</label>
 					<div class="col-sm-4">
 					  	{{-- <input type="text" class="form-control" id="inputJenisBarang"> --}}
-						  <select class="form-select form-select-default" name="id_jb" aria-label=".form-select-default">
-							@foreach($table_jenis_barang as $item)
-								<option value="{{ $item->id }}">{{ $item->jenis_barang }}</option>
+						  <select class="form-select form-select-default" name="nama_bar" aria-label=".form-select-default">
+							@foreach($table_barang as $item)
+								<option value="{{ $item->id }}">{{ $item->nama_bar }}</option>
 							@endforeach
 						  </select>
 					</div>

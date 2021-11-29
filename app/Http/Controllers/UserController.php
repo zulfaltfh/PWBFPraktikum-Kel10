@@ -24,11 +24,11 @@ class UserController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.datailpemesanan', ['table_user'=>$table_user]);
+            return view('pemilik.User.User', ['table_user'=>$table_user],['title' => 'Data User']);
          }
         else
          {
-            return view('pegawai.Barang.datailpemesanan', ['table_user'=>$table_user]);
+            return view('pegawai.User.User', ['table_user'=>$table_user],['title' => 'Data User']);
          }
     }
 
@@ -41,14 +41,16 @@ class UserController extends Controller
     {
         $table_kota = Kota::all();
         $table_role = Role::all();
-        return view('pegawai.insert_user',['table_kota'=>$table_kota],['table_role'=>$table_role]);
+        return view('pegawai.user.insert_user',['table_kota'=>$table_kota],['table_role'=>$table_role]);
     }
     public function create(Request $request)
     {
-        $data = $request->input();
+        $data = $request->input();//insert into
             
-        $user = new User;
+        $user = new User;//table_user
 
+        //value
+        //table dan colomn        value
         $user->username         = $data['username'];
         $user->password         = $data['password'];
         $user->email            = $data['email'];
@@ -57,6 +59,7 @@ class UserController extends Controller
         $user->telp_user        = $data['telp_user'];
         $user->id_kota          = $data['id_kota'];
         $user->id_role          = $data['id_role'];
+        //run / execute quesry
         $user->save();
 
         return redirect('/');
@@ -90,9 +93,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -104,7 +107,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $item = User::find($id);
+        $data = $request->input();
+
+        $item->username         = $data['username'];
+        $item->password         = $data['password'];
+        $item->email            = $data['email'];
+        $item->nama_user        = $data['nama_user'];
+        $item->alamat_user      = $data['alamat_user'];
+        $item->telp_user        = $data['telp_user'];
+        $item->id_kota          = $data['id_kota'];
+        $item->id_role          = $data['id_role'];
+        $item->save();
+        
+        return redirect('/Home');
     }
 
     /**
@@ -117,6 +133,6 @@ class UserController extends Controller
     {
         $item = User::find($id);
         $item->delete();
-        return redirect('User_pegawai');
+        return redirect('User');
     }
 }

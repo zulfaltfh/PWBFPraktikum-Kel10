@@ -24,7 +24,7 @@
 					<label for="inputNamaKota" class="col-sm-2 col-form-label">Kota</label>
 					<div class="col-sm-4">
 					  	{{-- <input type="text" class="form-control" id="inputJenisBarang"> --}}
-						  <select class="form-select form-select-default" name="nama_kota" aria-label=".form-select-default">
+						  <select class="form-select form-select-default" name="kota" aria-label=".form-select-default">
 							@foreach($kota as $item)
 								<option value="{{ $item->id }}">{{ $item->nama_kota }}</option>
 							@endforeach

@@ -15,7 +15,6 @@ class CreateTablePemesanan extends Migration
     {
         Schema::create('table_pemesanan', function (Blueprint $table) {
             $table->id();
-            $table->date('tgl_pesan');
             $table->string('status_pesan', 10);
             $table->timestamps();
         });

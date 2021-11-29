@@ -22,7 +22,10 @@ class BarangController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.barang', ['table_barang'=>$table_barang]);
+            return view('pemilik.Barang.barang', [
+            	'title' => 'Data Barang',
+            	'table_barang'=>$table_barang
+            ]);
          }
         else
          {

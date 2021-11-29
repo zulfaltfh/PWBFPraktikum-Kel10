@@ -76,7 +76,7 @@ class SupplierController extends Controller
         Supplier::create([
             'nama_sup' => $request->nama_sup,
             'alamat_sup' => $request->alamat_sup,
-            'id_kota' => $request->id_kota,
+            'id_kota' => $request->kota,
             'telp_sup' => $request->telp_sup
         ]);
 

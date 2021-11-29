@@ -22,41 +22,41 @@ class DetailPenerimaanController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pemilik.DetailPenerimaan.detailpenerimaan', ['data'=>$data]);
          }
         else
          {
-            return view('pegawai.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pegawai.DetailPenerimaan.datailpenerimaan', ['data'=>$data]);
          }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function insert()
     {
-        //
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+        return view('pegawai.DetailPenerimaan.insert_detailpenerimaan', [
+            'title' => 'Tambah Data Barang'
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function create(Request $request){
+        $data = $request->input();//insert into
+        
+        $item = new detailPenerimaan;// table
+        
+        //value
+        $item->nama_bar       = $data['nama_bar'];
+        $item->stock_barang   = $data['stock_barang'];
+        $item->harga_beli_bar = $data['harga_beli_bar'];
+        $item->harga_jual_bar = $data['harga_jual_bar'];
+        $item->id_jb          = $data['id_jb'];
+        $item->save();//tombol run sqlyog
+
+        return redirect('/Home');
+            
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\detailPenerimaan  $detailPenerimaan
-     * @return \Illuminate\Http\Response
-     */
     public function show(detailPenerimaan $detailPenerimaan)
     {
         //

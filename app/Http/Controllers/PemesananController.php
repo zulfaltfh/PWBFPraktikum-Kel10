@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pemesanan;
+use App\Models\Supplier;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\session;
 
@@ -22,11 +24,11 @@ class PemesananController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pemilik.Pemesanan.Pemesanan', ['data'=>$data,'title' => 'Data Pemesanan']);
          }
         else
          {
-            return view('pegawai.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pegawai.Pemesanan.Pemesanan', ['data'=>$data,'title' => 'Data Pemesanan']);
          }
     }
 
@@ -35,9 +37,19 @@ class PemesananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $data = $request->input();//insert into
+        
+        $Pemesanan = new Pemesanan;// table
+        
+        //value
+        $Pemesanan->status_pesan  = $data['status_pesan'];
+        $Pemesanan->id_sup        = $data['id_sup'];
+        $Pemesanan->id_user       = $data['id_user'];
+        $Pemesanan->save();//tombol run sqlyog
+
+        return redirect('/Pemesanan');
     }
 
     /**
@@ -46,9 +58,23 @@ class PemesananController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function insert()
     {
-        //
+        $sup            = Supplier::all();
+        $user           = User::all();
+        $data           = Pemesanan::all();
+        $session        = session::all()->where('role',1);
+        $auth           = session::all();
+        $z              = '[]';
+        if($auth==$z){return redirect('/');}
+        if ($session==$z) 
+         {
+            return view('pemilik.Pemesanan.InputPemesanan', ['data'=>$data,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
+         }
+        else
+         {
+            return view('pegawai.Pemesanan.InputPemesanan', ['data'=>$data,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
+         }
     }
 
     /**
@@ -94,6 +120,6 @@ class PemesananController extends Controller
     public function destroy($id){
         $item = Pemesanan::find($id);
         $item->delete();
-        return redirect('homePegawai');
+        return redirect('Pemesanan');
     }
 }

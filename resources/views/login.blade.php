@@ -29,9 +29,8 @@
                         <button type="submit" class="btn btn-primary">Login</button>
                     </div>
 
-                    <br>
                     <center>
-                        <p style="color:#242424">Belum punya akun ? Silahkan <a href="{{ url('/input_User') }}">registrasi</a></p>
+                        <p style="color:#242424">Belum punya akun ? Silahkan <a href="{{ url('/input-User') }}">registrasi</a></p>
                     </center>
                   </form>
             </div>
