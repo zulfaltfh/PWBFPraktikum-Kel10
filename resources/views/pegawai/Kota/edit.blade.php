@@ -11,7 +11,7 @@
 				<input type="hidden" class="form-control" name='id' value="{{ $request->id }}"/>
 					<label for="inputNamaKota" class="col-sm-2 col-form-label ">Nama Kota</label>
 					<div class="col-sm-4">
-					  <input type="text" placeholder="{{ $request->nama_kota }}" value="{{ $request->nama_kota }}" class="form-control" id="inputNamaKota" name='nama_sup'>
+					  <input type="text" placeholder="{{ $request->nama_kota }}" value="{{ $request->nama_kota }}" class="form-control" id="inputNamaKota" name='nama_kota'>
 					</div>
 				</div>
 			</div>
