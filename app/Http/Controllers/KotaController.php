@@ -15,8 +15,7 @@ class KotaController extends Controller
      */
     public function index()
     {
-        $kota             = Kota::all();
-
+        $kota           = Kota::all();
         $session        = session::all()->where('role',1);
         $auth           = session::all();
         $z              = '[]';
