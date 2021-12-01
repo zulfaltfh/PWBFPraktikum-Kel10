@@ -37,23 +37,33 @@ class KotaController extends Controller
         }
     }
 
+    public function insert(){
+        $data           = Kota::all();
+        $auth           = session::all();
+        $z              = '[]';
+        if($auth==$z){return redirect('/');}
+
+        return view('pegawai/Kota/tambah',[
+            'title' => 'Tambah Data Kota',
+            'Kota' => $data
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $kota = Kota::all();
+        $data = $request->input();
+        $kota = new Kota;
 
-        $auth = session::all();
-        $z = '[]';//null
-        if($auth==$z){return redirect('/');}
+        $kota->nama_kota   = $data['nama_kota'];
+        
+        $kota->save();
 
-        return view('pegawai/Kota/tambah', [
-            'title' => 'Tambah Kota',
-            'kota' => $kota
-        ]);
+        return redirect('Kota');
     }
 
     /**
@@ -62,22 +72,7 @@ class KotaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        Kota::create([
-            'nama_kota' => $request->nama_kota
-        ]);
-
-        return redirect('/Kota');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Kota  $kota
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Kota $kota)
+    public function store()
     {
         //
     }
@@ -88,13 +83,17 @@ class KotaController extends Controller
      * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        $kota = Kota::find($id);
+        $data = Kota::all();
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
         
-        return view('pegawai/Kota/edit',[
-            'title' => 'Edit Kota'
-        ]);
+        return view('pegawai/Kota/edit', [
+            'title' => 'Edit Kota',
+            'Kota'=>$data,
+            'request'=>$request]);
     }
 
     /**
