@@ -16,7 +16,7 @@ class DetailPemesananController extends Controller
      */
     public function index()
     {
-        $data           = detailPemesanan::all();
+        $data           = detailPemesanan::with('modelbarang','Pemesanan')->get();
         $session        = session::all()->where('role',1);
         $auth           = session::all();
         $z              = '[]';

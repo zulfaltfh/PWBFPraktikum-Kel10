@@ -14,7 +14,7 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $table_barang   = modelbarang::with('jenisBarang')->get();//data untuk ditampilkan
+        $table_barang   = modelbarang::with('jenisBarang')->paginate(5);//data untuk ditampilkan
         $auth           = session::all();//kunci
         $session        = session::all()->where('role',1);//menentukan role
         $z              = '[]';//null
