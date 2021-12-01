@@ -69,11 +69,11 @@ class PemesananController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Pemesanan.InputPemesanan', ['data'=>$data,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
+            return view('pemilik.Pemesanan.InputPemesanan', ['session'=>$session,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
          }
         else
          {
-            return view('pegawai.Pemesanan.InputPemesanan', ['data'=>$data,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
+            return view('pegawai.Pemesanan.InputPemesanan', ['session'=>$session,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
          }
     }
 

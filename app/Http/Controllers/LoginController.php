@@ -28,9 +28,9 @@ class LoginController extends Controller
         $null = '[]';
         if ($a!=$null) 
         {
-            $username = User::find($a)->where('username','=',$data['username']);
-            $password = User::find($a)->where('password','=',$data['password']);
-            $role1    = User::find($username)->where('id_role',1);// 1 = pegawai
+            $username = $a->where('username','=',$data['username']);
+            $password = $a->where('password','=',$data['password']);
+            $role1    = $username->where('id_role',1);// 1 = pegawai
             // echo $username;
             // echo $password;
             // echo $role1;
@@ -56,6 +56,33 @@ class LoginController extends Controller
                     $session->save();
                 }
             }
+            return redirect('Home');
+        }
+        else{return redirect('/');}
+
+    }
+
+    public function a(Request $request)
+    {
+        $data = $request;
+        // echo $data['nama_user'];
+        // echo $data['id'];
+        $a        = users::all()->where('id','=',$data['id']);
+        $null = '[]';
+        if ($a!=$null) 
+        {
+            $username = users::find($a)->where('id','=',$data['id']);
+            $password = users::find($a)->where('password','=',$data['password']);
+            $role1    = user_role::find($username)->where('id_role',1);// 1 = pegawai
+            // echo $username;
+            // echo $password;
+            // echo $role1;
+            $asd = $request->input();
+            $session        = new session;
+            $session->id    = $asd['session'];
+            $session->name  = $asd['username'];//username
+            $session->role  = "1";//role
+            $session->save();
             return redirect('Home');
         }
         else{return redirect('/');}
