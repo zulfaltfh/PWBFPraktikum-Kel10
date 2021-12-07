@@ -22,11 +22,11 @@ class HistoryStockController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pemilik.historystock.historystock', ['data'=>$data]);
          }
         else
          {
-            return view('pegawai.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pegawai.historystock.historystock', ['data'=>$data]);
          }
     }
 

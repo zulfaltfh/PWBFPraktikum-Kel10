@@ -24,11 +24,11 @@ class UserController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.User.User', ['table_user'=>$table_user],['title' => 'Data User']);
+            return view('pemilik.user.user', ['table_user'=>$table_user],['title' => 'Data User']);
          }
         else
          {
-            return view('pegawai.User.User', ['table_user'=>$table_user],['title' => 'Data User']);
+            return view('pegawai.user.user', ['table_user'=>$table_user],['title' => 'Data User']);
          }
     }
 

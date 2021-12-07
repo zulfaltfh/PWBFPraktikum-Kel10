@@ -22,11 +22,11 @@ class DetailPenerimaanController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.DetailPenerimaan.detailpenerimaan', ['data'=>$data]);
+            return view('pemilik.detailpenerimaan.detailpenerimaan', ['data'=>$data]);
          }
         else
          {
-            return view('pegawai.DetailPenerimaan.datailpenerimaan', ['data'=>$data]);
+            return view('pegawai.detailpenerimaan.datailpenerimaan', ['data'=>$data]);
          }
     }
 
@@ -35,7 +35,7 @@ class DetailPenerimaanController extends Controller
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
-        return view('pegawai.DetailPenerimaan.insert_detailpenerimaan', [
+        return view('pegawai.detailpenerimaan.insert_detailpenerimaan', [
             'title' => 'Tambah Data Barang'
         ]);
     }

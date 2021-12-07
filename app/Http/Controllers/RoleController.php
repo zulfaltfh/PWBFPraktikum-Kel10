@@ -22,11 +22,11 @@ class RoleController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.datailpemesanan', ['a'=>$a]);
+            return view('pemilik.role.role', ['a'=>$a]);
          }
         else
          {
-            return view('pegawai.Barang.datailpemesanan', ['a'=>$a]);
+            return view('pegawai.role.role', ['a'=>$a]);
          }
     }
 
@@ -37,7 +37,7 @@ class RoleController extends Controller
      */
     public function insert()
     {
-        return view('pegawai.insert_role');
+        return view('pegawai.role.insert_role');
     }
 
     /**

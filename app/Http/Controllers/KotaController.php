@@ -23,14 +23,14 @@ class KotaController extends Controller
 
         if ($session==$z) 
         {
-            return view('pemilik/Kota/kota', [
+            return view('pemilik/kota/kota', [
                 'title' => 'Daftar Kota',
                 'kota' => $kota
             ]);
         }
         else
         {
-            return view('pegawai/Kota/kota', [
+            return view('pegawai/kota/kota', [
                 'title' => 'Daftar Kota',
                 'kota' => $kota
             ]);
@@ -43,7 +43,7 @@ class KotaController extends Controller
         $z              = '[]';
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai/Kota/tambah',[
+        return view('pegawai/kota/tambah',[
             'title' => 'Tambah Data Kota',
             'Kota' => $data
         ]);
@@ -90,7 +90,7 @@ class KotaController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         
-        return view('pegawai/Kota/edit', [
+        return view('pegawai/kota/edit', [
             'title' => 'Edit Kota',
             'Kota'=>$data,
             'request'=>$request]);

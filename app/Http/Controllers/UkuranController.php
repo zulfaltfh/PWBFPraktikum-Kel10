@@ -24,14 +24,14 @@ class UkuranController extends Controller
         
         if ($session==$z) 
          {
-            return view('pemilik/Barang/Ukuran', [
+            return view('pemilik/ukuran/ukuran', [
                 'title' => 'Data Ukuran',
                 'data'=>$data
             ]);
          }
         else
          {
-            return view('pegawai/Barang/Ukuran', [
+            return view('pegawai/ukuran/ukuran', [
                 'title' => 'Data Ukuran',
                 'data'=>$data
             ]);

@@ -22,11 +22,11 @@ class PembayaranController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pemilik.pembayaran.pembayaran', ['data'=>$data]);
          }
         else
          {
-            return view('pegawai.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pegawai.pembayaran.pembayaran', ['data'=>$data]);
          }
     }
 

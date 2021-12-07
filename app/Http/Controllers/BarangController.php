@@ -22,16 +22,20 @@ class BarangController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.barang', [
+            return view('pemilik.barang.barang', [
             	'title' => 'Data Barang',
-            	'table_barang'=>$table_barang
+            	'table_barang'=>$table_barang,
+                'role' => 'Pemilik',
+                'auth' => $auth
             ]);
          }
         else
          {
-            return view('pegawai.Barang.barang', [
+            return view('pegawai.barang.barang', [
                 'title' => 'Data Barang',
-                'table_barang'=>$table_barang
+                'table_barang'=>$table_barang,
+                'role' => 'Pegawai',
+                'auth' => $auth
             ]);
          }
             
@@ -48,7 +52,7 @@ class BarangController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         $table_jenis_barang = jenisBarang::all();
-        return view('pegawai.Barang.insert_barang', [
+        return view('pegawai.barang.insert_barang', [
             'title' => 'Tambah Data Barang',
             'table_jenis_barang'=>$table_jenis_barang
         ]);
@@ -77,7 +81,7 @@ class BarangController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         
-        return view('pegawai.Barang.edit_barang', [
+        return view('pegawai.barang.edit_barang', [
             'title' => 'Edit Data Barang',
             'a'=>$a,
             'request'=>$request]);

@@ -23,11 +23,11 @@ class DetailPemesananController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.DetailPemesanan.detailpemesanan', ['data'=>$data]);
+            return view('pemilik.detailpemesanan.detailpemesanan', ['data'=>$data]);
          }
         else
          {
-            return view('pegawai.DetailPemesanan.detailpemesanan', ['data'=>$data]);
+            return view('pegawai.detailpemesanan.detailpemesanan', ['data'=>$data]);
          }
     }
 
@@ -37,7 +37,7 @@ class DetailPemesananController extends Controller
         $table_barang   = modelbarang::with('jenisBarang')->get();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
-        return view('pegawai.DetailPemesanan.insert_DetailPemesanan', [
+        return view('pegawai.detailpemesanan.insert_detailpemesanan', [
             'title' => 'Tambah Data Barang',
             'table_barang'=>$table_barang
         ]);

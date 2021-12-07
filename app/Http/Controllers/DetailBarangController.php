@@ -22,11 +22,11 @@ class DetailBarangController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.datailbarang', ['data'=>$data]);
+            return view('pemilik.detailbarang.detailbarang', ['data'=>$data]);
          }
         else
          {
-            return view('pegawai.Barang.datailbarang', ['data'=>$data]);
+            return view('pegawai.detailbarang.detailbarang', ['data'=>$data]);
          }
     }
 

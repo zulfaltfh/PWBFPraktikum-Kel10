@@ -22,14 +22,14 @@ class JenisBarangController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.JenisBarang.jenis_barang', [
+            return view('pemilik.jenisbarang.jenis_barang', [
                 'title' => 'Data Jenis Barang',
                 'a'=>$a
             ]);
          }
         else
          {
-            return view('pegawai.JenisBarang.jenis_barang', [
+            return view('pegawai.jenisbarang.jenis_barang', [
                 'title' => 'Data Jenis Barang',
                 'a'=>$a
             ]);
@@ -47,7 +47,7 @@ class JenisBarangController extends Controller
         $z              = '[]';
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai/JenisBarang/insert_jenis_barang',[
+        return view('pegawai.jenisbarang.insert_jenis_barang',[
             'title' => 'Tambah Data Jenis Barang',
             'jenis_barang' => $a
         ]);

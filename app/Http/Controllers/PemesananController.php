@@ -20,15 +20,29 @@ class PemesananController extends Controller
         $data           = Pemesanan::all();
         $session        = session::all()->where('role',1);
         $auth           = session::all();
+        $sup            = Supplier::all();
+        $user           = User::all();
         $z              = '[]';
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Pemesanan.Pemesanan', ['data'=>$data,'title' => 'Data Pemesanan']);
+            return view('pemilik.pemesanan.pemesanan', 
+                ['data'=>$data,
+                'auth'=>$auth,
+                'user'=>$user,
+                'sup'=>$sup,
+                'title' => 'Data Pemesanan',
+                'role' => 'Pemilik']);
          }
         else
          {
-            return view('pegawai.Pemesanan.Pemesanan', ['data'=>$data,'title' => 'Data Pemesanan']);
+            return view('pegawai.pemesanan.pemesanan', 
+                ['data'=>$data,
+                'auth'=>$auth,
+                'user'=>$user,
+                'sup'=>$sup,
+                'title' => 'Data Pemesanan',
+                'role' => 'Pegawai']);
          }
     }
 
@@ -69,11 +83,11 @@ class PemesananController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Pemesanan.InputPemesanan', ['session'=>$session,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
+            return view('pemilik.pemesanan.inputpemesanan', ['session'=>$session,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
          }
         else
          {
-            return view('pegawai.Pemesanan.InputPemesanan', ['session'=>$session,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
+            return view('pegawai.pemesanan.inputpemesanan', ['session'=>$session,'user'=>$user,'sup'=>$sup,'title' => 'Data Pemesanan']);
          }
     }
 

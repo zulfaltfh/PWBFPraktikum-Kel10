@@ -4,7 +4,8 @@
 <main>
     <div class="container-fluid px-4">
         <h1 class="mt-4 mb-2">Tabel Pemesanan</h1>
-        <a href="{{ url('/input-Pemesanan') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br><br>
+        <a href="{{ url('/input-Pemesanan') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br>
+        
         <br>
         <div class="card mb-4">
             <div class="card-header">
@@ -45,20 +46,20 @@
                         ?>
                         </td>
                         <td>
-                        <form action="{{ url('/input-Pemesanan') }}" method="get">
-                            <input hidden value="{{ $item->id }}" name="">
+                        <form action="{{ url('/input-DetailPemesanan') }}" method="get">
+                            <input hidden value="{{ $item->id }}" name="id">
                             <button type="submit" class="btn btn-info btn-sm")>Isi Detail</button>
                         </form>
                         </td>
                         <td>
-                        <form action="{{ url('/input-Pemesanan') }}" method="get">
-                            <input hidden value="{{ $item->id }}" name="">
+                        <form action="{{ url('/input-Penerimaan') }}" method="get">
+                            <input hidden value="{{ $item->id }}" name="id">
                             <button type="submit" class="btn btn-info btn-sm")>Isi Penerimaan</button>
                         </form>
                         </td>
                         <td>
                         <form action="{{ url('/edit-Pemesanan') }}" method="get">
-                            <input hidden value="{{ $item->id }}" name="">
+                            <input hidden value="{{ $item->id }}" name="id">
                             <button type="submit" class="btn btn-info btn-sm")>edit</button>
                         </form>
                         </td>
@@ -75,4 +76,7 @@
         </div>
     </div>
 </main>
+
+
+
 @endsection

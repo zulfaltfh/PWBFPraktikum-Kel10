@@ -15,7 +15,7 @@
 					</div>
 				</div>
 
-				<input type ='submit' class = 'btn btn-primary mt-3' value = "Input Data"/>
+				<input type ='submit' class = 'btn btn-primary mt-3' value = "Tambahkan"/>
 			</div>
 		</form>
 	</div>

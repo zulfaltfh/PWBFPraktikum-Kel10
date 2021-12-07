@@ -30,14 +30,14 @@ class SupplierController extends Controller
 
         if ($session==$z)
         {
-            return view('pemilik/Supplier/supplier', [
+            return view('pemilik/supplier/supplier', [
                 'title' => 'Data Supplier',
                 'supplier' => $supplier
             ]);
         }
         else
         {
-            return view('pegawai/Supplier/supplier', [
+            return view('pegawai/supplier/supplier', [
                 'title' => 'Data Supplier',
                 'supplier' => $supplier
             ]);
@@ -58,7 +58,7 @@ class SupplierController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai/Supplier/tambah', [
+        return view('pegawai/supplier/tambah', [
             'title' => 'Tambah Data Supplier',
             'kota' => $kota
         ]);
@@ -109,7 +109,7 @@ class SupplierController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai/Supplier/edit', [
+        return view('pegawai/supplier/edit', [
             'title' => 'Edit Data Supplier',
             'Supplier' => $supplier,
             'Kota' => $kota

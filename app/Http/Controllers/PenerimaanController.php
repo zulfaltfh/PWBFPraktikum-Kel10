@@ -22,11 +22,11 @@ class PenerimaanController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pemilik.penerimaan.penerimaan', ['data'=>$data]);
          }
         else
          {
-            return view('pegawai.Barang.datailpemesanan', ['data'=>$data]);
+            return view('pegawai.penerimaan.penerimaan', ['data'=>$data]);
          }
     }
 

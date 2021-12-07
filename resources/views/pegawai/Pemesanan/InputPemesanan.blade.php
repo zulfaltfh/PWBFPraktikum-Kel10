@@ -12,15 +12,15 @@
 				<div class="row mb-3">
 					<label for="inputJenisBarang" class="col-sm-2 col-form-label">User</label>
 					<div class="col-sm-4">
-						@foreach($session as $item)
+						<!-- @foreach($session as $item)
 						<p>{{ $item->name }}</p>
 					  	<input hidden type="text" class="form-control" name="id_user" value="{{ $item->id }}">
-					  	@endforeach
-						  <!-- <select class="form-select form-select-default" name="id_user" aria-label=".form-select-default">
-							@foreach($session as $item)
+					  	@endforeach -->
+						  <select class="form-select form-select-default" name="id_user" aria-label=".form-select-default">
+							@foreach($user as $item)
 								<option value="{{ $item->id }}">{{ $item->name }}</option>
 							@endforeach
-						  </select> -->
+						  </select>
 					</div>
 				</div>
 				<div class="row mb-3">
