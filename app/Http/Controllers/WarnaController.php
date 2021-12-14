@@ -22,11 +22,17 @@ class WarnaController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.warna.warna', ['data'=>$data]);
+            return view('pemilik.warna.warna', [
+                'title' => 'Data Warna',
+                'data'=>$data
+            ]);
          }
         else
          {
-            return view('pegawai.warna.warna', ['data'=>$data]);
+            return view('pegawai.warna.warna', [
+                'title' => 'Data Warna',
+                'data'=>$data
+            ]);
          }
     }
 

@@ -14,23 +14,23 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $table_barang   = modelbarang::with('jenisBarang')->paginate(5);//data untuk ditampilkan
+        $table_barang   = modelbarang::with(['jenisBarang','detailBarang']);//data untuk ditampilkan
         $auth           = session::all();//kunci
         $session        = session::all()->where('role',1);//menentukan role
         $z              = '[]';//null
 
         if($auth==$z){return redirect('/');}
-        if ($session==$z) 
-         {
+        if ($session==$z)
+        {
             return view('pemilik.barang.barang', [
             	'title' => 'Data Barang',
             	'table_barang'=>$table_barang,
                 'role' => 'Pemilik',
                 'auth' => $auth
             ]);
-         }
+        }
         else
-         {
+        {
             return view('pegawai.barang.barang', [
                 'title' => 'Data Barang',
                 'table_barang'=>$table_barang,
@@ -40,21 +40,22 @@ class BarangController extends Controller
          }
             
     }
-    public function tes($id)
-    {
-        $item = modelbarang::find($id);
-        return view('pegawai.tes');
-    }
+    // public function tes($id)
+    // {
+    //     $item = modelbarang::find($id);
+    //     return view('pegawai.tes');
+    // }
 
     public function insert()
     {
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
+        
         $table_jenis_barang = jenisBarang::all();
         return view('pegawai.barang.insert_barang', [
             'title' => 'Tambah Data Barang',
-            'table_jenis_barang'=>$table_jenis_barang
+            'table_jenis_barang' => $table_jenis_barang
         ]);
     }
 
@@ -89,7 +90,7 @@ class BarangController extends Controller
 
     public function update(Request $request,$id){
         $item = modelbarang::find($id);
-
+        
         $item->nama_bar         = $request->input('nama_bar');
         $item->stock_barang     = $request->input('stock_barang');
         $item->harga_beli_bar   = $request->input('harga_beli_bar');

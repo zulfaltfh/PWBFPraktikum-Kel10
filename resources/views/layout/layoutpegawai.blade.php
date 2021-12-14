@@ -57,11 +57,9 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <div class="sb-sidenav-menu-heading">Tables</div>
-                            
-                            
+                            <div class="sb-sidenav-menu-heading">DATABASE</div>
 
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            {{--  <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file-alt"></i></div>
                                 Data Master
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -72,9 +70,40 @@
                                     <a class="nav-link" href="{{ url('/Home') }}">Data Barang</a>
                                     <a class="nav-link" href="{{ url('/JenisBarang') }}">Jenis Barang</a>
                                     <a class="nav-link" href="{{ url('/Kota') }}">Kota</a>
-                                    {{-- <a class="nav-link" href="{{ url('/Role') }}">Role User</a> --}}
-                                    <a class="nav-link" href="{{ url('/Pemesanan') }}">Pemesanan</a>
-                                    <a class="nav-link" href="{{ url('/Pembayaran') }}">Pembayaran</a>
+                                </nav>
+                            </div>  --}}
+
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></i></div>
+                                Tables
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                        Data Master
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="{{ url('/Supplier') }}">Data Supplier</a>
+                                            <a class="nav-link" href="{{ url('/Home') }}">Data Barang</a>
+                                            <a class="nav-link" href="{{ url('/JenisBarang') }}">Jenis Barang</a>
+                                            <a class="nav-link" href="{{ url('/Ukuran') }}">Ukuran</a>
+                                            <a class="nav-link" href="{{ url('/Warna') }}">Warna</a>
+                                            <a class="nav-link" href="{{ url('/Kota') }}">Kota</a>
+                                        </nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                        Data Transaksi
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                    </a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav">
+                                            <a class="nav-link" href="{{ url('/Pemesanan') }}">Pemesanan</a>
+                                            <a class="nav-link" href="{{ url('/Pembayaran') }}">Pembayaran</a>
+                                        </nav>
+                                    </div>
                                 </nav>
                             </div>
                         </div>

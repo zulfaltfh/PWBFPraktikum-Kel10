@@ -15,7 +15,7 @@
               </div> 
               <br>
               <div class="form-floating">
-                <input type="text" name="email" class="form-control" name="nomor ID" id="email" placeholder="name@example.com"  required>
+                <input type="email" name="email" class="form-control" name="nomor ID" id="email" placeholder="name@example.com"  required>
                 <label for="floatingInput">Email</label>
               </div>
 			  <br>
@@ -25,7 +25,7 @@
               </div> 
 			  <br>
               <div class="form-floating">
-                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                <input type="password" minlength="12" name="password" class="form-control" id="password" placeholder="Password" required>
                 <label for="floatingPassword">Password</label>
               </div>
 			  
