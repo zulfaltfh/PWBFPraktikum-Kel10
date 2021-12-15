@@ -24,11 +24,15 @@ class UserController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.user.user', ['table_user'=>$table_user],['title' => 'Data User']);
+            return view('pemilik.user.user', 
+                ['table_user'=>$table_user],
+                ['title' => 'Data User']);
          }
         else
          {
-            return view('pegawai.user.user', ['table_user'=>$table_user],['title' => 'Data User']);
+            return view('pegawai.user.user', 
+                ['table_user'=>$table_user],
+                ['title' => 'Data User']);
          }
     }
 
@@ -41,7 +45,10 @@ class UserController extends Controller
     {
         $table_kota = Kota::all();
         $table_role = Role::all();
-        return view('pegawai.user.insert_user',['table_kota'=>$table_kota],['table_role'=>$table_role]);
+        return view('pegawai.user.insert_user',
+            ['table_kota'=>$table_kota],
+            ['table_role'=>$table_role],
+            ['title' => 'Data User']);
     }
     public function create(Request $request)
     {

@@ -16,6 +16,7 @@
                         <thead>
                             <tr>
                             <th>Kode</th>
+                            <th>Foto</th>
                             <th>Nama Barang</th>
                             <th>Stok</th>
                             <th>Harga Beli</th>
@@ -31,6 +32,7 @@
                         @foreach($table_barang as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
+                            <td><img src="uploads/{{ $item->foto }}" style="width: 100px;"></td>
                             <td>{{ $item->nama_bar }}</td>
                             <td>{{ $item->stock_barang }}</td>
                             <td>{{ $item->harga_beli_bar }}</td>
