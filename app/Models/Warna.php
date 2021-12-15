@@ -10,6 +10,7 @@ class Warna extends Model
     use HasFactory;
 
     protected $table = 'table_warna';
+    protected $fillable = ['id','warna'];
 
     #RELASI
     public function detailBarang()

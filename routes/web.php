@@ -36,6 +36,17 @@ Route::post('/update-Barang/{id}',          'App\Http\Controllers\BarangControll
 //hapus barang untuk 
 Route::get('/destroy-Barang/{id}',       	'App\Http\Controllers\BarangController@destroy');
 
+// Detail Barang
+Route::get('/DetailBarang',                 	'App\Http\Controllers\DetailBarangController@Index');
+//input jenis barang baru untuk 
+Route::post('/create-DetailBarang',         	'App\Http\Controllers\DetailBarangController@create');
+Route::get('/input-DetailBarang',           	'App\Http\Controllers\DetailBarangController@insert');
+//update jenis barang untuk 
+Route::get('/edit-DetailBarang',      		'App\Http\Controllers\BarangController@edit');
+Route::post('/update-DetailBarang/{id}',     'App\Http\Controllers\BarangController@update');
+//hapus jenis barang
+Route::get('/destroy-DetailBarang/{id}', 	'App\Http\Controllers\JenisBarangController@destroy');
+
 // jenis barang
 Route::get('/JenisBarang',                 	'App\Http\Controllers\JenisBarangController@Index');
 //input jenis barang baru untuk 

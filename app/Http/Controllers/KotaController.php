@@ -83,34 +83,34 @@ class KotaController extends Controller
      * @param  \App\Models\Kota  $kota
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
-    {
-        $data = Kota::all();
-        $auth = session::all();
-        $z = '[]';//null
-        if($auth==$z){return redirect('/');}
+    // public function edit(Request $request)
+    // {
+    //     $data = Kota::all();
+    //     $auth = session::all();
+    //     $z = '[]';//null
+    //     if($auth==$z){return redirect('/');}
         
-        return view('pegawai/kota/edit', [
-            'title' => 'Edit Kota',
-            'Kota'=>$data,
-            'request'=>$request]);
-    }
+    //     return view('pegawai/kota/edit', [
+    //         'title' => 'Edit Kota',
+    //         'Kota'=>$data,
+    //         'request'=>$request]);
+    // }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Kota  $kota
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        Kota::where('id', $id)->update([
-            'nama_kota' => $request->nama_kota
-        ]);
+    // /**
+    //  * Update the specified resource in storage.
+    //  *
+    //  * @param  \Illuminate\Http\Request  $request
+    //  * @param  \App\Models\Kota  $kota
+    //  * @return \Illuminate\Http\Response
+    //  */
+    // public function update(Request $request, $id)
+    // {
+    //     Kota::where('id', $id)->update([
+    //         'nama_kota' => $request->nama_kota
+    //     ]);
         
-        return redirect('/update-Kota');
-    }
+    //     return redirect('/update-Kota');
+    // }
 
     /**
      * Remove the specified resource from storage.

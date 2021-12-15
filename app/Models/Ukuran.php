@@ -10,6 +10,7 @@ class Ukuran extends Model
     use HasFactory;
 
     protected $table = 'table_ukuran';
+    protected $fillable = ['id','ukuran'];
 
     #RELASI
     public function detailBarang()

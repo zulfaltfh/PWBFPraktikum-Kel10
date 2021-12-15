@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\detailBarang;
-use Illuminate\Http\Request;
 use App\Models\session;
+use App\Models\Warna;
+use App\Models\Ukuran;
+use App\Models\detailBarang;
+use App\Models\modelbarang;
+use Illuminate\Http\Request;
+
 
 class DetailBarangController extends Controller
 {
@@ -13,50 +17,47 @@ class DetailBarangController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data           = detailBarang::all();
+        $detbar         = detailBarang::with(['modelbarang','Ukuran','Warna'])->where('id', $request['id']);
         $session        = session::all()->where('role',1);
         $auth           = session::all();
         $z              = '[]';
+        
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
-         {
-            return view('pemilik.detailbarang.detailbarang', ['data'=>$data]);
-         }
+        {
+            return view('pemilik.DetailBarang.detailbarang', [
+                'title' => 'Detail Barang',
+                'detbar' => $detbar
+            ]);
+        }
         else
-         {
-            return view('pegawai.detailbarang.detailbarang', ['data'=>$data]);
-         }
+        {
+            return view('pegawai.DetailBarang.detailbarang', [
+                'title' => 'Detail Barang',
+                'detbar' => $detbar
+            ]);
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function insert()
+    {
+        $ukuran = Ukuran::all();
+        $warna = Warna::all();
+
+        return view('pegawai.DetailBarang.tambah',[
+            'title'=>'Tambah Detail Barang',
+            'ukuran'=> $ukuran,
+            'warna'=> $warna
+        ]);
+    }
+
+    public function store(Request $request) 
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\detailBarang  $detailBarang
-     * @return \Illuminate\Http\Response
-     */
     public function show(detailBarang $detailBarang)
     {
         //

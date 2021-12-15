@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kota;
+use App\Models\Ukuran;
+use App\Models\Warna;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +16,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\modelbarang::factory(10)->create();
+        Ukuran::factory(5)->create();
+        Warna::factory(25)->create();
+        Kota::factory(25)->create();
     }
 }

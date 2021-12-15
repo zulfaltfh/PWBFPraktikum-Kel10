@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\session;
-
+use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Symfony\Contracts\Service\Attribute\Required;
@@ -67,13 +67,13 @@ class LoginController extends Controller
         $data = $request;
         // echo $data['nama_user'];
         // echo $data['id'];
-        $a        = users::all()->where('id','=',$data['id']);
+        $a        = User::all()->where('id','=',$data['id']);
         $null = '[]';
         if ($a!=$null) 
         {
-            $username = users::find($a)->where('id','=',$data['id']);
-            $password = users::find($a)->where('password','=',$data['password']);
-            $role1    = user_role::find($username)->where('id_role',1);// 1 = pegawai
+            $username = User::find($a)->where('id','=',$data['id']);
+            $password = User::find($a)->where('password','=',$data['password']);
+            $role1    = Role::find($username)->where('id_role',1);// 1 = pegawai
             // echo $username;
             // echo $password;
             // echo $role1;
