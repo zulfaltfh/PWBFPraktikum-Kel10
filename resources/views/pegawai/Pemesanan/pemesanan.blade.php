@@ -21,7 +21,7 @@
                         <th>Supplier</th>
                         <th>Tanggal dan Waktu Pesan</th>
                         <th>Status Pesan</th>
-                        <th>Isi Detail Pemesanan</th>
+                        <th>Detail</th>
                         <th>Isi Penerimaan</th>
                         <th>Edit</th>
                         <th>Delete</th>
