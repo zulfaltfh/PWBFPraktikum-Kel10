@@ -82,9 +82,17 @@ class PembayaranController extends Controller
      * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pembayaran $pembayaran)
+    public function edit(Request $request)
     {
-        //
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+
+        $a = Pembayaran::all();
+        return view('pegawai.pembayaran.edit_pembayaran', [
+            'title' => 'Edit Data Barang',
+            'a'=>$a,
+            'request'=>$request]);
     }
 
     /**
@@ -94,9 +102,16 @@ class PembayaranController extends Controller
      * @param  \App\Models\Pembayaran  $pembayaran
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pembayaran $pembayaran)
+    public function update(Request $request, $id)
     {
-        //
+        $item = Pembayaran::find($id);
+
+        $item->id_terima     = $request->input('id_terima');
+        $item->tgl_bayar     = $request->input('tgl_bayar');
+        $item->total_bayar   = $request->input('total_bayar');
+
+        $item->save();
+        return redirect('/Pembayaran');
     }
 
     /**
@@ -108,6 +123,6 @@ class PembayaranController extends Controller
     public function destroy($id){
         $item = Pembayaran::find($id);
         $item->delete();
-        return redirect('homePegawai');
+        return redirect('/Pembayaran');
     }
 }
