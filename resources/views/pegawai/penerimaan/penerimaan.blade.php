@@ -16,6 +16,7 @@
                     <thead>
                         <tr>
                         <th>Id</th>
+                        <th>Detail</th>
                         <th>Edit</th>
                         <th>Delete</th>
                         </tr>
@@ -25,6 +26,12 @@
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->ukuran }}</td>
+                        <td>
+                            <form action="{{ url('/DetailBarang') }}" method="GET">
+                                <input hidden value="{{ $item->id }}" name="id">
+                                <button class="btn btn-warning btn-sm">Lihat</button></a>
+                            </form>
+                        </td>
                         <td>
                         <form action="{{ url('/edit-Penerimaan') }}" method="get">
                             <input hidden value="{{ $item-> }}" name="">

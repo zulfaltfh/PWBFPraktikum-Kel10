@@ -39,8 +39,8 @@
                                 <input hidden value="{{ $item->nama_user }}" name="nama_user">
                                 <input hidden value="{{ $item->alamat_user }}" name="alamat_user">
                                 <input hidden value="{{ $item->telp_user }}" name="telp_user">
-                                <input hidden value="{{ $item->id_kota }}" name="telp_user">
-                                <input hidden value="{{ $item->id_role }}" name="telp_user">
+                                <input hidden value="{{ $item->id_role }}" name="role_user">
+                                <input hidden value="{{ $item->id_kota }}" name="kota_user">
                                 <button type="submit" class="btn btn-info btn-sm")>edit</button>
                             </form>
                             </td>
