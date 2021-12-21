@@ -15,7 +15,18 @@ class LoginController extends Controller
     {
         // $user = User::all();
         $item = session::truncate();
-        return view('login');
+        $a = "HALO SLURR";
+        return view('login',[
+            'a'=>$a]);
+        // return view('login',['user'=>$user]);
+    }
+    public function index1()
+    {
+        // $user = User::all();
+        $item = session::truncate();
+        $a = "gagal login slur";
+        return view('login',[
+            'a'=>$a]);
         // return view('login',['user'=>$user]);
     }
 
@@ -34,7 +45,7 @@ class LoginController extends Controller
             // echo $username;
             // echo $password;
             // echo $role1;
-            if($username != $password ){return redirect('/');}
+            if($username != $password ){return redirect('/relog');}
             else
             {
                 if ($role1==$username) 
@@ -58,7 +69,7 @@ class LoginController extends Controller
             }
             return redirect('Home');
         }
-        else{return redirect('/');}
+        else{return redirect('/relog');}
 
     }
 

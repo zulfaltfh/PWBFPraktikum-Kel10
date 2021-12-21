@@ -36,4 +36,7 @@
             </div>
         </div>
     </div>
+    <script>
+        alert("{{ $a }}");
+    </script>
 @endsection

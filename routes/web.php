@@ -16,6 +16,7 @@ use App\Http\Controllers\LoginController;
 
 //login
 Route::get('/', [LoginController::class, 'index']);
+Route::get('/relog', [LoginController::class, 'index1']);
 Route::post('/a', [LoginController::class, 'authenticate']);
 Route::get('/logout', [LoginController::class, 'logout']);
 //Route::post('/signin/{$nama_user,$password_user}',  'App\Http\Controllers\HomeController@index');
