@@ -4,7 +4,10 @@
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4 mb-2">Detail Barang</h1>
-            <a href="{{ url('/input-DetailBarang') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br><br>
+            <form action="{{ url('/input-DetailBarang') }}" method="get">
+                <input type="hidden" name="id" value="{{ $request->id }}">
+                <button type="submit" class="btn btn-primary btn-sm")>Add</button>
+            </form>
             <br>
             <div class="card mb-4">
                 <div class="card-header">
@@ -26,13 +29,18 @@
                         <tbody>
                             @foreach ($detbar as $data)
                             <tr>
-                                <td class="text-wrap text-center">{{ $data+ 1 }}</td>
+                                <td class="text-wrap text-center"></td>
                                 <td>{{ $data->modelbarang->nama_bar }}</td>
-                                <td>{{ $data->Ukuran->id }}</td>
+                                <td>{{ $data->Ukuran->ukuran }}</td>
                                 <td>{{ $data->Warna->warna }}</td>
-                                <td class="text-wrap"><a href="#" class="btn btn-primary">Edit</a></td>
+                                <td class="text-wrap">
+                                <form action="{{ url('/edit-DetailBarang') }}" method="get">
+                                    <input hidden value="{{ $data->id }}" name="id">
+                                <button type="submit" class="btn btn-primary btn-sm")>edit</button>
+                                </form>
+                                </td>
                                 <td>
-                                    <a href="{{ url('/destroy-Barang',$v->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
+                                    <a href="{{ url('/destroy-Barang',$data->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
                                 </td> 
                             </tr>
                             @endforeach

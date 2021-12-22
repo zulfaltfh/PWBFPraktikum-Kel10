@@ -45,7 +45,7 @@
                                 </form>
                             </td>
                             <td>
-                              <button class="btn btn-primary btn-sm">Pesan</button>
+                              <a href="{{ url('/input-Pemesanan') }}"><button class="btn btn-primary btn-sm">Pesan</button></a>
                             </td>
                             <td>
                             <form action="{{ url('/edit-Barang') }}" method="get">

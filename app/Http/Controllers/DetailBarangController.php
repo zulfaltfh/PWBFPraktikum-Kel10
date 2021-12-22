@@ -19,7 +19,7 @@ class DetailBarangController extends Controller
      */
     public function index(Request $request)
     {
-        $detbar         = detailBarang::with(['modelbarang','Ukuran','Warna'])->where('id', $request['id']);
+        $detbar         = detailBarang::all()->where('kode_bar',$request['id']);
         $session        = session::all()->where('role',1);
         $auth           = session::all();
         $z              = '[]';
@@ -29,46 +29,51 @@ class DetailBarangController extends Controller
         {
             return view('pemilik.DetailBarang.detailbarang', [
                 'title' => 'Detail Barang',
+                'request'=> $request,
                 'detbar' => $detbar
             ]);
         }
         else
         {
             return view('pegawai.DetailBarang.detailbarang', [
+                'request'=> $request,
                 'title' => 'Detail Barang',
                 'detbar' => $detbar
             ]);
         }
     }
 
-    public function insert()
+
+    public function insert(Request $request)
     {
+        
         $ukuran = Ukuran::all();
         $warna = Warna::all();
 
-        return view('pegawai.DetailBarang.tambah',[
+        return view('pegawai.DetailBarang.insert_barang',[
             'title'=>'Tambah Detail Barang',
             'ukuran'=> $ukuran,
-            'warna'=> $warna
+            'warna'=> $warna,
+            'request'=> $request
         ]);
     }
 
-    public function store(Request $request) 
+    public function create(Request $request) 
     {
-        //
+        $data = $request->input();//insert into
+        
+        $detbarang = new detailBarang();// table
+        
+        //value
+        $detbarang->kode_bar        = $data['kode_bar'];
+        $detbarang->id_warna        = $data['id_warna'];
+        $detbarang->id_ukuran       = $data['id_ukuran'];
+        $detbarang->save();
+
+        return redirect('/Home');
     }
 
-    public function show(detailBarang $detailBarang)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\detailBarang  $detailBarang
-     * @return \Illuminate\Http\Response
-     */
     public function edit(detailBarang $detailBarang)
     {
         //
