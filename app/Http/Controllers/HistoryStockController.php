@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\historyStock;
+use App\Models\modelbarang;
 use Illuminate\Http\Request;
 use App\Models\session;
 
@@ -21,7 +22,7 @@ class HistoryStockController extends Controller
         $z              = '[]';
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
-         {
+         { 
             return view('pemilik.historystock.historystock', ['data'=>$data]);
          }
         else

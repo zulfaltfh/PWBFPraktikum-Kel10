@@ -10,6 +10,7 @@ class Pemesanan extends Model
     use HasFactory;
 
     protected $table = 'table_pemesanan';
+    protected $fillable = ['id','id_user','id_sup','status_pesan'];
 
     #RELASI
     public function detailPemesanan()

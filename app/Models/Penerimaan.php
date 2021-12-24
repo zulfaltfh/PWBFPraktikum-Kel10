@@ -9,6 +9,7 @@ class Penerimaan extends Model
 {
     use HasFactory;
     protected $table = 'table_penerimaan';
+    protected $fillable = ['id','id_user','id_sup','total_harga','status_terima'];
 
     public function Pembayaran()
     {

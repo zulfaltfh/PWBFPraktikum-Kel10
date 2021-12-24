@@ -16,27 +16,35 @@
                     <thead>
                         <tr>
                         <th>Id</th>
-                        <th>Detail</th>
+                        <th>Penerima</th>
+                        <th>Pengirim</th>
+                        <th>Total Harga</th>
+                        <th>Status Terima</th>
                         <th>Edit</th>
-                        <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                     @foreach($supplier as $item)
+                     @foreach($data as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->ukuran }}</td>
-                        <td>
-                            <form action="{{ url('/DetailBarang') }}" method="GET">
+                        <td>{{ $item->User->nama_user }}</td>
+                        <td>{{ $item->Supplier->nama_sup }}</td>
+                        <td>{{ $item->total_harga }}</td>
+                        <td>{{ $item->status_terima }}</td>
+                        {{--  <td>
+                            <form action="{{ url('/DetailPenerimaan') }}" method="GET">
                                 <input hidden value="{{ $item->id }}" name="id">
                                 <button class="btn btn-warning btn-sm">Lihat</button></a>
                             </form>
-                        </td>
+                        </td>  --}}
                         <td>
                         <form action="{{ url('/edit-Penerimaan') }}" method="get">
-                            <input hidden value="{{ $item-> }}" name="">
+                            <input hidden value="{{ $item->id }}" name="id">
+                            <input hidden value="{{ $item->User->nama_user }}" name="nama_user">
+                            <input hidden value="{{ $item->Supplier->nama_sup }}" name="nama_sup">
+                            <input hidden value="{{ $item->total_harga }}" name="total_harga">
+                            <input hidden value="{{ $item->status_terima }}" name="status_terima">
                             <button type="submit" class="btn btn-info btn-sm")>edit</button>
-
                         </form>
                         </td>
                         @csrf

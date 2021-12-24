@@ -10,6 +10,7 @@ class jenisBarang extends Model
     use HasFactory;
 
     protected $table = 'table_jenis_barang';
+    protected $fillable = ['id','jenis_barang'];
 
     #RELASI
     public function modelbarang()

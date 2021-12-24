@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Penerimaan;
+use App\Models\Supplier;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\session;
 
@@ -22,42 +24,36 @@ class PenerimaanController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.penerimaan.penerimaan', ['data'=>$data]);
+            return view('pemilik.penerimaan.penerimaan', [
+                'title'=>'Penerimaan Barang',
+                'data'=>$data
+            ]);
          }
         else
          {
-            return view('pegawai.penerimaan.penerimaan', ['data'=>$data]);
+            return view('pegawai.penerimaan.penerimaan', [
+                'title'=>'Penerimaan Barang',
+                'data'=>$data
+            ]);
          }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function insert()
     {
-        //
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+
+        $user   = User::all();
+        $supplier = Supplier::all();
+        return view('',[
+            'title'=>'Tambah Penerimaan Barang',
+            'user' => $user,
+            'supplier' => $supplier
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Penerimaan  $penerimaan
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Penerimaan $penerimaan)
+    public function create(Request $request)
     {
         //
     }

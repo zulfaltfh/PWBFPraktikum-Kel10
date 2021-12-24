@@ -10,7 +10,7 @@ class detailBarang extends Model
     use HasFactory;
 
     protected $table = 'detail_barang';
-
+    protected $fillable = ['id','kode_bar','id_ukuran','id_warna'];
     #RELASI
     public function modelbarang ()
     {
