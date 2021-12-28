@@ -25,24 +25,49 @@ class KotaController extends Controller
         {
             return view('pemilik/kota/kota', [
                 'title' => 'Daftar Kota',
-                'kota' => $kota
+                'kota' => $kota,
+                'role' => 'Pemilik',
+                'auth' => $auth
             ]);
         }
         else
         {
             return view('pegawai/kota/kota', [
                 'title' => 'Daftar Kota',
-                'kota' => $kota
+                'kota' => $kota,
+                'role' => 'Pegawai',
+                'auth' => $auth
             ]);
         }
     }
 
-    public function insert(){
+    public function insert()
+    {
         $data           = Kota::all();
+
         $auth           = session::all();
+        $session        = session::all()->where('role',1);
         $z              = '[]';
         if($auth==$z){return redirect('/');}
 
+        if ($session==$z) 
+        {
+            return view('pemilik/kota/tambah', [
+                'title' => 'Tambah Data Kota',
+                'Kota' => $data,
+                'role' => 'Pemilik',
+                'auth' => $auth
+            ]);
+        }
+        else
+        {
+            return view('pegawai/kota/tambah', [
+                'title' => 'Tambah Data Kota',
+                'Kota' => $data,
+                'role' => 'Pegawai',
+                'auth' => $auth
+            ]);
+        }
         return view('pegawai/kota/tambah',[
             'title' => 'Tambah Data Kota',
             'Kota' => $data

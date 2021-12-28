@@ -49,14 +49,29 @@ class BarangController extends Controller
     public function insert()
     {
         $auth = session::all();
+        $session        = session::all()->where('role',1);//menentukan role
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         
         $table_jenis_barang = jenisBarang::all();
-        return view('pegawai.barang.insert_barang', [
-            'title' => 'Tambah Data Barang',
-            'table_jenis_barang' => $table_jenis_barang
-        ]);
+        if ($session==$z)
+        {
+            return view('pemilik.barang.insert_barang', [
+            	'title' => 'Data Barang',
+            	'table_jenis_barang' => $table_jenis_barang,
+                'role' => 'Pemilik',
+                'auth' => $auth
+            ]);
+        }
+        else
+        {
+            return view('pegawai.barang.insert_barang', [
+                'title' => 'Tambah Data Barang',
+                'table_jenis_barang' => $table_jenis_barang,
+                'role' => 'Pegawai',
+                'auth' => $auth
+            ]);
+        }
     }
 
     public function create(Request $request){
@@ -105,7 +120,8 @@ class BarangController extends Controller
         return view('pegawai.barang.edit_barang', [
             'title' => 'Edit Data Barang',
             'a'=>$a,
-            'request'=>$request]);
+            'request'=>$request
+        ]);
     }
 
     public function update(Request $request,$id){

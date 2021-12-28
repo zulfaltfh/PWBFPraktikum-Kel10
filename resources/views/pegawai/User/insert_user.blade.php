@@ -9,16 +9,28 @@
 
       <div class="content">
         <div class="row mb-3">
-          <label for="inputNamaBarang" class="col-sm-2 col-form-label ">Nama Barang</label>
+          <label for="inputNamaUser" class="col-sm-2 col-form-label ">Nama Lengkap</label>
           <div class="col-sm-4">
-             <input type="text" name="nama_user" class="form-control" id="nama_user" placeholder="nama_user" autofocus required>
+             <input type="text" name="nama_user" class="form-control" id="inputNamaUser" autofocus required>
           </div>
         </div>
         <div class="row mb-3">
-          <label for="inputJenisBarang" class="col-sm-2 col-form-label">Jenis Barang</label>
+          <label for="inputAlamat" class="col-sm-2 col-form-label ">Alamat</label>
+          <div class="col-sm-4">
+             <input type="text" name="alamat_user" class="form-control" id="inputAlamat" autofocus required>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputNoTelepon" class="col-sm-2 col-form-label ">No Telepon</label>
+          <div class="col-sm-4">
+             <input type="text" name="telp_user" class="form-control" id="inputNoTelepon" autofocus required>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="inputJenisBarang" class="col-sm-2 col-form-label">Kota</label>
           <div class="col-sm-4">
               {{-- <input type="text" class="form-control" id="inputJenisBarang"> --}}
-              <select class="form-select form-select-default" name="id_jb" aria-label=".form-select-default">
+              <select class="form-select form-select-default" name="id_kota" aria-label=".form-select-default">
               @foreach($table_kota as $item)
                 <option value="{{ $item->id }}">{{ $item->kota }}</option>
               @endforeach

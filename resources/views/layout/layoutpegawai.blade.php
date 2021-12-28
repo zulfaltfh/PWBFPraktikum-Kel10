@@ -34,7 +34,7 @@
 
             <!-- Navbar-->
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-                {{-- <p class="navbar-brand ps-3">Hello, 152011513019</p> --}}
+                {{--  <p class="navbar-brand ps-3">Hello, {{ $request->role_user }}</p>  --}}
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -102,6 +102,7 @@
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="{{ url('/Pemesanan') }}">Pemesanan</a>
                                             <a class="nav-link" href="{{ url('/Pembayaran') }}">Pembayaran</a>
+                                            <a class="nav-link" href="{{ url('/Penerimaan') }}">Penerimaan</a>
                                         </nav>
                                     </div>
                                 </nav>

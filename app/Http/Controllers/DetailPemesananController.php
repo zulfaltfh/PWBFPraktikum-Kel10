@@ -33,14 +33,29 @@ class DetailPemesananController extends Controller
 
     public function insert(Request $request)
     {
-        $auth = session::all();
         $table_barang   = modelbarang::with('jenisBarang')->get();
+
+        $auth = session::all();
         $z = '[]';//null
+        $session        = session::all()->where('role',1);
+        
         if($auth==$z){return redirect('/');}
-        return view('pegawai.detailpemesanan.insert_detailpemesanan', [
-            'title' => 'Tambah Data Barang',
-            'table_barang'=>$table_barang
-        ]);
+        if ($session==$z)
+        {
+            return view('pemilik.barang.barang', [
+            	'title' => 'Data Barang',
+            	'table_barang'=>$table_barang,
+                'role' => 'Pemilik',
+                'auth' => $auth
+            ]);
+        }
+        else
+        {
+            return view('pegawai.detailpemesanan.insert_detailpemesanan', [
+                'title' => 'Tambah Data Barang',
+                'table_barang'=>$table_barang
+            ]);
+        }
     }
 
     public function create(Request $request){

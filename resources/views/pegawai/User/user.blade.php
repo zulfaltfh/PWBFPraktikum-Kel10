@@ -18,8 +18,9 @@
                             <th>Nama User</th>
                             <th>Alamat User</th>
                             <th>Telpon User</th>
-                            <th>Role User</th>
-                            <th>Kota User</th>
+                            <th>Role</th>
+                            <th>Asal Kota</th>
+                            <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>

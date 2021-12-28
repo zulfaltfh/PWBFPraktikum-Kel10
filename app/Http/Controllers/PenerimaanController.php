@@ -24,7 +24,7 @@ class PenerimaanController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.penerimaan.penerimaan', [
+            return view('pemilik.Penerimaan.penerimaan', [
                 'title'=>'Penerimaan Barang',
                 'data'=>$data
             ]);
@@ -40,33 +40,78 @@ class PenerimaanController extends Controller
 
     public function insert()
     {
-        $auth = session::all();
-        $z = '[]';//null
-        if($auth==$z){return redirect('/');}
-
         $user   = User::all();
         $supplier = Supplier::all();
-        return view('',[
-            'title'=>'Tambah Penerimaan Barang',
-            'user' => $user,
-            'supplier' => $supplier
-        ]);
+
+        $auth = session::all();
+        $session = session::all()->where('role',1);
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+        if ($session==$z) 
+        {
+            return view('pemilik.Penerimaan.insertPenerimaan', [
+                'title'=>'Tambah Penerimaan Barang',
+                'user' => $user,
+                'supplier' => $supplier
+            ]);
+        }
+        else
+        {
+            return view('pegawai.penerimaan.insertPenerimaan', [
+                'title'=>'Tambah Penerimaan Barang',
+                'user' => $user,
+                'supplier' => $supplier
+            ]);
+        }
     }
 
     public function create(Request $request)
     {
-        //
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+
+        $data = $request->input();//insert into
+        
+        $penerimaan = new Penerimaan();// table
+        
+        //value
+        $penerimaan->id_user        = $data['id_user'];
+        $penerimaan->id_sup         = $data['id_sup'];
+        $penerimaan->total_harga    = $data['total_harga'];
+        $penerimaan->status_terima  = $data['status_terima'];
+        $penerimaan->save();
+
+        return redirect('/Penerimaan');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Penerimaan  $penerimaan
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Penerimaan $penerimaan)
+    public function edit(Request $request)
     {
-        //
+        $user       = User::all();
+        $supplier   = Supplier::all();
+
+        $auth = session::all();
+        $session = session::all()->where('role',1);
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+        if ($session==$z) 
+        {
+            return view('pemilik.Penerimaan.editPenerimaan', [
+                'title' => 'Edit Data Penerimaan',
+                'user'  => $user,
+                'supplier' => $supplier,
+                'request'=>$request
+            ]);
+        }
+        else
+        {
+            return view('pegawai.penerimaan.editPenerimaan', [
+                'title' => 'Edit Data Penerimaan',
+                'user'  => $user,
+                'supplier' => $supplier,
+                'request'=>$request
+            ]);
+        }
     }
 
     /**
@@ -76,9 +121,22 @@ class PenerimaanController extends Controller
      * @param  \App\Models\Penerimaan  $penerimaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Penerimaan $penerimaan)
+    public function update(Request $request,$id)
     {
-        //
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+
+        $data = $request->input();
+        
+        $item = Penerimaan::find($id);
+        $item->id_user        = $data['id_user'];
+        $item->id_sup         = $data['id_sup'];
+        $item->total_harga    = $data['total_harga'];
+        $item->status_terima  = $data['status_terima'];
+        $item->save();
+
+        return redirect('/Penerimaan');
     }
 
     /**
@@ -87,8 +145,10 @@ class PenerimaanController extends Controller
      * @param  \App\Models\Penerimaan  $penerimaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Penerimaan $penerimaan)
+    public function destroy($id)
     {
-        //
+        $item = Penerimaan::find($id);
+        $item->delete();
+        return redirect('/Penerimaan');
     }
 }

@@ -30,7 +30,8 @@ class DetailBarangController extends Controller
             return view('pemilik.DetailBarang.detailbarang', [
                 'title' => 'Detail Barang',
                 'request'=> $request,
-                'detbar' => $detbar
+                'detbar' => $detbar,
+                'role' => 'Pemilik',
             ]);
         }
         else
@@ -38,7 +39,8 @@ class DetailBarangController extends Controller
             return view('pegawai.DetailBarang.detailbarang', [
                 'request'=> $request,
                 'title' => 'Detail Barang',
-                'detbar' => $detbar
+                'detbar' => $detbar,
+                'role' => 'Pegawai',
             ]);
         }
     }
@@ -50,12 +52,31 @@ class DetailBarangController extends Controller
         $ukuran = Ukuran::all();
         $warna = Warna::all();
 
-        return view('pegawai.DetailBarang.insert_barang',[
-            'title'=>'Tambah Detail Barang',
-            'ukuran'=> $ukuran,
-            'warna'=> $warna,
-            'request'=> $request
-        ]);
+        $session        = session::all()->where('role',1);
+        $auth           = session::all();
+        $z              = '[]';
+        
+        if($auth==$z){return redirect('/');}
+        if ($session==$z) 
+        {
+            return view('pemilik.DetailBarang.insertbarang', [
+                'title'=>'Tambah Detail Barang',
+                'ukuran'=> $ukuran,
+                'warna'=> $warna,
+                'request'=> $request,
+                'role' => 'Pemilik'
+            ]);
+        }
+        else
+        {
+            return view('pegawai.DetailBarang.insert_barang',[
+                'title'=>'Tambah Detail Barang',
+                'ukuran'=> $ukuran,
+                'warna'=> $warna,
+                'request'=> $request,
+                'role' => 'Pegawai'
+            ]);
+        }
     }
 
     public function create(Request $request) 
