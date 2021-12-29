@@ -30,7 +30,7 @@ class PembayaranController extends Controller
          }
         else
          {
-            return view('pegawai.pembayaran.pembayaran', [
+            return view('pegawai.Pembayaran.pembayaran', [
                 'title'=>'Pembayaran',
                 'data'=>$data
             ]);
@@ -50,7 +50,7 @@ class PembayaranController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('view tambah pembayaran',[
+        return view('pegawai.Pembayaran.insertPembayaran',[
             'title'=>'Tambah Data Pembayaran',
             'Penerimaan'=>$Penerimaan
         ]);
@@ -64,12 +64,14 @@ class PembayaranController extends Controller
      */
     public function create(Request $request)
     {
+
         $data = $request->input();//insert into
 		
 		$pembayaran = new Pembayaran();// table
         
         //value
-        $pembayaran->id_terima       = $data['id_terima'];
+        $pembayaran->id_terima     = $data['id_terima'];
+        $pembayaran->tgl_bayar     = $data['tgl_bayar'];
         $pembayaran->total_bayar   = $data['total_bayar'];
 		$pembayaran->save();//tombol run sqlyog
 
@@ -89,7 +91,7 @@ class PembayaranController extends Controller
         if($auth==$z){return redirect('/');}
 
         $a = Pembayaran::all();
-        return view('pegawai.pembayaran.edit_pembayaran', [
+        return view('pegawai.pembayaran.editPembayaran', [
             'title' => 'Edit Data Barang',
             'a'=>$a,
             'request'=>$request]);
