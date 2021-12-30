@@ -101,8 +101,6 @@
                                     <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="{{ url('/Pemesanan') }}">Pemesanan</a>
-                                            <a class="nav-link" href="{{ url('/Pembayaran') }}">Pembayaran</a>
-                                            <a class="nav-link" href="{{ url('/Penerimaan') }}">Penerimaan</a>
                                         </nav>
                                     </div>
                                 </nav>
