@@ -36,19 +36,19 @@
                             <td>{{ $item->created_at }}</td>
                             <td>{{ $item->modelbarang->nama_bar  }}</td>
                             <td>
-                            <form action="{{ url('/edit-Barang') }}" method="get">
-                                <input hidden value="{{ $item->id }}" name="id">
-                                <input hidden value="{{ $item->nama_bar }}" name="nama_bar">
-                                <input hidden value="{{ $item->stock_barang }}" name="stock_barang">
-                                <input hidden value="{{ $item->harga_beli_bar }}" name="harga_beli_bar">
-                                <input hidden value="{{ $item->harga_jual_bar }}" name="harga_jual_bar">
+                            <form action="{{ url('/edit-DetailPemesanan') }}" method="get">
+                                <input hidden value="{{ $item->id_pesan }}" name="id_pesan">
+                                <input hidden value="{{ $item->jumlah_up }}" name="jumlah_up">
+                                <input hidden value="{{ $item->harga_up }}" name="harga_up">
+                                <input hidden value="{{ $item->created_at }}" name="created_at">
+                                <input hidden value="{{ $item->modelbarang->nama_bar }}" name="nama_bar">
                                 <button type="submit" class="btn btn-info btn-sm")>edit</button>
                             </form>
                             </td>
                             @csrf
                             @method('Delete')
                             <td>
-                                <a href="{{ url('/destroy-Barang',$item->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
+                                <a href="{{ url('/destroy-DetailPemesanan',$item->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
                             </td> 
                         </tr>
                             @endforeach

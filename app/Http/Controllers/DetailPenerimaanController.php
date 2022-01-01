@@ -40,6 +40,7 @@ class DetailPenerimaanController extends Controller
 
     public function insert(request $request)
     {
+        
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}

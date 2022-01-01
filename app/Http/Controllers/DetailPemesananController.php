@@ -95,9 +95,18 @@ class DetailPemesananController extends Controller
      * @param  \App\Models\detailPemesanan  $detailPemesanan
      * @return \Illuminate\Http\Response
      */
-    public function edit(detailPemesanan $detailPemesanan)
+    public function edit(Request $request)
     {
-        //
+        $table_barang   = modelbarang::with('jenisBarang')->get();
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+        
+        return view('pegawai.detailpemesanan.edit_detailpemesanan', [
+            'title' => 'Edit Detail Pemesanan',
+            'table_barang'=>$table_barang,
+            'request'=>$request
+        ]);
     }
 
     /**
@@ -107,9 +116,17 @@ class DetailPemesananController extends Controller
      * @param  \App\Models\detailPemesanan  $detailPemesanan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, detailPemesanan $detailPemesanan)
+    public function update(Request $request, $id)
     {
-        //
+        $item = detailPemesanan::find($id);
+        
+        $item->jumlah_up    = $request->input['jumlah_up'];
+        $item->harga_up     = $request->input['harga_up'];
+        $item->id_pesan     = $request->input['id_pesan'];
+        $item->kode_bar     = $request->input['kode_bar'];
+        $item->save();//tombol run sqlyog
+        
+        return redirect('/DetailPemesanan');
     }
 
     /**
@@ -118,8 +135,10 @@ class DetailPemesananController extends Controller
      * @param  \App\Models\detailPemesanan  $detailPemesanan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(detailPemesanan $detailPemesanan)
+    public function destroy($id)
     {
-        //
+        $item = detailPemesanan::find($id);
+        $item->delete();
+        return redirect('/DetailPemesanan');
     }
 }

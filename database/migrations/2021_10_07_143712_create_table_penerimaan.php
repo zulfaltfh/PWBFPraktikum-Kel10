@@ -23,6 +23,7 @@ class CreateTablePenerimaan extends Migration
         Schema::table('table_penerimaan', function (Blueprint $table) {
             $table->foreignId('id_user')->constrained('table_user');
             $table->foreignId('id_sup')->constrained('table_supplier');
+            $table->foreignId('id_pemesanan')->constrained('table_pemesanan');
         });
     }
 

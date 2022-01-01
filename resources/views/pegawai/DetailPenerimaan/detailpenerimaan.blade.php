@@ -35,19 +35,20 @@
                             <td>{{ $item->sub_total }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>
-                            <form action="{{ url('/edit-Barang') }}" method="get">
-                                <input hidden value="{{ $item->id }}" name="id">
-                                <input hidden value="{{ $item->nama_bar }}" name="nama_bar">
-                                <input hidden value="{{ $item->stock_barang }}" name="stock_barang">
-                                <input hidden value="{{ $item->harga_beli_bar }}" name="harga_beli_bar">
-                                <input hidden value="{{ $item->harga_jual_bar }}" name="harga_jual_bar">
+                            <form action="{{ url('/edit-DetailPenerimaan') }}" method="get">
+                                <input hidden value="{{ $item->id_terima }}" name="id_terima">
+                                <input hidden value="{{ $item->modelbarang->nama_bar }}" name="nama_bar">
+                                <input hidden value="{{ $item->harga_his }}" name="harga_his">
+                                <input hidden value="{{ $item->jumlah_his }}" name="jumlah_his">
+                                <input hidden value="{{ $item->sub_total }}" name="sub_total">
+                                <input hidden value="{{ $item->created_at }}" name="created_at">
                                 <button type="submit" class="btn btn-info btn-sm")>edit</button>
                             </form>
                             </td>
                             @csrf
                             @method('Delete')
                             <td>
-                                <a href="{{ url('/destroy-Barang',$item->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
+                                <a href="{{ url('/destroy-DetailPenerimaan',$item->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
                             </td> 
                         </tr>
                             @endforeach
