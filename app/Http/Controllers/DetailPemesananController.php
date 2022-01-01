@@ -14,20 +14,28 @@ class DetailPemesananController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)    
     {
-        $data           = detailPemesanan::with('modelbarang','Pemesanan')->get();
+        $data           = detailPemesanan::all()->where('id_pesan',$request['id_pesan']);
         $session        = session::all()->where('role',1);
         $auth           = session::all();
         $z              = '[]';
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.detailpemesanan.detailpemesanan', ['data'=>$data]);
+            return view('pemilik.detailpemesanan.detailpemesanan', [
+                'data'=>$data,
+                'title'=>'Detail Pemesanan',
+                'request'=>$request
+            ]);
          }
         else
          {
-            return view('pegawai.detailpemesanan.detailpemesanan', ['data'=>$data]);
+            return view('pegawai.detailpemesanan.detailpemesanan', [
+                'data'=>$data,
+                'title'=>'Detail Pemesanan',
+                'request'=>$request
+            ]);
          }
     }
 
@@ -46,14 +54,16 @@ class DetailPemesananController extends Controller
             	'title' => 'Data Barang',
             	'table_barang'=>$table_barang,
                 'role' => 'Pemilik',
-                'auth' => $auth
+                'auth' => $auth,
+                'request'=>$request
             ]);
         }
         else
         {
             return view('pegawai.detailpemesanan.insert_detailpemesanan', [
                 'title' => 'Tambah Data Barang',
-                'table_barang'=>$table_barang
+                'table_barang'=>$table_barang,
+                'request'=>$request
             ]);
         }
     }
@@ -67,10 +77,10 @@ class DetailPemesananController extends Controller
         $item->jumlah_up    = $data['jumlah_up'];
         $item->harga_up     = $data['harga_up'];
         $item->id_pesan     = $data['id_pesan'];
-        $item->kode_bar     = $data['kode_bar'];
+        $item->kode_bar     = $data['nama_bar'];
         $item->save();//tombol run sqlyog
 
-        return redirect('/Home');
+        return redirect('/Pemesanan');
             
     }
 

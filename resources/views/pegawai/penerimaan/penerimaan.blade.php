@@ -4,7 +4,7 @@
 <main>
     <div class="container-fluid px-4">
         <h1 class="mt-4 mb-2">Tabel Penerimaan</h1>
-        <a href="{{ url('/input-Penerimaan') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br><br>
+        <!-- <a href="{{ url('/input-Penerimaan') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a> --><br><br>
         <br>
         <div class="card mb-4">
             <div class="card-header">
@@ -20,6 +20,8 @@
                         <th>Pengirim</th>
                         <th>Total Harga</th>
                         <th>Status Terima</th>
+                        <th>Detail Penerimaan</th>
+                        <th>Pembayaran</th>
                         <th>Edit</th>
                         <th>Delete</th>
                         </tr>
@@ -31,13 +33,29 @@
                         <td>{{ $item->User->nama_user }}</td>
                         <td>{{ $item->Supplier->nama_sup }}</td>
                         <td>{{ $item->total_harga }}</td>
-                        <td>{{ $item->status_terima }}</td>
-                        {{--  <td>
+                        <td><?php if ($item->status_terima==0) 
+                            {
+                                echo "Belum Diterima";
+                            }
+                        else 
+                            {
+                                echo "Sudah Diterima";
+                            }
+
+                        ?>    
+                        </td>
+                        <td>
                             <form action="{{ url('/DetailPenerimaan') }}" method="GET">
                                 <input hidden value="{{ $item->id }}" name="id">
                                 <button class="btn btn-warning btn-sm">Lihat</button></a>
                             </form>
-                        </td>  --}}
+                        </td>
+                        <td>
+                            <form action="{{ url('/input-Pembayaran') }}" method="GET">
+                                <input hidden value="{{ $item->id }}" name="id">
+                                <button class="btn btn-primary btn-sm">Pembayaran</button></a>
+                            </form>
+                        </td>
                         <td>
                         <form action="{{ url('/edit-Penerimaan') }}" method="get">
                             <input hidden value="{{ $item->id }}" name="id">

@@ -39,9 +39,9 @@ class LoginController extends Controller
         $null = '[]';
         if ($a!=$null) 
         {
-            $username = $a->where('username','=',$data['username']);
-            $password = $a->where('password','=',$data['password']);
-            $role1    = $username->where('id_role',1);// 1 = pegawai
+            $username = $a->where('username','=',$data['username']); //{ id : 1,username : ipeh, . . . . . }
+            $password = $a->where('password','=',$data['password']); //{ id : 1,username : ipeh, . . . . . }
+            $role1    = $username->where('id_role',1);// 1 = pegawai //{ id : 1,username : ipeh, . . . . . }
             // echo $username;
             // echo $password;
             // echo $role1;

@@ -4,7 +4,7 @@
 <main>
     <div class="container-fluid px-4">
         <h1 class="mt-4 mb-2">Tabel Pembayaran</h1>
-        <a href="{{ url('/input-Pembayaran') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br><br>
+        <!-- <a href="{{ url('/input-Pembayaran') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a> --><br><br>
         <br>
         <div class="card mb-4">
             <div class="card-header">
@@ -28,7 +28,7 @@
                     <tr>
                         <td>{{ $item->id }}</td>
                         <td>{{ $item->id_terima }}</td>
-                        <td>{{ $item->tgl_bayar }}</td>
+                        <td>{{ $item->created_at }}</td>
                         <td>{{ $item->total_bayar }}</td>
                         <td>
                             <form action="{{ url('/edit-Pembayaran') }}" method="get">

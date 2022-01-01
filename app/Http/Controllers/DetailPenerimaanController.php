@@ -13,24 +13,32 @@ class DetailPenerimaanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request)
     {
-        $data           = detailPenerimaan::all();
+        $data           = detailPenerimaan::all()->where('id_terima',$request['id']);
         $session        = session::all()->where('role',1);
         $auth           = session::all();
         $z              = '[]';
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.detailpenerimaan.detailpenerimaan', ['data'=>$data]);
+            return view('pemilik.detailpenerimaan.detailpenerimaan', [
+                'data'=>$data,
+                'title'=>'Detail Penerimaan',
+                'request'=>$request
+            ]);
          }
         else
          {
-            return view('pegawai.detailpenerimaan.datailpenerimaan', ['data'=>$data]);
+            return view('pegawai.detailpenerimaan.detailpenerimaan', [
+                'data'=>$data,
+                'title'=>'Detail Penerimaan',
+                'request'=>$request
+            ]);
          }
     }
 
-    public function insert()
+    public function insert(request $request)
     {
         $auth = session::all();
         $z = '[]';//null

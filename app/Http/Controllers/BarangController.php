@@ -78,22 +78,9 @@ class BarangController extends Controller
         $file = $request->file('foto');
         $target_dir = "uploads/";
         $target_file = $target_dir . basename($_FILES["foto"]["name"]);
-        $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
         $file->move($target_dir,$file->getClientOriginalName());
-        // Check if image file is a actual image or fake image
-        if(isset($_POST["submit"])) {
-          $check = getimagesize($_FILES["foto"]["tmp_name"]);
-          if($check !== false) {
-            echo "File is an image - " . $check["mime"] . ".";
-            $uploadOk = 1;
-          } else {
-            echo "File is not an image.";
-            $uploadOk = 0;
-          }
-        };
-
-
+       
         $data = $request->input();//insert into
 		
 		$barang = new modelbarang;// table

@@ -46,15 +46,20 @@
                         ?>
                         </td>
                         <td>
-                        <form action="{{ url('/input-DetailPemesanan') }}" method="get">
-                            <input hidden value="{{ $item->id }}" name="id">
-                            <button type="submit" class="btn btn-info btn-sm")>Isi Detail</button>
+                        <!-- <form action="{{ url('/input-DetailPemesanan') }}" method="get">
+                            <input hidden value="{{ $item->id }}" name="id_pesan">
+                            <button type="submit" class="btn btn-warning btn-sm")>Isi</button>
+                        </form> -->
+                        <form action="{{ url('/DetailPemesanan') }}" method="get">
+                            <input hidden value="{{ $item->id }}" name="id_pesan">
+                            <button type="submit" class="btn btn-warning btn-sm")>Lihat</button>
                         </form>
                         </td>
                         <td>
                         <form action="{{ url('/input-Penerimaan') }}" method="get">
-                            <input hidden value="{{ $item->id }}" name="id">
-                            <button type="submit" class="btn btn-info btn-sm")>Isi Penerimaan</button>
+                            <input hidden value="{{ $item->id }}" name="id_pem">
+                            <input type="hidden" value="{{ $item->id_sup }}" name="id_sup">
+                            <button type="submit" class="btn btn-primary btn-sm")>Isi Penerimaan</button>
                         </form>
                         </td>
                         <td>

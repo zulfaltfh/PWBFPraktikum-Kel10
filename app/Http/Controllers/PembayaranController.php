@@ -42,7 +42,7 @@ class PembayaranController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function insert()
+    public function insert(Request $request)
     {
         $Penerimaan = Penerimaan::all();
 
@@ -52,7 +52,8 @@ class PembayaranController extends Controller
 
         return view('pegawai.Pembayaran.insertPembayaran',[
             'title'=>'Tambah Data Pembayaran',
-            'Penerimaan'=>$Penerimaan
+            'Penerimaan'=>$Penerimaan,
+            'request'=>$request
         ]);
     }
 
@@ -67,13 +68,17 @@ class PembayaranController extends Controller
 
         $data = $request->input();//insert into
 		
-		$pembayaran = new Pembayaran();// table
+        $pembayaran = new Pembayaran();// table
         
         //value
         $pembayaran->id_terima     = $data['id_terima'];
-        $pembayaran->tgl_bayar     = $data['tgl_bayar'];
         $pembayaran->total_bayar   = $data['total_bayar'];
-		$pembayaran->save();//tombol run sqlyog
+        $pembayaran->save();//tombol run sqlyog
+        
+		// $penerimaan = Penerimaan::all()->where('id',$request['id_terima']);// table
+        
+  //       $penerimaan->status_terima  = $data['status_terima'];
+  //       $penerimaan->save();
 
         return redirect('/Pembayaran');
     }

@@ -18,7 +18,6 @@
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                            <th>No</th>
                             <th>Nama Barang</th>
                             <th>Ukuran</th>
                             <th>Warna</th>
@@ -29,7 +28,6 @@
                         <tbody>
                             @foreach ($detbar as $data)
                             <tr>
-                                <td class="text-wrap text-center"></td>
                                 <td>{{ $data->modelbarang->nama_bar }}</td>
                                 <td>{{ $data->Ukuran->ukuran }}</td>
                                 <td>{{ $data->Warna->warna }}</td>

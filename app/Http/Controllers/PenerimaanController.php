@@ -38,7 +38,7 @@ class PenerimaanController extends Controller
          }
     }
 
-    public function insert()
+    public function insert(Request $request)
     {
         $user   = User::all();
         $supplier = Supplier::all();
@@ -52,7 +52,8 @@ class PenerimaanController extends Controller
             return view('pemilik.Penerimaan.insertPenerimaan', [
                 'title'=>'Tambah Penerimaan Barang',
                 'user' => $user,
-                'supplier' => $supplier
+                'supplier' => $supplier,
+                'request'=>$request
             ]);
         }
         else
@@ -60,7 +61,8 @@ class PenerimaanController extends Controller
             return view('pegawai.penerimaan.insertPenerimaan', [
                 'title'=>'Tambah Penerimaan Barang',
                 'user' => $user,
-                'supplier' => $supplier
+                'supplier' => $supplier,
+                'request'=>$request
             ]);
         }
     }
@@ -78,6 +80,7 @@ class PenerimaanController extends Controller
         //value
         $penerimaan->id_user        = $data['id_user'];
         $penerimaan->id_sup         = $data['id_sup'];
+        $penerimaan->id_pemesanan   = $data['id_pemesanan'];
         $penerimaan->total_harga    = $data['total_harga'];
         $penerimaan->status_terima  = $data['status_terima'];
         $penerimaan->save();

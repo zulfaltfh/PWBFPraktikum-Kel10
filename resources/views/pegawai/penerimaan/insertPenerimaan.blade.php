@@ -14,10 +14,10 @@
 						@foreach ($user as $item)
 							<option value="{{ $item->id }}">{{ $item->nama_user }}</option>
 						@endforeach
-            </select>
+            			</select>
 					</div>
 				</div>
-				<div class="row mb-3">
+				<!-- <div class="row mb-3">
 					<label for="inputNamaPngirim" class="col-sm-2 col-form-label">Pengirim</label>
 					<div class="col-sm-4">
 					  	{{-- <input type="text" class="form-control" id="inputJenisBarang"> --}}
@@ -27,22 +27,25 @@
 							@endforeach
 						  </select>
 					</div>
-				</div>
+				</div> -->
 				<div class="row mb-3">
 					<label for="inputTotal" class="col-sm-2 col-form-label">Total Harga</label>
 					<div class="col-sm-4">
 					  <input type="text" class="form-control" id="inputTotal"  name='total_harga' required>
 					</div>
 				</div>
-				<div class="row mb-3">
+				<input type="hidden" name="status_terima" value="0">
+				<input type="hidden" name="id_sup" value="{{ $request->id_sup }}">
+				<input type="hidden" name="id_pemesanan" value="{{ $request->id_pem }}">
+				<!-- <div class="row mb-3">
 					<label for="inputStatus" class="col-sm-2 col-form-label">Status Terima</label>
 					<div class="col-sm-4">
-            <select class="form-select form-select-default" name="status_terima" aria-label=".form-select-default">
-								<option value="0">Terima</option>
-                <option value="1">Tidak Diterima</option>
+			            <select class="form-select form-select-default" name="status_terima" aria-label=".form-select-default">
+			                <option value="0">Tidak Diterima</option>
+							<option value="1">Terima</option>
 						</select>
 					</div>
-				</div>
+				</div> -->
 			</div>
 			
 			<input type = 'submit' class="btn btn-primary" value = "Tambahkan"/>
