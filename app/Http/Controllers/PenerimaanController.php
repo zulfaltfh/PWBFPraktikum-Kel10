@@ -109,7 +109,7 @@ class PenerimaanController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
         {
-            return view('pemilik.penerimaan.editPenerimaan', [
+            return view('pemilik.penerimaan.editpenerimaan', [
                 'title' => 'Edit Data Penerimaan',
                 'user'  => $user,
                 'supplier' => $supplier,
@@ -118,7 +118,7 @@ class PenerimaanController extends Controller
         }
         else
         {
-            return view('pegawai.penerimaan.editPenerimaan', [
+            return view('pegawai.penerimaan.editpenerimaan', [
                 'title' => 'Edit Data Penerimaan',
                 'user'  => $user,
                 'supplier' => $supplier,

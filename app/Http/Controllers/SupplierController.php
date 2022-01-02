@@ -30,14 +30,14 @@ class SupplierController extends Controller
 
         if ($session==$z)
         {
-            return view('pemilik/supplier/supplier', [
+            return view('pemilik.supplier.supplier', [
                 'title' => 'Data Supplier',
                 'supplier' => $supplier
             ]);
         }
         else
         {
-            return view('pegawai/supplier/supplier', [
+            return view('pegawai.supplier.supplier', [
                 'title' => 'Data Supplier',
                 'supplier' => $supplier
             ]);
@@ -56,12 +56,22 @@ class SupplierController extends Controller
 
         $auth = session::all();
         $z = '[]';//null
+        $session        = session::all()->where('role',1);
         if($auth==$z){return redirect('/');}
-
-        return view('pegawai.supplier.tambah', [
-            'title' => 'Tambah Data Supplier',
-            'kota' => $kota
-        ]);
+        if ($session==$z)
+        {
+            return view('pemilik/supplier/tambah', [
+                'title' => 'Tambah Data Supplier',
+                'kota' => $kota
+            ]);
+        }
+        else
+        {
+            return view('pegawai/supplier/tambah', [
+                'title' => 'Tambah Data Supplier',
+                'kota' => $kota
+            ]);
+        }
 
     }
 
