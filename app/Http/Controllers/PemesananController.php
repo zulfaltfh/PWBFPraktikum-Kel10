@@ -148,9 +148,8 @@ class PemesananController extends Controller
         $item = Pemesanan::find($id);
         
         //value
-        $item->status_pesan  = $request->input['status_pesan'];
-        $item->id_sup        = $request->input['id_sup'];
-        $item->id_user       = $request->input['id_user'];
+        $item->id_sup        = $request->input('id_sup');
+        $item->id_user       = $request->input('id_user');
         $item->save();//tombol run sqlyog
 
         return redirect('/Pemesanan');

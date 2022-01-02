@@ -1,4 +1,4 @@
-@extends('layout/layoutpegawai')
+@extends('layout/layoutpemilik')
 
 @section('content')
     
@@ -8,7 +8,7 @@
 			@csrf
 
 			<div class="content">
-				<input type="hidden" name="kode_bar" value="{{ $request->kode_bar }}">
+				<input type="hidden" name="kode_bar" value="{{ $request->id }}">
 				<div class="row mb-3">
 					<label for="inputJenisBarang" class="col-sm-2 col-form-label">Ukuran</label>
 					<div class="col-sm-4">

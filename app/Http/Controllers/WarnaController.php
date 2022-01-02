@@ -36,38 +36,48 @@ class WarnaController extends Controller
          }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function insert()
     {
-        //
+        $data           = Warna::all();
+
+        $auth           = session::all();
+        $session        = session::all()->where('role',1);
+        $z              = '[]';
+        if($auth==$z){return redirect('/');}
+
+        if ($session==$z) 
+        {
+            return view('pemilik.Warna.tambah', [
+                'title' => 'Tambah Data Warna',
+                'Warna' => $data,
+                'role' => 'Pemilik',
+                'auth' => $auth
+            ]);
+        }
+        else
+        {
+            return view('pegawai.Warna.tambah', [
+                'title' => 'Tambah Data Warna',
+                'Warna' => $data,
+                'role' => 'Pegawai',
+                'auth' => $auth
+            ]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
+        $data = $request->input();
+        $Warna = new Warna;
+
+        $Warna->warna   = $data['warna'];
+        
+        $Warna->save();
+
+        return redirect('/Warna');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Warna  $warna
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Warna $warna)
-    {
-        //
-    }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
@@ -100,6 +110,6 @@ class WarnaController extends Controller
     public function destroy($id){
         $item = Warna::find($id);
         $item->delete();
-        return redirect('homePegawai');
+        return redirect('/Warna');
     }
 }

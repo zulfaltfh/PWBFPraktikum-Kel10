@@ -23,7 +23,7 @@ class DetailPenerimaanController extends Controller
         $z              = '[]';
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
-         {
+        {
             return view('pemilik.detailpenerimaan.detailpenerimaan', [
                 'data'=>$data,
                 'title'=>'Detail Penerimaan',
@@ -31,7 +31,7 @@ class DetailPenerimaanController extends Controller
             ]);
          }
         else
-         {
+        {
             return view('pegawai.detailpenerimaan.detailpenerimaan', [
                 'data'=>$data,
                 'title'=>'Detail Penerimaan',
@@ -48,7 +48,8 @@ class DetailPenerimaanController extends Controller
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
-        return view('pegawai.detailpenerimaan.insert_detailpenerimaan', [
+        
+        return view('pemilik.detailpenerimaan.insert_detailpenerimaan', [
             'title' => 'Tambah Data Barang',
             'table_barang'=>$table_barang,
             'table_penerimaan'=>$table_penerimaan,
@@ -65,7 +66,8 @@ class DetailPenerimaanController extends Controller
         $item->harga_his    = $data['harga_his'];
         $item->jumlah_his   = $data['jumlah_his'];
         $item->sub_total    = $data['sub_total'];
-        $item->kode_bar     = $data['nama_bar'];        
+        $item->kode_bar     = $data['nama_bar'];
+        $item->id_terima    = $data['id_terima'];
 
         $item->save();//tombol run sqlyog
 
@@ -93,7 +95,7 @@ class DetailPenerimaanController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         
-        return view('pegawai.detailPenerimaan.edit_detPenerimaan', [
+        return view('pemilik.detailPenerimaan.edit_detPenerimaan', [
             'title' => 'Edit Detail Penerimaan',
             'table_penerimaan'=>$table_penerimaan,
             'table_barang' =>$table_barang,

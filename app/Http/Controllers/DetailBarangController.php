@@ -144,7 +144,7 @@ class DetailBarangController extends Controller
         $data->id_ukuran       = $request->input('id_ukuran');
         $data->save();
 
-        return redirect('/Barang');
+        return redirect('/Home');
     }
 
     /**
@@ -153,8 +153,10 @@ class DetailBarangController extends Controller
      * @param  \App\Models\detailBarang  $detailBarang
      * @return \Illuminate\Http\Response
      */
-    public function destroy(detailBarang $detailBarang)
+    public function destroy($id)
     {
-        //
+        $item = detailBarang::find($id);
+        $item->delete();
+        return redirect('/Home');
     }
 }

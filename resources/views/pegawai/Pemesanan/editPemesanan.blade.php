@@ -12,9 +12,9 @@
 				<div class="row mb-3">
 					<label for="inputJenisBarang" class="col-sm-2 col-form-label">User</label>
 					<div class="col-sm-4">
-						  <select class="form-select form-select-default" name="id_user" aria-label=".form-select-default">
+						  <select class="form-select form-select-default" value="{{ $request->id_user }}" name="id_user" aria-label=".form-select-default">
 							@foreach($user as $item)
-								<option value="{{ $item->id }}" placeholder="{{ $item->id }}" >{{ $item->nama_user }}</option>
+								<option value="{{ $item->id }}" >{{ $item->nama_user }}</option>
 							@endforeach
 						  </select>
 					</div>
@@ -22,9 +22,9 @@
 				<div class="row mb-3">
 					<label for="inputJenisBarang" class="col-sm-2 col-form-label">Supplier</label>
 					<div class="col-sm-4">
-						  <select class="form-select form-select-default" name="id_sup" aria-label=".form-select-default">
+						  <select class="form-select form-select-default" value="{{ $request->id_sup }}" name="id_sup" aria-label=".form-select-default">
 							@foreach($supplier as $item)
-								<option value="{{ $item->id }}" placeholder="{{ $item->id }}">{{ $item->nama_sup }}</option>
+								<option value="{{ $item->id }}">{{ $item->nama_sup }}</option>
 							@endforeach
 						  </select>
 					</div>

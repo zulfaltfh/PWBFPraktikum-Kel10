@@ -41,7 +41,7 @@ class DetailPemesananController extends Controller
 
     public function insert(Request $request)
     {
-        $table_barang   = modelbarang::with('jenisBarang')->get();
+        $table_barang   = modelbarang::all();
 
         $auth = session::all();
         $z = '[]';//null
@@ -50,8 +50,8 @@ class DetailPemesananController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z)
         {
-            return view('pemilik.barang.barang', [
-            	'title' => 'Data Barang',
+            return view('pemilik.DetailPemesanan.insert_detailpemesanan', [
+            	'title' => 'Tambah Detail Pemesanan',
             	'table_barang'=>$table_barang,
                 'role' => 'Pemilik',
                 'auth' => $auth,
@@ -60,8 +60,8 @@ class DetailPemesananController extends Controller
         }
         else
         {
-            return view('pegawai.detailpemesanan.insert_detailpemesanan', [
-                'title' => 'Tambah Data Barang',
+            return view('pegawai.DetailPemesanan.insert_detailpemesanan', [
+                'title' => 'Tambah Detail Pemesanan',
                 'table_barang'=>$table_barang,
                 'request'=>$request
             ]);

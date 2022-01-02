@@ -82,8 +82,18 @@ class PenerimaanController extends Controller
         $penerimaan->id_sup         = $data['id_sup'];
         $penerimaan->id_pemesanan   = $data['id_pemesanan'];
         $penerimaan->total_harga    = $data['total_harga'];
-        $penerimaan->status_terima  = $data['status_terima'];
+        // $penerimaan->status_terima  = $data['status_terima'];
         $penerimaan->save();
+
+        return redirect('/Penerimaan');
+    }
+
+    public function status(Request $request,$id)
+    {
+        $item = Penerimaan::find($id);
+
+        $item->status_terima = $request->input('status');
+        $item->save();
 
         return redirect('/Penerimaan');
     }
@@ -136,7 +146,7 @@ class PenerimaanController extends Controller
         $item->id_user        = $data['id_user'];
         $item->id_sup         = $data['id_sup'];
         $item->total_harga    = $data['total_harga'];
-        $item->status_terima  = $data['status_terima'];
+        // $item->status_terima  = $data['status_terima'];
         $item->save();
 
         return redirect('/Penerimaan');

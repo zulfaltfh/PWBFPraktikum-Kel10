@@ -1,9 +1,9 @@
-@extends('layout/layoutpegawai')
+@extends('layout/layoutpemilik')
  
 @section('content')
 
 <div class="container-fluid px-4">
-	<h1 class="mt-2 mb-4">Edit Barang</h1>
+	<h1 class="mt-2 mb-4">Edit Supplier</h1>
 	<form action = "{{ url('/update-Supplier',$request->id) }}" method = "post">
 		@csrf
 			<div class="content">
@@ -25,19 +25,17 @@
 					<label for="inputAlamat" class="col-sm-2 col-form-label">Kota</label>
 					<div class="col-sm-4">
 					  	{{-- <input type="text" class="form-control" id="inputJenisBarang"> --}}
-						  <select class="form-select form-select-default" name="nama_kota" aria-label=".form-select-default">
-							@if ($kota->count())
-                                @foreach($kota as $item)
-                                    <option value="{{ $item->id }}">{{ $item->nama_kota }}</option>
-                                @endforeach 
-                            @endif
+						  <select class="form-select form-select-default" name="kota" aria-label=".form-select-default">
+                @foreach($kota as $item)
+                  <option value="{{ $item->id }}">{{ $item->nama_kota }}</option>
+                @endforeach
 						  </select>
 					</div>
 				</div>
 				<div class="row mb-3">
 					<label for="inputNoTelp" class="col-sm-2 col-form-label">Telepon</label>
 					<div class="col-sm-4">
-					  <input type="text" placeholder="{{ $request->telp_user }}" value="{{ $request->telp_user }}" class="form-control" id="inputNoTelp"  name='telp_sup'>
+					  <input type="text" placeholder="{{ $request->telp_sup }}" value="{{ $request->telp_sup }}" class="form-control" id="inputNoTelp"  name='telp_sup'>
 					</div>
 				</div>
 			</div>

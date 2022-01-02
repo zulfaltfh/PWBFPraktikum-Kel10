@@ -143,6 +143,6 @@ class SupplierController extends Controller
     public function destroy($id){
         $item = Supplier::find($id);
         $item->delete();
-        return redirect('/Home');
+        return redirect('/Supplier');
     }
 }

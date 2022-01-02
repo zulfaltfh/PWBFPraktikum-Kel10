@@ -1,11 +1,11 @@
-@extends('layout/layoutpegawai')
+@extends('layout/layoutpemilik')
 
 @section('content')
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4 mb-2">Table Detail Penerimaan</h1>
             <form action="{{ url('/input-DetailPenerimaan') }}" method="get">
-                <input type="hidden" name="id" value="{{ $request->id }}">
+                <input type="hidden" name="id_terima" value="{{ $request->id_terima }}">
                 <button type="submit" class="btn btn-primary btn-sm")>Add</button>
             </form>
             <br>

@@ -23,7 +23,7 @@ class KotaController extends Controller
 
         if ($session==$z) 
         {
-            return view('pemilik/kota/kota', [
+            return view('pemilik.Kota.kota', [
                 'title' => 'Daftar Kota',
                 'kota' => $kota,
                 'role' => 'Pemilik',
@@ -32,7 +32,7 @@ class KotaController extends Controller
         }
         else
         {
-            return view('pegawai/kota/kota', [
+            return view('pegawai.Kota.kota', [
                 'title' => 'Daftar Kota',
                 'kota' => $kota,
                 'role' => 'Pegawai',
@@ -52,7 +52,7 @@ class KotaController extends Controller
 
         if ($session==$z) 
         {
-            return view('pemilik/kota/tambah', [
+            return view('pemilik.Kota.tambah', [
                 'title' => 'Tambah Data Kota',
                 'Kota' => $data,
                 'role' => 'Pemilik',
@@ -61,24 +61,15 @@ class KotaController extends Controller
         }
         else
         {
-            return view('pegawai/kota/tambah', [
+            return view('pegawai.Kota.tambah', [
                 'title' => 'Tambah Data Kota',
                 'Kota' => $data,
                 'role' => 'Pegawai',
                 'auth' => $auth
             ]);
         }
-        return view('pegawai/kota/tambah',[
-            'title' => 'Tambah Data Kota',
-            'Kota' => $data
-        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Request $request)
     {
         $data = $request->input();
@@ -88,7 +79,7 @@ class KotaController extends Controller
         
         $kota->save();
 
-        return redirect('Kota');
+        return redirect('/Kota');
     }
 
     /**

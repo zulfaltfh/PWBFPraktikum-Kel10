@@ -1,14 +1,14 @@
-@extends('layout/layoutpegawai')
+@extends('layout/layoutpemilik')
 
 @section('content')
     
 	<div class="container-fluid px-4">
-    	<h1 class="mt-2 mb-4">Edit Detail Barang</h1>
-		<form action = "{{ url('/update-DetailBarang',$request->id) }}" method = "post">
+    	<h1 class="mt-2 mb-4">Input Detail Barang</h1>
+		<form action = "{{ url('/create-DetailBarang') }}" method = "post">
 			@csrf
 
 			<div class="content">
-				<input type="hidden" name="kode_bar" value="{{ $request->kode_bar }}">
+				<input type="hidden" name="kode_bar" value="{{ $request->id }}">
 				<div class="row mb-3">
 					<label for="inputJenisBarang" class="col-sm-2 col-form-label">Ukuran</label>
 					<div class="col-sm-4">
@@ -33,7 +33,7 @@
 				</div>
 			</div>
 			
-			<input type = 'submit' class = 'btn btn-primary' value = "Simpan"/>	
+			<input type = 'submit' class = 'btn btn-primary' value = "Tambahkan"/>	
 		</form>
 	</div>
 

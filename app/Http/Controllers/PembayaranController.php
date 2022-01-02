@@ -50,7 +50,7 @@ class PembayaranController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai.Pembayaran.insertPembayaran',[
+        return view('pemilik.Pembayaran.insertPembayaran',[
             'title'=>'Tambah Data Pembayaran',
             'Penerimaan'=>$Penerimaan,
             'request'=>$request
@@ -96,7 +96,7 @@ class PembayaranController extends Controller
         if($auth==$z){return redirect('/');}
 
         $a = Pembayaran::all();
-        return view('pegawai.pembayaran.editPembayaran', [
+        return view('pemilik.pembayaran.editPembayaran', [
             'title' => 'Edit Data Barang',
             'a'=>$a,
             'request'=>$request]);

@@ -1,4 +1,4 @@
-@extends('layout/layoutpegawai')
+@extends('layout/layoutpemilik')
 
 @section('content')
     <main>
@@ -35,11 +35,13 @@
                                 <form action="{{ url('/edit-DetailBarang') }}" method="get">
                                     <input hidden value="{{ $data->id }}" name="id">
                                     <input hidden value="{{ $data->kode_bar }}" name="kode_bar">
-                                    <input hidden value="{{ $data->Ukuran->id_ukuran }}" name="id_ukuran">
-                                    <input hidden value="{{ $data->Warna->id_warna }}" name="id_warna">
+                                    <input hidden value="{{ $data->Ukuran->ukuran }}" name="ukuran">
+                                    <input hidden value="{{ $data->Warna->warna }}" name="warna">
                                 <button type="submit" class="btn btn-primary btn-sm")>edit</button>
                                 </form>
                                 </td>
+                                @csrf
+                                @method('Delete')
                                 <td>
                                     <a href="{{ url('/destroy-DetailBarang',$data->id) }}"><button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button></a>
                                 </td> 

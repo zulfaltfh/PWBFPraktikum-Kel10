@@ -1,4 +1,4 @@
-@extends('layout/layoutpegawai')
+@extends('layout/layoutpemilik')
 
 @section('content')
 <main>
@@ -17,22 +17,21 @@
                         <tr>
                         <th>Id</th>
                         <th>Warna</th>
-                        <th>Edit</th>
                         <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
-                     @foreach($supplier as $item)
+                     @foreach($data as $item)
                     <tr>
                         <td>{{ $item->id }}</td>
-                        <td>{{ $item->ukuran }}</td>
-                        <td>
+                        <td>{{ $item->warna }}</td>
+                        {{--  <td>
                         <form action="{{ url('/edit-Warna') }}" method="get">
                             <input hidden value="{{ $item->warna }}" name="warna">
                             <button type="submit" class="btn btn-info btn-sm")>edit</button>
 
                         </form>
-                        </td>
+                        </td>  --}}
                         @csrf
                         @method('Delete')
                         <td>

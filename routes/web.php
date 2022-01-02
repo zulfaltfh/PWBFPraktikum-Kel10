@@ -43,10 +43,10 @@ Route::get('/DetailBarang',                 	'App\Http\Controllers\DetailBarangC
 Route::post('/create-DetailBarang',         	'App\Http\Controllers\DetailBarangController@create');
 Route::get('/input-DetailBarang',           	'App\Http\Controllers\DetailBarangController@insert');
 //update jenis barang untuk 
-Route::get('/edit-DetailBarang',      		'App\Http\Controllers\BarangController@edit');
-Route::post('/update-DetailBarang/{id}',     'App\Http\Controllers\BarangController@update');
+Route::get('/edit-DetailBarang',      		'App\Http\Controllers\DetailBarangController@edit');
+Route::post('/update-DetailBarang/{id}',     'App\Http\Controllers\DetailBarangController@update');
 //hapus jenis barang
-Route::get('/destroy-DetailBarang/{id}', 	'App\Http\Controllers\JenisBarangController@destroy');
+Route::get('/destroy-DetailBarang/{id}', 	'App\Http\Controllers\DetailBarangController@destroy');
 
 // jenis barang
 Route::get('/JenisBarang',                 	'App\Http\Controllers\JenisBarangController@Index');
@@ -54,8 +54,8 @@ Route::get('/JenisBarang',                 	'App\Http\Controllers\JenisBarangCon
 Route::post('/create-JenisBarang',         	'App\Http\Controllers\JenisBarangController@create');
 Route::get('/input-JenisBarang',           	'App\Http\Controllers\JenisBarangController@insert');
 //update jenis barang untuk 
-Route::get('/edit-JenisBarang',      		'App\Http\Controllers\BarangController@edit');
-Route::post('/update-JenisBarang/{id}',     'App\Http\Controllers\BarangController@update');
+Route::get('/edit-JenisBarang',      		'App\Http\Controllers\JenisBarangController@edit');
+Route::post('/update-JenisBarang/{id}',     'App\Http\Controllers\JenisBarangController@update');
 //hapus jenis barang
 Route::get('/destroy-JenisBarang/{id}', 	'App\Http\Controllers\JenisBarangController@destroy');
 
@@ -120,7 +120,7 @@ Route::get('/destroy-Ukuran/{id}',      	'App\Http\Controllers\UkuranController@
 Route::get('/Kota',                 		'App\Http\Controllers\KotaController@index');
 //input Kota 
 Route::post('/create-Kota',              	'App\Http\Controllers\KotaController@create');
-Route::get('/input-Kota',               	'App\Http\Controllers\KotaController@store');
+Route::get('/input-Kota',               	'App\Http\Controllers\KotaController@insert');
 //update Kota untuk 
 Route::get('/edit-Kota',          			'App\Http\Controllers\KotaController@edit');
 Route::post('/update-Kota',     			'App\Http\Controllers\KotaController@update');
@@ -151,6 +151,7 @@ Route::get('/destroy-Supplier/{id}',        'App\Http\Controllers\SupplierContro
 
 //Penerimaan
 Route::get('/Penerimaan',                   'App\Http\Controllers\PenerimaanController@index');
+Route::get('/statuspenerimaan/{id}',         'App\Http\Controllers\PenerimaanController@status');
 //input Penerimaan 
 Route::post('/create-Penerimaan',           'App\Http\Controllers\PenerimaanController@create');
 Route::get('/input-Penerimaan',             'App\Http\Controllers\PenerimaanController@insert');

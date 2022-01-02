@@ -1,10 +1,10 @@
-@extends('layout/layoutpegawai')
+@extends('layout/layoutpemilik')
  
 @section('content')
 
 <div class="container-fluid px-4">
-	<h1 class="mt-2 mb-4">Tambah Data Penerimaan</h1>
-	<form action = "{{ url('/create-Pembayaran') }}" method = "post" enctype="multipart/form-data">
+	<h1 class="mt-2 mb-4">Edit Data Pembayaran</h1>
+	<form action = "{{ url('/update-Pembayaran',$request->id) }}" method = "post" enctype="multipart/form-data">
 		@csrf
 			<div class="content">
 				{{--  <!-- <div class="row mb-3">
@@ -27,13 +27,13 @@
 				<div class="row mb-3">
 					<label for="inputTotal" class="col-sm-2 col-form-label">Total Pembayaran</label>
 					<div class="col-sm-4">
-					  <input type="number" class="form-control" id="inputTotal"  name='total_bayar' required>
+					  <input type="number" class="form-control" id="inputTotal"  placeholder="{{ $request->total_bayar }}" value="{{ $request->total_bayar }}" name='total_bayar' required>
 					</div>
 				</div>
 			</div>
 			<input type="hidden" name="status_terima" value="1">
 			
-			<input type = 'submit' class="btn btn-primary" value = "Tambahkan"/>
+			<input type = 'submit' class="btn btn-primary" value = "Simpan"/>
 	</form>
 </div>
 @endsection

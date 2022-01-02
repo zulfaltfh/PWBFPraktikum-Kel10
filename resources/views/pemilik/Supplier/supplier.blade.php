@@ -1,4 +1,4 @@
-@extends('layout/layoutpegawai')
+@extends('layout/layoutpemilik')
 
 @section('content')
 <main>
@@ -34,8 +34,10 @@
                         <td>{{ $item->telp_sup }}</td>
                         <td>
                         <form action="{{ url('/edit-Supplier') }}" method="get">
+                            <input hidden value="{{ $item->id }}" name="id">
                             <input hidden value="{{ $item->nama_sup }}" name="nama_sup">
                             <input hidden value="{{ $item->alamat_sup }}" name="alamat_sup">
+                            <input hidden value="{{ $item->id_kota }}" name="id_kota">
                             <input hidden value="{{ $item->telp_sup }}" name="telp_sup">
                             <button type="submit" class="btn btn-info btn-sm")>edit</button>
 
