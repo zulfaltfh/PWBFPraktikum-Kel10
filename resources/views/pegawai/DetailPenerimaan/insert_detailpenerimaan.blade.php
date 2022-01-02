@@ -35,7 +35,7 @@
 					  <input type="text" class="form-control" name='sub_total'>
 					</div>
 				</div>
-				<input type="hidden" name="id" value="{{ $request->id }}">
+				{{--  <input type="hidden" name="id_terima" value="{{ $request->id_terima }}">  --}}
 				
 			</div>
 			

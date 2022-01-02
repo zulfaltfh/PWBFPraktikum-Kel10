@@ -3,7 +3,7 @@
 @section('content')
     
 	<div class="container-fluid px-4">
-    	<h1 class="mt-2 mb-4">Input Barang Baru</h1>
+    	<h1 class="mt-2 mb-4">Input Detail Barang</h1>
 		<form action = "{{ url('/create-DetailBarang') }}" method = "post">
 			@csrf
 

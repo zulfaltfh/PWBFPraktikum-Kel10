@@ -9,8 +9,8 @@
 			<div class="content">
 				<div class="row mb-3">
 
-					<input type="text" class="form-control" name='id' value="{{ $request->id }}"/>
-					<input type="text" class="form-control" name='id_terima' value="{{ $request->id_terima }}"/>
+					<input type="hidden" class="form-control" name='id' value="{{ $request->id }}"/>
+					<input type="hidden" class="form-control" name='id_terima' value="{{ $request->id_terima }}"/>
 
 					<label for="inputNamaBarang" class="col-sm-2 col-form-label">Nama Barang</label>
 					<div class="col-sm-4">

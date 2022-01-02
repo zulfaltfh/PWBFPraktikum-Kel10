@@ -59,7 +59,7 @@ class DetailBarangController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
         {
-            return view('pemilik.DetailBarang.insertbarang', [
+            return view('pemilik.DetailBarang.insert_barang', [
                 'title'=>'Tambah Detail Barang',
                 'ukuran'=> $ukuran,
                 'warna'=> $warna,
@@ -95,9 +95,36 @@ class DetailBarangController extends Controller
     }
 
 
-    public function edit(detailBarang $detailBarang)
+    public function edit(Request $request)
     {
-        //
+        $ukuran = Ukuran::all();
+        $warna = Warna::all();
+
+        $session        = session::all()->where('role',1);
+        $auth           = session::all();
+        $z              = '[]';
+        
+        if($auth==$z){return redirect('/');}
+        if ($session==$z) 
+        {
+            return view('pemilik.DetailBarang.edit_barang', [
+                'title'=>'Edit Detail Barang',
+                'ukuran'=> $ukuran,
+                'warna'=> $warna,
+                'request'=> $request,
+                'role' => 'Pemilik'
+            ]);
+        }
+        else
+        {
+            return view('pegawai.DetailBarang.edit_barang',[
+                'title'=>'Edit Detail Barang',
+                'ukuran'=> $ukuran,
+                'warna'=> $warna,
+                'request'=> $request,
+                'role' => 'Pegawai'
+            ]);
+        }
     }
 
     /**
@@ -107,9 +134,17 @@ class DetailBarangController extends Controller
      * @param  \App\Models\detailBarang  $detailBarang
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, detailBarang $detailBarang)
+    public function update(Request $request, $id)
     {
-        //
+        $data = detailBarang::find($id);//insert into
+        
+        //value
+        $data->kode_bar        = $request->input('kode_bar');
+        $data->id_warna        = $request->input('id_warna');
+        $data->id_ukuran       = $request->input('id_ukuran');
+        $data->save();
+
+        return redirect('/Barang');
     }
 
     /**

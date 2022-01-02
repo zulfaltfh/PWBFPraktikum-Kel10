@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\detailPenerimaan;
 use App\Models\modelbarang;
+use App\Models\Penerimaan;
 use Illuminate\Http\Request;
 use App\Models\session;
 
@@ -42,12 +43,15 @@ class DetailPenerimaanController extends Controller
     public function insert(request $request)
     {
         $table_barang = modelbarang::all();
+        $table_penerimaan = Penerimaan::all();
+
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         return view('pegawai.detailpenerimaan.insert_detailpenerimaan', [
             'title' => 'Tambah Data Barang',
             'table_barang'=>$table_barang,
+            'table_penerimaan'=>$table_penerimaan,
             'request'=>$request
         ]);
     }
@@ -61,8 +65,7 @@ class DetailPenerimaanController extends Controller
         $item->harga_his    = $data['harga_his'];
         $item->jumlah_his   = $data['jumlah_his'];
         $item->sub_total    = $data['sub_total'];
-        $item->kode_bar     = $data['nama_bar'];
-        $item->id_terima    = $data['id_terima'];
+        $item->kode_bar     = $data['nama_bar'];        
 
         $item->save();//tombol run sqlyog
 
@@ -83,14 +86,17 @@ class DetailPenerimaanController extends Controller
      */
     public function edit(Request $request)
     {
-        $table_barang   = modelbarang::with('jenisBarang')->get();
+        $table_penerimaan   = Penerimaan::all();
+        $table_barang = modelbarang::all();
+
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         
         return view('pegawai.detailPenerimaan.edit_detPenerimaan', [
             'title' => 'Edit Detail Penerimaan',
-            'table_barang'=>$table_barang,
+            'table_penerimaan'=>$table_penerimaan,
+            'table_barang' =>$table_barang,
             'request'=>$request
         ]);
     }
