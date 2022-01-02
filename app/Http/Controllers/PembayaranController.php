@@ -114,7 +114,6 @@ class PembayaranController extends Controller
         $item = Pembayaran::find($id);
 
         $item->id_terima     = $request->input('id_terima');
-        $item->tgl_bayar     = $request->input('tgl_bayar');
         $item->total_bayar   = $request->input('total_bayar');
 
         $item->save();

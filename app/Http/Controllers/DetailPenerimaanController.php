@@ -62,7 +62,7 @@ class DetailPenerimaanController extends Controller
         $item->jumlah_his   = $data['jumlah_his'];
         $item->sub_total    = $data['sub_total'];
         $item->kode_bar     = $data['nama_bar'];
-        $item->id_terima    = $data['id'];
+        $item->id_terima    = $data['id_terima'];
 
         $item->save();//tombol run sqlyog
 
@@ -81,9 +81,18 @@ class DetailPenerimaanController extends Controller
      * @param  \App\Models\detailPenerimaan  $detailPenerimaan
      * @return \Illuminate\Http\Response
      */
-    public function edit(detailPenerimaan $detailPenerimaan)
+    public function edit(Request $request)
     {
-        //
+        $table_barang   = modelbarang::with('jenisBarang')->get();
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+        
+        return view('pegawai.detailPenerimaan.edit_detPenerimaan', [
+            'title' => 'Edit Detail Penerimaan',
+            'table_barang'=>$table_barang,
+            'request'=>$request
+        ]);
     }
 
     /**
@@ -93,9 +102,18 @@ class DetailPenerimaanController extends Controller
      * @param  \App\Models\detailPenerimaan  $detailPenerimaan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, detailPenerimaan $detailPenerimaan)
+    public function update(Request $request, $id)
     {
-        //
+        $item = detailPenerimaan::find($id);
+        
+        $item->harga_his    = $request->input('harga_his');
+        $item->jumlah_his   = $request->input('jumlah_his');
+        $item->sub_total    = $request->input('sub_total');
+        $item->kode_bar     = $request->input('nama_bar');
+        $item->id_terima    = $request->input('id_terima');
+        $item->save();
+        
+        return redirect('/Penerimaan');
     }
 
     /**
@@ -104,8 +122,10 @@ class DetailPenerimaanController extends Controller
      * @param  \App\Models\detailPenerimaan  $detailPenerimaan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(detailPenerimaan $detailPenerimaan)
+    public function destroy($id)
     {
-        //
+        $item = detailPenerimaan::find($id);
+        $item->delete();
+        return redirect('/Penerimaan');
     }
 }

@@ -39,6 +39,7 @@
                             <td>{{ $item->created_at }}</td>
                             <td>
                             <form action="{{ url('/edit-DetailPenerimaan') }}" method="get">
+                                <input hidden value="{{ $item->id }}" name="id">
                                 <input hidden value="{{ $item->id_terima }}" name="id_terima">
                                 <input hidden value="{{ $item->modelbarang->nama_bar }}" name="nama_bar">
                                 <input hidden value="{{ $item->harga_his }}" name="harga_his">

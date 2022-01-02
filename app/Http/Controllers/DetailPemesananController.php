@@ -120,13 +120,13 @@ class DetailPemesananController extends Controller
     {
         $item = detailPemesanan::find($id);
         
-        $item->jumlah_up    = $request->input['jumlah_up'];
-        $item->harga_up     = $request->input['harga_up'];
-        $item->id_pesan     = $request->input['id_pesan'];
-        $item->kode_bar     = $request->input['kode_bar'];
+        $item->jumlah_up    = $request->input('jumlah_up');
+        $item->harga_up     = $request->input('harga_up');
+        $item->id_pesan     = $request->input('id_pesan');
+        $item->kode_bar     = $request->input('kode_bar');
         $item->save();//tombol run sqlyog
         
-        return redirect('/DetailPemesanan');
+        return redirect('/Pemesanan');
     }
 
     /**
@@ -139,6 +139,6 @@ class DetailPemesananController extends Controller
     {
         $item = detailPemesanan::find($id);
         $item->delete();
-        return redirect('/DetailPemesanan');
+        return redirect('/Pemesanan');
     }
 }

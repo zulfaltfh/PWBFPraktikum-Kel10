@@ -9,7 +9,8 @@
 			<div class="content">
 				<div class="row mb-3">
 
-					<input type="hidden" class="form-control" name='id' value="{{ $request->id }}"/>
+					<input type="text" class="form-control" name='id' value="{{ $request->id }}"/>
+					<input type="text" class="form-control" name='id_terima' value="{{ $request->id_terima }}"/>
 
 					<label for="inputNamaBarang" class="col-sm-2 col-form-label">Nama Barang</label>
 					<div class="col-sm-4">
@@ -23,7 +24,7 @@
 				<div class="row mb-3">
 					<label for="inputHargaHistory" class="col-sm-2 col-form-label">Harga</label>
 					<div class="col-sm-4">
-					  <input type="text" placeholder="{{ $request->harga_his }}" value="{{ $request->jharga_his }}" class="form-control" name='harga_his'>
+					  <input type="text" placeholder="{{ $request->harga_his }}" value="{{ $request->harga_his }}" class="form-control" name='harga_his'>
 					</div>
 				</div>
 				<div class="row mb-3">

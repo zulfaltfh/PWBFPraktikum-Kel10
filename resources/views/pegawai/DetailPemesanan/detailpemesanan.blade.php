@@ -37,11 +37,11 @@
                             <td>{{ $item->modelbarang->nama_bar  }}</td>
                             <td>
                             <form action="{{ url('/edit-DetailPemesanan') }}" method="get">
+                                <input hidden value="{{ $item->id }}" name="id">
                                 <input hidden value="{{ $item->id_pesan }}" name="id_pesan">
                                 <input hidden value="{{ $item->jumlah_up }}" name="jumlah_up">
                                 <input hidden value="{{ $item->harga_up }}" name="harga_up">
-                                <input hidden value="{{ $item->created_at }}" name="created_at">
-                                <input hidden value="{{ $item->modelbarang->nama_bar }}" name="nama_bar">
+                                <input hidden value="{{ $item->kode_bar }}" name="kode_bar">
                                 <button type="submit" class="btn btn-info btn-sm")>edit</button>
                             </form>
                             </td>

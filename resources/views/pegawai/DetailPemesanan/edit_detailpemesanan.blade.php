@@ -27,7 +27,7 @@
 					</div>
 				</div>
 				<input type="hidden" name="id" value="{{ $request->id }}">
-				
+				<input type="hidden" name="id_pesan" value="{{ $request->id_pesan }}">
 			</div>
 			
 			<input type = 'submit' class = 'btn btn-primary' value = "Tambahkan"/>	
