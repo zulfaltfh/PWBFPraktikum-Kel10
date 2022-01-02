@@ -108,9 +108,21 @@ class PemesananController extends Controller
      * @param  \App\Models\Pemesanan  $pemesanan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Pemesanan $pemesanan)
+    public function edit(Request $request)
     {
-        //
+        $supplier = Supplier::all();
+        $user     = User::all();
+
+        $auth = session::all();
+        $z = '[]';//null
+        if($auth==$z){return redirect('/');}
+        
+        return view('pegawai.Pemesanan.editPemesanan', [
+            'title' => 'Edit Data Barang',
+            'supplier'=>$supplier,
+            'user'  => $user,
+            'request'=>$request
+        ]);
     }
 
     /**
@@ -120,9 +132,17 @@ class PemesananController extends Controller
      * @param  \App\Models\Pemesanan  $pemesanan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Pemesanan $pemesanan)
+    public function update(Request $request, $id)
     {
-        //
+        $item = Pemesanan::find($id);
+        
+        //value
+        $item->status_pesan  = $request->input['status_pesan'];
+        $item->id_sup        = $request->input['id_sup'];
+        $item->id_user       = $request->input['id_user'];
+        $item->save();//tombol run sqlyog
+
+        return redirect('/Pemesanan');
     }
 
     /**

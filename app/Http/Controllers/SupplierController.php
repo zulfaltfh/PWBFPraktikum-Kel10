@@ -30,14 +30,14 @@ class SupplierController extends Controller
 
         if ($session==$z)
         {
-            return view('pemilik/supplier/supplier', [
+            return view('pemilik/Supplier/supplier', [
                 'title' => 'Data Supplier',
                 'supplier' => $supplier
             ]);
         }
         else
         {
-            return view('pegawai/supplier/supplier', [
+            return view('pegawai/Supplier/supplier', [
                 'title' => 'Data Supplier',
                 'supplier' => $supplier
             ]);
@@ -58,7 +58,7 @@ class SupplierController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai/supplier/tambah', [
+        return view('pegawai.Supplier.tambah', [
             'title' => 'Tambah Data Supplier',
             'kota' => $kota
         ]);
@@ -100,19 +100,17 @@ class SupplierController extends Controller
      * @param  \App\Models\Supplier  $supplier
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
         $kota = Kota::all();
-        $supplier = Supplier::find($id);
-
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('pegawai/supplier/edit', [
+        return view('pegawai.Supplier.edit', [
             'title' => 'Edit Data Supplier',
-            'Supplier' => $supplier,
-            'Kota' => $kota
+            'kota' => $kota,
+            'request' => $request
         ]);
     }
 
@@ -125,14 +123,15 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Supplier::where('id',$id)->update([
-            'nama_sup' => $request->nama_sup,
-            'alamat_sup' => $request->alamat_sup,
-            'id_kota' => $request->id_kota,
-            'telp_sup' => $request->telp_sup
-        ]);
+        $item = Supplier::find($id);
+        
+        $item->nama_sup         = $request->input('nama_sup');
+        $item->alamat_sup       = $request->input('alamat_sup');
+        $item->id_kota          = $request->input('kota');
+        $item->telp_sup         = $request->input('telp_sup');
+        $item->save();
 
-        return redirect('/update-Supplier');
+        return redirect('/Supplier');
     }
 
     /**
