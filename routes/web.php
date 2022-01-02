@@ -61,6 +61,7 @@ Route::get('/destroy-JenisBarang/{id}', 	'App\Http\Controllers\JenisBarangContro
 
 //pemesanan
 Route::get('/Pemesanan',                    'App\Http\Controllers\PemesananController@index');
+Route::get('/statuspemesanan/{id}',         'App\Http\Controllers\PemesananController@status');
 //input pemesanan 
 Route::post('/create-Pemesanan',            'App\Http\Controllers\PemesananController@create');
 Route::get('/input-Pemesanan',              'App\Http\Controllers\PemesananController@insert');

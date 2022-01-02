@@ -97,6 +97,17 @@ class PemesananController extends Controller
      * @param  \App\Models\Pemesanan  $pemesanan
      * @return \Illuminate\Http\Response
      */
+
+    public function status(Request $request,$id)
+    {
+        $item = Pemesanan::find($id);
+
+        $item->status_pesan = $request->input('status');
+        $item->save();
+
+        return redirect('/Pemesanan');
+    }
+
     public function show(Pemesanan $pemesanan)
     {
         //

@@ -34,16 +34,20 @@
                         <td>{{ $item->User->username }}</td>
                         <td>{{ $item->Supplier->nama_sup }}</td>
                         <td>{{ $item->created_at }}</td>
-                        <td>
+                        <td><form action="{{ url('/statuspemesanan',$item->id) }}" method="get">
+                            <input type="hidden" name="status" value="1">
+                            <button type="submit" class="btn btn-primary btn-sm")>
                             <?php if ($item->status_pesan==1) 
                             {
                                 echo "Sudah Dikonfirmasi";
                             } 
                             else 
                             {
-                                echo "Belum Dikonfirmasi";
+                                echo "Klik untuk konfirm";
                             }
-                        ?>
+                            ?>
+                            </button>
+                            </form>
                         </td>
                         <td>
                         <!-- <form action="{{ url('/input-DetailPemesanan') }}" method="get">
