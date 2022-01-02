@@ -10,7 +10,7 @@
 				<div class="row mb-3">
 					<label for="inputIdTerima" class="col-sm-2 col-form-label">ID Terima</label>
 					<div class="col-sm-4">
-					  <input type="text" name="id_terima" value="{{ $request->id_terima }} placeholder="{{ $request->id_terima }}">
+					  <input type="text" name="id_terima" value="{{ $request->id_terima }}" placeholder="{{ $request->id_terima }}">
 					</div>
 				</div>
 				<div class="row mb-3">

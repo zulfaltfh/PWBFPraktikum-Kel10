@@ -82,7 +82,7 @@ class PenerimaanController extends Controller
         $penerimaan->id_sup         = $data['id_sup'];
         $penerimaan->id_pemesanan   = $data['id_pemesanan'];
         $penerimaan->total_harga    = $data['total_harga'];
-        // $penerimaan->status_terima  = $data['status_terima'];
+        $penerimaan->status_terima  = $data['status_terima'];
         $penerimaan->save();
 
         return redirect('/Penerimaan');
