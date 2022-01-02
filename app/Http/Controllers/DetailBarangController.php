@@ -27,7 +27,7 @@ class DetailBarangController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
         {
-            return view('pemilik.DetailBarang.detailbarang', [
+            return view('pemilik.detailbarang.detailbarang', [
                 'title' => 'Detail Barang',
                 'request'=> $request,
                 'detbar' => $detbar,
@@ -36,7 +36,7 @@ class DetailBarangController extends Controller
         }
         else
         {
-            return view('pegawai.DetailBarang.detailbarang', [
+            return view('pegawai.detailbarang.detailbarang', [
                 'request'=> $request,
                 'title' => 'Detail Barang',
                 'detbar' => $detbar,
@@ -59,7 +59,7 @@ class DetailBarangController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
         {
-            return view('pemilik.DetailBarang.insert_barang', [
+            return view('pemilik.detailbarang.insert_barang', [
                 'title'=>'Tambah Detail Barang',
                 'ukuran'=> $ukuran,
                 'warna'=> $warna,
@@ -69,7 +69,7 @@ class DetailBarangController extends Controller
         }
         else
         {
-            return view('pegawai.DetailBarang.insert_barang',[
+            return view('pegawai.detailbarang.insert_barang',[
                 'title'=>'Tambah Detail Barang',
                 'ukuran'=> $ukuran,
                 'warna'=> $warna,
@@ -107,7 +107,7 @@ class DetailBarangController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
         {
-            return view('pemilik.DetailBarang.edit_barang', [
+            return view('pemilik.detailbarang.edit_barang', [
                 'title'=>'Edit Detail Barang',
                 'ukuran'=> $ukuran,
                 'warna'=> $warna,
@@ -117,7 +117,7 @@ class DetailBarangController extends Controller
         }
         else
         {
-            return view('pegawai.DetailBarang.edit_barang',[
+            return view('pegawai.detailbarang.edit_barang',[
                 'title'=>'Edit Detail Barang',
                 'ukuran'=> $ukuran,
                 'warna'=> $warna,

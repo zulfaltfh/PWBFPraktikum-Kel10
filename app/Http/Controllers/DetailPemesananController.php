@@ -50,7 +50,7 @@ class DetailPemesananController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z)
         {
-            return view('pemilik.DetailPemesanan.insert_detailpemesanan', [
+            return view('pemilik.detailpemesanan.insert_detailpemesanan', [
             	'title' => 'Tambah Detail Pemesanan',
             	'table_barang'=>$table_barang,
                 'role' => 'Pemilik',
@@ -60,7 +60,7 @@ class DetailPemesananController extends Controller
         }
         else
         {
-            return view('pegawai.DetailPemesanan.insert_detailpemesanan', [
+            return view('pegawai.detailpemesanan.insert_detailpemesanan', [
                 'title' => 'Tambah Detail Pemesanan',
                 'table_barang'=>$table_barang,
                 'request'=>$request

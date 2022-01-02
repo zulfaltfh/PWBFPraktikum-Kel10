@@ -50,7 +50,7 @@ class PembayaranController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
 
-        return view('pemilik.Pembayaran.insertPembayaran',[
+        return view('pemilik.pembayaran.insertPembayaran',[
             'title'=>'Tambah Data Pembayaran',
             'Penerimaan'=>$Penerimaan,
             'request'=>$request

@@ -128,7 +128,7 @@ class PemesananController extends Controller
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         
-        return view('pegawai.Pemesanan.editPemesanan', [
+        return view('pegawai.pemesanan.editPemesanan', [
             'title' => 'Edit Data Barang',
             'supplier'=>$supplier,
             'user'  => $user,

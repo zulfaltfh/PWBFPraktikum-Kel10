@@ -23,7 +23,7 @@ class KotaController extends Controller
 
         if ($session==$z) 
         {
-            return view('pemilik.Kota.kota', [
+            return view('pemilik.kota.kota', [
                 'title' => 'Daftar Kota',
                 'kota' => $kota,
                 'role' => 'Pemilik',
@@ -32,7 +32,7 @@ class KotaController extends Controller
         }
         else
         {
-            return view('pegawai.Kota.kota', [
+            return view('pegawai.kota.kota', [
                 'title' => 'Daftar Kota',
                 'kota' => $kota,
                 'role' => 'Pegawai',
@@ -52,7 +52,7 @@ class KotaController extends Controller
 
         if ($session==$z) 
         {
-            return view('pemilik.Kota.tambah', [
+            return view('pemilik.kota.tambah', [
                 'title' => 'Tambah Data Kota',
                 'Kota' => $data,
                 'role' => 'Pemilik',
@@ -61,7 +61,7 @@ class KotaController extends Controller
         }
         else
         {
-            return view('pegawai.Kota.tambah', [
+            return view('pegawai.kota.tambah', [
                 'title' => 'Tambah Data Kota',
                 'Kota' => $data,
                 'role' => 'Pegawai',

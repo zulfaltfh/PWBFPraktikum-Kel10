@@ -24,7 +24,7 @@ class PenerimaanController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
          {
-            return view('pemilik.Penerimaan.penerimaan', [
+            return view('pemilik.penerimaan.penerimaan', [
                 'title'=>'Penerimaan Barang',
                 'data'=>$data
             ]);
@@ -49,7 +49,7 @@ class PenerimaanController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
         {
-            return view('pemilik.Penerimaan.insertPenerimaan', [
+            return view('pemilik.penerimaan.insertPenerimaan', [
                 'title'=>'Tambah Penerimaan Barang',
                 'user' => $user,
                 'supplier' => $supplier,
@@ -109,7 +109,7 @@ class PenerimaanController extends Controller
         if($auth==$z){return redirect('/');}
         if ($session==$z) 
         {
-            return view('pemilik.Penerimaan.editPenerimaan', [
+            return view('pemilik.penerimaan.editPenerimaan', [
                 'title' => 'Edit Data Penerimaan',
                 'user'  => $user,
                 'supplier' => $supplier,

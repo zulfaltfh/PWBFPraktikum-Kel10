@@ -47,7 +47,7 @@ class WarnaController extends Controller
 
         if ($session==$z) 
         {
-            return view('pemilik.Warna.tambah', [
+            return view('pemilik.warna.tambah', [
                 'title' => 'Tambah Data Warna',
                 'Warna' => $data,
                 'role' => 'Pemilik',
@@ -56,7 +56,7 @@ class WarnaController extends Controller
         }
         else
         {
-            return view('pegawai.Warna.tambah', [
+            return view('pegawai.warna.tambah', [
                 'title' => 'Tambah Data Warna',
                 'Warna' => $data,
                 'role' => 'Pegawai',
