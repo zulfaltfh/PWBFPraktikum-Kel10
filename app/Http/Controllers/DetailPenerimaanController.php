@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\detailPenerimaan;
+use App\Models\modelbarang;
 use Illuminate\Http\Request;
 use App\Models\session;
 
@@ -40,12 +41,14 @@ class DetailPenerimaanController extends Controller
 
     public function insert(request $request)
     {
-        
+        $table_barang = modelbarang::all();
         $auth = session::all();
         $z = '[]';//null
         if($auth==$z){return redirect('/');}
         return view('pegawai.detailpenerimaan.insert_detailpenerimaan', [
-            'title' => 'Tambah Data Barang'
+            'title' => 'Tambah Data Barang',
+            'table_barang'=>$table_barang,
+            'request'=>$request
         ]);
     }
 
@@ -55,14 +58,15 @@ class DetailPenerimaanController extends Controller
         $item = new detailPenerimaan;// table
         
         //value
-        $item->nama_bar       = $data['nama_bar'];
-        $item->stock_barang   = $data['stock_barang'];
-        $item->harga_beli_bar = $data['harga_beli_bar'];
-        $item->harga_jual_bar = $data['harga_jual_bar'];
-        $item->id_jb          = $data['id_jb'];
+        $item->harga_his    = $data['harga_his'];
+        $item->jumlah_his   = $data['jumlah_his'];
+        $item->sub_total    = $data['sub_total'];
+        $item->kode_bar     = $data['nama_bar'];
+        $item->id_terima    = $data['id'];
+
         $item->save();//tombol run sqlyog
 
-        return redirect('/Home');
+        return redirect('/Penerimaan');
             
     }
 

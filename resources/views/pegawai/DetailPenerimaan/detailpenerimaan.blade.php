@@ -4,7 +4,10 @@
     <main>
         <div class="container-fluid px-4">
             <h1 class="mt-4 mb-2">Table Detail Penerimaan</h1>
-            <a href="{{ url('/input-Barang') }}"><button class="btn btn-primary btn-sm" style="float: left">Tambah Data</button></a><br><br>
+            <form action="{{ url('/input-DetailPenerimaan') }}" method="get">
+                <input type="hidden" name="id" value="{{ $request->id }}">
+                <button type="submit" class="btn btn-primary btn-sm")>Add</button>
+            </form>
             <br>
             <div class="card mb-4">
                 <div class="card-header">
